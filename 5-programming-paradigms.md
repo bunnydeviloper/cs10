@@ -42,5 +42,6 @@ B) Imperative: first do this and then do that
 C) OOP: send messages b/w objects to simulate the temporal evolution of a set of real world phenomena
 D) Declarative: answer a question via search for a solution
 E) All equally powerful
+Correct: E
 
 - Paradigms vary in eficiency, scalability, overhead, fun, "how" vs "what" to specify, etc...

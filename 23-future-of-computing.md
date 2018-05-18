@@ -1,27 +1,16 @@
 ## The beauty and joy of computing (BJC)  
 **Dan Garcia**
 
-# Lecture 23
-## Future of Computing
+# Lecture 24
+## Saving The World with Computing
 
-**Where will today's computers go?**
-- Processor, Memory (DRAM), Disk
-- Kilo, mega, giga, tera, peta, exa, zetta, yotta
-(kind men give ten percent, expext zero (from) you)
-Quiz: what was recently proposed to go after Yotta?
-a. Lotta, b. Lotsa, c. Wholelotta, d. Hella, e. Zillion -> Hella(byte)
+- Climate change, heart visualization, big data...
 
-**Quantum Computing**
-
-**Biological Computing and Interfaces**
-
-Quiz: what is the most exciting future for computing?
-a. incremental improvement in computing architectures
-b. quantum computing
-c. DNA computing
-d. biological machines
-e. something completely different?
-
-* It's an exciting time to be alive!!!
-* Find a problem you want to solve
+Quiz: which of the following are true?
+a. most computer software is written by brilliant hackers, working alone
+b. parallel programming is a solved problem
+c. speed of programmng and speed of programs are the top goals in software
+d. most software is rewritten from scratch every few years
+e. none of the above
+correct: E
 

@@ -16,37 +16,43 @@
   * function: function(){}
 
 * Operators
-  * const.let		
+  * const.let (create a pointer/reference to some data type in memory)
  > const foo
   * new			
  > new Foo  — new object in memory, inherits through its prototype chain functionality
-  * assignment		
+  * assignment (set a variable or an object property to point to a data type)	
  > foo = {bar: ‘a value’}  
  > foo.bar = value
-  * delete		
+  * delete (delete a property reference, can't use delete on variable references)	
  > delete foo.bar
-  * member		
+  * member (aka 'dot operator', 'index operator') (read a property)	
  > foo.bar  
  > foo[‘bar’]
-  * call 		
+  * call (call a function)	
  > bar()  
- > foo.bar()
+ > foo.bar() (aka 'dot call operator')
   * comparison: ==, ===
 
 * the = operator: set a variable or property (. = operator (eg obj.name.sth =…)) to POINT somewhere in memory
 
 * A memory stack representation of primitives
 * A memory stack representation of objects
-  * var me = { name: { first: ‘sophia’ } } // me points to name, and then name points to first
-  * var name = me.name // variable name will now point to { first: ‘sophia’ }
-  * delete me.name // delete the POINTER (connection) from me -> name, doesn’t actually delete the memory
-  * // this extra memory that doesn’t have anything connect to will float around until garbage collection
-  * name.first // ‘sophia’
-
-  * var me = { name: { first: ‘sophia’ } }
-  * var name = me.name // this is pointing to { first: ‘sophia’ }
-  * name = { first: ‘alex’ } // name is POINTs to a new object { first: ‘alex’ }
-  * me.name.first // ‘sophia’, because it’s looking at the original me object
+* Example 1:
+```js
+var me = { name: { first: ‘sophia’ } } // me points to name, and then name points to first
+var name = me.name // new variable `name` will now point to { first: ‘sophia’ }
+// NOTE: if you reassign `name = me.name`, the below delete will empty the original object
+delete me.name // delete the POINTER (connection) from me -> name, doesn’t actually delete the memory
+// this extra memory that doesn’t have anything connect to will float around until garbage collection
+name.first // ‘sophia’
+```
+* Example 2:
+```js
+var me = { name: { first: ‘sophia’ } }
+var name = me.name // name is pointing to { first: ‘sophia’ }
+name = { first: ‘alex’ } // name will now POINT to a new object { first: ‘alex’ }
+me.name.first // ‘sophia’, because it’s looking at the original me object
+```
 
 * delete & typeof
 **typeof**

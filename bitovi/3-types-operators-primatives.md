@@ -21,15 +21,15 @@
   * new			
  > new Foo  — new object in memory, inherits through its prototype chain functionality
   * assignment		
- > foo = {bar: ‘a value’}
+ > foo = {bar: ‘a value’}  
  > foo.bar = value
   * delete		
  > delete foo.bar
   * member		
- > foo.bar
+ > foo.bar  
  > foo[‘bar’]
   * call 		
- > bar()
+ > bar()  
  > foo.bar()
   * comparison: ==, ===
 

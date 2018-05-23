@@ -56,23 +56,24 @@ me.name.first // ‘sophia’, because it’s looking at the original me object
 ```
 
 **typeof**
+* list of types:
+  * undefined `undefined`
+  * boolean `boolean`
+  * string `string` 
+  * function `function`
 
-  * undefined ‘undefined’
-  * boolean ‘boolean’
-  * number ‘number’
-  * NaN ‘number’ // 0/0, string/0, undefined/0
-  * string ‘string’
-  * function ‘function’
-  * null ‘object’
-  * array ‘object’
-  * any other object ‘object’
+  * number `number`
+  * NaN `number` // eg: 0/0, string/0, undefined/0
+
+  * null `object` // SPECIAL BUG
+  * array `object`
+  * any other object `object`
 
 * Bonus: Hash maps and order of complexity
 * hash map is a form of data type ==> object = { key: value }
-* fast insertion and removal for specific values
-
-* doesn’t matter how many properties (keys) you’re adding, you can look up a property extremely quick using the key -> big O(1), constant time -> order one look up
-* as oppose to array when you have to loop through each to find specific value => big O(n), linear time
-
-* hashing function
-
+* use hashmap/object: fast insertion and removal for specific values, extremely quick
+* doesn’t matter how many properties (keys) you’re adding -> big O(1), constant time -> order one look up
+* Array:
+  * .indexOf(): big O(n), b/c you have to go through each to find specific value
+  * .sort(): big O(n log2 n)
+  * check if 2 arrays have same values: big O(n square), if you have 5 items in each, it takes 25 steps to check 

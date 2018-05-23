@@ -8,25 +8,25 @@
   * String: ‘hello’
   * Number: 2
 
-* Object:
-  * Object: {name: ‘value’}  — similar to hash map
+* Object: similar to hash map
+  * Object: {name: ‘value’} 
   * array: [1,2,3]
   * date: new Date()
   * RegExp: allow you to parse string easily
   * function: function(){}
 
 * Operators
-  * var var foo
-  * new new Foo  — new object in memory, inherits through its prototype chain functionality
-  * assignment foo = {bar: ‘a value’}
-  * foo.bar = value
-  * delete delete foo.bar
-  * member foo.bar
-  * foo[‘bar’]
-  * call bar()
-  * foo.bar()
-  * comparison ==
-  * ===
+  * const.let		:const foo
+  * new			:new Foo  — new object in memory, inherits through its prototype chain functionality
+  * assignment		:foo = {bar: ‘a value’}
+  * 			:foo.bar = value
+  * delete		:delete foo.bar
+  * member		:foo.bar
+  * 			:foo[‘bar’]
+  * call 		:bar()
+  * 			:foo.bar()
+  * comparison		:==
+  * 			:===
 
 * the = operator: set a variable or property (. = operator (eg obj.name.sth =…)) to POINT somewhere in memory
 

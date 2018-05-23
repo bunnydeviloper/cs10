@@ -10,6 +10,8 @@ const c = sum(a,b); //a is passed by value, b is passes by reference
 console.log(c); //5 (a is 1, increment to 2, b.val is 2, increment to 3)
 ```
 
+* Closure: is a record storing a function together with an environment
+* Closure: a persistent scope local variable scope (even after the code execution has moved out of that block)
 **Basic closures**
 ```js
 const counter = () => {
@@ -28,7 +30,6 @@ c2(); //1, reset, count is increase from 0 to 1 again
 
 **Closure gotchas**
 ```js
-//this scenario only works with 'var' in the for loop, if you replace 'var' with 'let', the problem resolved
 var a = {};
 for (var i=0; i<3; i++) {
   a[i] = () => { console.log(i) };
@@ -36,6 +37,9 @@ for (var i=0; i<3; i++) {
 a[0](); //3
 a[1](); //3
 a[2](); //3
+// this scenario only works with 'var' in the for loop
+// two ways to solve: ES6: if you replace 'var' with 'let', the problem resolved
+// closure way: replace code in for loop with `(function(j){ a[j] = function(){ console.log(j) } })(i);`
 ```
 
 * Self invoking, anonymous functions: `((x) => ++x)(3) //4` 

@@ -1,6 +1,9 @@
 # Training Series - Context
 * What is `this`?
 
+## NOTE: `this` only have three rules: 1) dot call, 2) `new`, 3) `call`/`apply`
+## If none of the above rules applied, `this` will be the window
+
 **dot call operator**: when use dot call operator, `this` will point to the object in front of the `.`
 ```js
 const dog = {

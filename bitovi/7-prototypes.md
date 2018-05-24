@@ -55,6 +55,35 @@ dog2.offspring; //console.log => [true, Animal {}]
 ```
 * If you're putting methods/properties on a prototype, those properties will be shared and modified
 
-* Object.create
+**Object.create** (same as proto-chaining but shorten)
+* Object.create: 1st arg is the obj you want to inherit from
+* 2nd arg will be an object with additional properties
+```js
+const Animal = {
+  init: function(name) {
+    this.name = name;
+  },
+  eats: function() {
+    return this.name + ' is eating.';
+  }
+};
+
+const Chordate = Object.create( Animal, {
+  has_spine: { value: true }
+});
+
+const Mammal = Object.create( Chordate, {
+  has_hair: { value: true }
+});
+
+const m = Object.create( Mammal );
+
+m.init('dog');
+
+console.log(m); // { name: 'dog' }
+console.log(m.name); // dog
+console.log(m.has_spine); // true
+console.log(m.has_hair); // true
+```
 
 * Exercise!

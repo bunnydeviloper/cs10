@@ -1,5 +1,5 @@
 # Training Series - Context
-* What is `this`?
+* What is `this`? (what is the context of fn being called? how the method was invoked?)
 
 ## NOTE: `this` only have three rules: 1) dot call, 2) `new`, 3) `call`/`apply`
 ## If none of the above rules applied, window will be the context (`this` will be the window)
@@ -7,13 +7,23 @@
 **dot call operator**: when use dot call operator, `this` will point to the object in front of the `.`
 ```js
 const dog = {
-  barkCount = 0,
-  bark = () => {
-    this.barkCount++;
+  barkCount: 0,
+  bark: function() { //NOTE: do NOT use arrow function
+    this.barkCount++; //see prefix and postfix below
   }
 };
+
+console.log(dog.barkCount); //0
+
 dog.bark(); //'this' is pointing to dog (dot call operator)
+console.log(dog.barkCount); //1 (first bark)
+
+dog.bark(); 
+console.log(dog.barkCount); //2 (2nd bark)
 ```
+
+**prefix (++x)**: increment by 1, then return new value
+**postfix (x++)**: return current value, then increment by 1
 
 **call operator**: when use call operator, `this` will point to the window (b/c it lost ref. to the original obj)
 ```js
@@ -66,13 +76,20 @@ const q = Person('Jack'); //'this' will point to the window
 **`call` and `apply`**: you can specify what 'this' is with the first parameter
 ```js
 const dog = {
-  barkCount: 0,
-  bark: (barks) => {
-    this.barkCount += barks;
+  count: 0,
+  bark: function(barks) {
+    this.count += barks;
   }
 };
-const cat = { meowCount: 0 }
+const cat = { count: 0 }
+
 dog.bark.call(cat, 1); //'this' is pointing to cat
+console.log('dog.count 1st time: ',  dog.count); //0 //no change
+console.log('cat.count 1st time: ',  cat.count); //1, change from 0 to 1
+
+dog.bark.call(cat, 3);
+console.log('dog.count 2nd time: ',  dog.count); //0 //still no change
+console.log('cat.count 2nd time: ',  cat.count); //4, change from 1 to 4
 ```
 * Exercise!
 

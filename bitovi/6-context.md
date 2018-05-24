@@ -72,3 +72,10 @@ const cat = { meowCount: 0 }
 dog.bark.call(cat, 1); //'this' is pointing to cat
 ```
 * Exercise!
+
+**Extras**
+```js
+// in chrome dev tool console:
+const foo = () => { console.log(this.document.body };
+foo(); // same result as `window.document.body`
+```

@@ -38,7 +38,19 @@ setTimeout(bark, 2000); //bark is passed in as a callback, hence cb() is a call 
 * Note: in the Chrome Dev Tools, you can `console.dir(foo)` to see all __proto__
 * `Object.prototype === foo.__proto__` //true
 
-**`new` operator**: `this` is an instance and inherits all prototype methods of original obj
+```js
+const mammal = {};
+mammal.hasHair = true;
+const chordate = { hasSpine = true };
+const animal = { eatThings: true };
+console.log(mammal.eatThings); //undefined
+
+mammal.__proto__ = chordate;
+chordate.__proto__ = animal;
+mammal.eatThings //true
+```
+
+**`new` operator**: `this` is an instance and inherits all prototype properties & methods of original obj
 ```js
 Person = (name) => {
   this.name = name;

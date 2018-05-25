@@ -20,21 +20,21 @@ image slider, form validation, rating system, commenting syste
 * DOM is NOT part of the JS language
 * DOM is constructed from the browser
 
-
 * document.getElementById('id');
 * if ID doesn't exist, it will return null
 **Beware of S**
 * document.getElementsByClassName('class');
 * document.getElementsByTagName('h1');
+
 * properties = data; methods = functionality, interface = blueprint
 * Interface != User Interface (UI) != Graphical User Interface (GUI)
+* In the console, if you select an element, type `$0` will return that element
 
 * Node Interface (capital 'N') is a blueprint that contains information about all of the properties and methods for real nodes (lowercase 'n')
 * Element Interface = blueprint for creating elements, it is a descendent of the Node Interface (hence, inheritance)
 * Document Interface
 
 > #### Element > Node > EventTarget
-* In the console, if you select an element, type `$0` will return that element
 
 * jQuery: make things easy to write code for multiple browsers, since browsers is getting better, jQuery's uses diminished and been replaced by native DOM methods
 
@@ -55,11 +55,5 @@ for(let i = 0; i < allHeaders.length; i++){
 ```
 
 **Modify page content**
-
-
 **Browser events**
-
-
-
-**Performance**m
-
+**Performance**

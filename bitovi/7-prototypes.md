@@ -1,4 +1,5 @@
-# Training Series - Prototypes, `.prototype` and `.proto` demystified! 
+# Training Series - Prototypes
+`.prototype` and `.proto` demystified! 
 
 **Prototype methods**
 ```js
@@ -55,7 +56,7 @@ dog2.offspring; //console.log => [true, Animal {}]
 ```
 * If you're putting methods/properties on a prototype, those properties will be shared and modified
 
-**Object.create** (same as proto-chaining but shorten)
+* **Object.create** (same as proto-chaining but shorten)
 * Object.create: 1st arg is the obj you want to inherit from
 * 2nd arg will be an object with additional properties
 ```js

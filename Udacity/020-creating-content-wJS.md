@@ -65,12 +65,25 @@
 * **DOM traversal techniques**
 * `.firstElementChild`: becareful, this is different from `.firstChild`
 * `.parentElement`
+* `.nextElementSibling`
 
 **Styling changes**: follow the 'specificity' rule on MDN
 * A rule in a style attribute on an element will override css stylesheet
 * ID type selector is more specific than a class selector
-* `.style.<prop>`: can only modify one style at a time, eg `main.style.color = 'red';`
-* `.cssText()`
-* `.setAttribute()`
-* `.className`
-* `.classList`
+* `.style.<prop>`: can only modify one style at a time, eg `main.style.backgroundColor = 'red';`
+* `.cssText()`: update multiple style, eg `main.style.cssText('color: red; background-color: blue; font-size: 2em');`
+* Note: with style, use camelCase; with cssText, use snake case, ALSO: with cssText, this will overwrite whatever in style
+* `.setAttribute()`: eg: `main.setAttribute('style', 'color: red; background-color: blue');`
+* `.className`: return a string of all elements' classes
+  ```js
+  <h1 id="main" class="main student modal column">Hello!</h1>
+  const main = document.querySelector('#main');
+  const list = main.className; //console.log -> "main student modal column"
+  list.split(' '); //return ['main', 'student', 'modal', 'column'] //now you can use for loop, push, pop... to modify
+  main.className = "new-class"; //replace the existing classes with this single class
+  ```
+* `.classList`: this is combining className and split, which return a DOMTokenList (~ an array of all classes)
+  * `.add()`
+  * `.remove()`
+  * `.toggle()`
+  * `.contains()`

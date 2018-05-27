@@ -24,8 +24,8 @@
   ```
 
 **Remove an event listener**
-* **Object (obj, arr, fn) equality** `==`: allow type coersion; `===`: prevent type coersion when comparing
 * What is 'type coersion'? -> trying to convert the object into the same type
+* **Object (obj, arr, fn) equality** `==`: allow type coersion; `===`: prevent type coersion when comparing
 * <event-target>.removeEventListener(<event-to-listen-for>, <function-to-remove>);
 * note: the listener (fn) has to be exactly (===) the same as coming from addEventListener
   ```js
@@ -112,7 +112,7 @@ document.body.appendChild(myCustomDiv);
   </article>
   document.querySelector('#content').addEventListener('click', function(e) {
     // verify if target is the corrent element
-    if (e.target.nodeName === 'SPAN') { // .nodeName property will return a CAPITAL string, hence need to capitalize your campare string
+    if (e.target.nodeName === 'SPAN') { // .nodeName property will return a CAPITAL string
       console.log('A span element was clicked with text ' + e.target.textContent);
     }
   });

@@ -123,7 +123,7 @@ document.body.appendChild(myCustomDiv);
 * Inline file will get execute faster b/c the browser doesn't have to make another network request to fetch the JS file
 * Placement of the Javascript file matters!!! (must put script tag after body tag)
 * Alternative solution: use **browser event** (event target should be `document` object)
-  * document.addEventListener('DOMContentLoaded', function() { console.log('The DOM is ready!'); });
+  * `document.addEventListener('DOMContentLoaded', function() { console.log('The DOM is ready!'); });`
   ```js
   <!DOCTYPE html>
   <html lang="en">
@@ -135,5 +135,5 @@ document.body.appendChild(myCustomDiv);
       });
     </script>
   ```
-* Sometime, `load` event will be used instead (e.g. document.onload(...)).
-* `load` fires later than `DOMContentLoaded` -- load waits until all of the images, stylesheets, etc. have been loaded
+* Sometime, `load` event will be used instead (e.g. document.onload(...)) of `DOMContentLoaded`
+* `load` fires later than `DOMContentLoaded` -- `load` waits until all of the images, stylesheets, etc. have been loaded

@@ -56,4 +56,13 @@
   const addText = '<h2>Coding is fun!</h2>';
   mainH1.insertAdjacentHTML('afterend', addText);
   ```
-
+* `.removeChild()`: <parent-element>.removeChild(<child-to-remove>);
+  ```js
+  // element uses itself to remove itself from its parent:
+  const main = document.querySelector('#main');
+  main.parentElement.removeChild(main);
+  ```
+* `.remove()`: <element-to-remove>.remove();
+* **DOM traversal techniques**
+* `.firstElementChild`: becareful, this is different from `.firstChild`
+* `.parentElement`

@@ -36,15 +36,30 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
   * process of calculating dimensions and position of page elements
   * Adding a single CSS class could trigger `reflow`
 * `repaint`: hapens after `reflow` as the browser draws the new layout (pixels) to the screen, fairly quick
-
-* Hiding doesn't change the layout, it just erases that section of the screen (1 repaint)
+* Hiding an element doesn't change the layout, it just erases that section of the screen (1 repaint)
 * When you make the changed section visible again, that's 1 reflow and 1 repaint
+* Recommended process: hide/change all/show
 
 **Virtual DOM**: React uses this to increase performance (you don't make changes to the DOM, you make changes to another structure called a virtual DOM and the library calculate the best way to update the screen to match)
 
+**The call stack**: basically a list of the functions that are running
+* when a fn is invoke, it is added to the list, then after all code inside of fn has been run, it is removed from the list
+* an *indicator* is a *frame* in the stack
+* in a call stack, function doesn't have to complete before another fn is added to the call stack
+* **Single threading**: the processing of one command at a time
+* JavaScript is single-threaded != multithreaded
+  * call stack (from top): dolphins > camels > penguins > rhinos
+  ```js
+  function dolphins () {
+    // stop here
+    return 'llamas';
+  }
+  function rhinos () {
+    var y = 'no';
+    return penguins();
+  }
+  function penguins () { return camels(); }
+  function camels () { return dolphins(); }
 
-
-How to write efficient and performing code
-
-JS event loop and how it affects the code you write
-
+  rhinos()
+  ```

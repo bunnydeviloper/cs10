@@ -96,7 +96,9 @@ document.body.appendChild(myCustomDiv);
   ```
 
 **Event Delegation**: refer to the process of using event bubbling to handle events at a higher level in the DOM rather than using the original element
-* When you click on a paragraph element:
+* Event delegation allows you to avoid adding event listeners to specific nodes and add to one parent instead
+* That event listener analyzes bubbled events to find a match on child elements.
+* What happen when you click on a paragraph element?
   1, the event goes through the capturing phase
   2. it reaches the target
   3. it switches to the bubbling phase and starts going up the DOM tree

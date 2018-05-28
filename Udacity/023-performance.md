@@ -63,4 +63,30 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 
   rhinos()
   ```
+* **Synchronous**: existing or occuring at the same time
+* **The JavaScript Event Loop**: pick up the next event, run its handler, and repeat
+* JavaScript's concurrency model uses two rules:
+  * If some JavaScript is running, let it run until it is finished ("run-to-completion").
+  * If no JavaScript is running, run any pending event handlers.
+* There are three parts to think about around the event loop:
+  * the Call Stack
+  * Web APIs/the browser
+  * an Event Queue 
+* when an event happens and code already running, the event listener will be saved into the browser
+* after Call Stack finished (idle time), the listener fn is move from the browser to the Event Queue, which will create a new entry on the Stack
+```js
+console.log('Hello!');
+document.addEventListener('click',
+  function doSth() { //this function will be handed over to the browser and then move to Event Queue, and then finally Call Stack
+    console.log('something was clicked');
+});
+console.log('How are you?');
+```
+
+**Key things to remember**
+1. current synchronous code runs to completion
+2. events are processed when the browser isn't busy.
+3. Asynchronous code (such as loading an image) runs outside of this loop and sends an event when it is done.
+
+**setTimeout**
 

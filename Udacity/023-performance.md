@@ -24,7 +24,7 @@ console.log(`This code took (${endTime} - ${beginTime}) milliseconds`);
 // creating a <div> to hold all the <p> elements was unneccessary
 const fragment = document.createDocumentFragment(); // instead of using <div>
 for (let i=0; i<200; i++) {
-  cons newE = document.createElement('p);
+  cons newE = document.createElement('p');
   newE.innerText = 'This is paragraph number ' + i;
   fragment.appendChild(newE);
 }
@@ -63,3 +63,4 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 
   rhinos()
   ```
+

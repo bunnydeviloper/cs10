@@ -77,7 +77,8 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 ```js
 console.log('Hello!');
 document.addEventListener('click',
-  function doSth() { //this function will be handed over to the browser and then move to Event Queue, and then finally Call Stack
+  function doSth() { //this function will be handed over to the browser and then move to Event Queue
+                     // and then finally handed over to Call Stack when it finished the current tasks
     console.log('something was clicked');
 });
 console.log('How are you?');
@@ -99,7 +100,8 @@ console.log('How are you?');
 * The execution depends on the number of waiting tasks in the queue, then the cb will get moved to the Call Stack once it's free
 * Delay is the minimum time required for the runtime to process the request, but not a guaranteed time.
 
-**Break up long-running code**: eg: add 20,000 paragraphs to the page (instead of 200), but make the app responsive to user action
+**Break up long-running code**
+* eg: add 20,000 paragraphs to the page (instead of 200), but make the app responsive to user action
 ```js
 let count = 1;
 function createParas() {

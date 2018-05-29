@@ -43,8 +43,8 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 **Virtual DOM**: React uses this to increase performance (you don't make changes to the DOM, you make changes to another structure called a virtual DOM and the library calculate the best way to update the screen to match)
 
 **The call stack**: basically a list of the functions that are running
-* when a fn is invoke, it is added to the list, then after all code inside of fn has been run, it is removed from the list
 * an **indicator** is a **frame** in the stack
+* **run-to-completion**: when a fn is invoke, it is added to the list, then after all code inside of fn has been run, it is removed from the list 
 * in a call stack, function doesn't have to complete before another fn is added to the call stack
 * **Single threading**: the processing of one command at a time
 * JavaScript is single-threaded != multithreaded

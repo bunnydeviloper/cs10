@@ -89,4 +89,12 @@ console.log('How are you?');
 3. Asynchronous code (such as loading an image) runs outside of this loop and sends an event when it is done.
 
 **setTimeout**
+* `setTimeout( function sayHi() { console.log('Hi!'); }, 3000);` //execute after 3 seconds
+* setTimeout() is an API provided by the browser
+  1. The call to setTimeout() gives the sayHi() function over to the browser which it starts a timer.
+  2. After the timer is finished, the sayHi() function moves to the Queue.
+  3. If the Call Stack is empty, then the sayHi() function is moved to the Call Stack and executed.
+* Even if you write setTimeout() with a delay of 0, it still go through the whole process
+
+
 

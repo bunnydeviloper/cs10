@@ -6,6 +6,8 @@
 
 > DRY: don't repeat yourself
 
+> The best way to learn is to teach. 
+
 > "Every great developer you know got there by solving problems they were unqualified to solve, until they actually did it." - Patrik M.
 
 > "A primary cause of complexity is that the software vendors uncritically adopt almost any feature that users want." - Niklaus W.

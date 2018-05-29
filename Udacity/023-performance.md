@@ -44,7 +44,7 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 
 **The call stack**: basically a list of the functions that are running
 * when a fn is invoke, it is added to the list, then after all code inside of fn has been run, it is removed from the list
-* an *indicator* is a *frame* in the stack
+* an **indicator** is a **frame** in the stack
 * in a call stack, function doesn't have to complete before another fn is added to the call stack
 * **Single threading**: the processing of one command at a time
 * JavaScript is single-threaded != multithreaded
@@ -85,16 +85,38 @@ console.log('How are you?');
 
 **Key things to remember**
 1. current synchronous code runs to completion
-2. events are processed when the browser isn't busy.
+2. events are processed when the browser isn't busy
 3. Asynchronous code (such as loading an image) runs outside of this loop and sends an event when it is done.
 
 **setTimeout**
 * `setTimeout( function sayHi() { console.log('Hi!'); }, 3000);` //execute after 3 seconds
-* setTimeout() is an API provided by the browser
-  1. The call to setTimeout() gives the sayHi() function over to the browser which it starts a timer.
-  2. After the timer is finished, the sayHi() function moves to the Queue.
-  3. If the Call Stack is empty, then the sayHi() function is moved to the Call Stack and executed.
-* Even if you write setTimeout() with a delay of 0, it still go through the whole process
+* `setTimeout()` is an API provided by the browser, takes another fn and a delay, invoke the fn after the delay has passed
+  1. The call to `setTimeout()` gives the `sayHi()` function over to the browser which it starts a timer
+  2. After the timer is finished, the `sayHi()` function moves to the Queue.
+  3. If the Call Stack is empty, then the `sayHi()` function is moved to the Call Stack and executed.
+* Even if you write `setTimeout()` with a delay of 0, it still go through the whole Event Loop, but the timer ends immediately
+* Zero delay doesn't actually mean the call back will fire-off after zero milliseconds.
+* The execution depends on the number of waiting tasks in the queue, then the cb will get moved to the Call Stack once it's free
+* Delay is the minimum time required for the runtime to process the request, but not a guaranteed time.
 
-
-
+**Break up long-running code**: eg: add 20,000 paragraphs to the page (instead of 200), but make the app responsive to user action
+```js
+let count = 1;
+function createParas() {
+  const fragment = document.createDocumentFragment();
+  // when the createParas fn is invoked, first, add 500 paragraphs to the page
+  for ( let i=1; i<=500; i++) {
+    const newEle = document.createElement('p');
+    newEle.textContext = 'This is paragraph number ' + count;
+    count = count + 1;
+    fragment.appendChild(newEle);
+  }
+  // second: if there are less than 20k paragraphs, setTimeout() will be used to call the same fn again
+  // however, the cb fn inside setTimeout will wait for Call Stack to finish any user's interactions
+  if (count < 20001) {
+    setTimeout(createParas, 0); // same as setTimeout(createParas); // 2nd arg value default is 0
+    // the setTimeout() doens't lock up or freeze the page, you can interact w the page while it's running
+  }
+}
+createParas();
+```

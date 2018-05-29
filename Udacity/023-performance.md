@@ -77,7 +77,8 @@ document.body.appendChild(fragment); //reflow and repaint here, once!, doesn't s
 ```js
 console.log('Hello!');
 document.addEventListener('click',
-  function doSth() { //this function will be handed over to the browser and then move to Event Queue, and then finally Call Stack
+  function doSth() { //this function will be handed over to the browser and then move to Event Queue
+                     // and then finally handed over to Call Stack when it finished the current tasks
     console.log('something was clicked');
 });
 console.log('How are you?');

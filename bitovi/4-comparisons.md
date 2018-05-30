@@ -25,3 +25,13 @@ const x = 42;
 const explicit = String(x); // explicit === '42'
 const implicit = 42 + ''; // implicit === '42'
 ```
+
+* Most primitive types have object wrappers ( String(), Number(), Boolean(), Object(), (Symbol()) )
+* JS will automatically "box" (wrap) primitive values so you have access to methods:
+```js
+42.toString(); // Errors
+const x = 42;
+x.toString() // '42'
+x.__proto__ // [Number: 0]
+x instanceof Number // false
+```

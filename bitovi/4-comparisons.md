@@ -18,3 +18,10 @@
 **Memory address comparisons**
 * `{} === {} //false` b/c pointing to diff. location in memory
 * `NaN === NaN //false`, NaN is a type of object
+
+**Typecasting?**: coercion
+```js
+const x = 42;
+const explicit = String(x); // explicit === '42'
+const implicit = 42 + ''; // implicit === '42'
+```

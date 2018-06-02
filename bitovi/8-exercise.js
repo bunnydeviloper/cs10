@@ -1,8 +1,6 @@
 // Exercise: implement $.extend
 
-$ = function(selector) {
-  //do sth 
-};
+$ = function(selector) { /* do sth */ };
 
 $.extend = function(target, object) {
   // copy all properties from object into target
@@ -23,10 +21,10 @@ console.log(result); // { first: 'Molly', last: 'Bloom' }
 console.log(result === target); //true
 
 /*
-// $.isArray = function(array) { //do sth };
-// $.each = function(arr, callback) { //do sth };
-// $.makeArary = function(arr) { //do sth };
-// $.proxy = function(fn, context) { //do sth };
+// $.isArray = function(array) { /* do sth */ };
+// $.each = function(arr, callback) { /* do sth */ };
+// $.makeArary = function(arr) { /* do sth */ };
+// $.proxy = function(fn, context) { /* do sth */ };
  
 $.extend($, {
     isArray: function(array) {},
@@ -35,8 +33,8 @@ $.extend($, {
     proxy: function(fn, context) {},
 });
 
-// $.prototype.text = function(text) { //do sth };
-// $.prototype.html = function(html) { //do sth };
+// $.prototype.text = function(text) { /* do sth */ };
+// $.prototype.html = function(html) { /* do sth */ };
 $.extend($.prototype, {
     text: function(text) {},
     html: function(html) {},

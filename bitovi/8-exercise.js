@@ -20,44 +20,41 @@ console.log('target', target); // { first: 'Molly', last: 'Bloom' }
 console.log('result', result); // { first: 'Molly', last: 'Bloom' }
 console.log('result === target: ', result === target); //true
 
-// ----- Exercise: implement $.isArray (determine whether the argument is an array
-// $.isArray = function(array) { /* do sth */ };
+// ----- Exercise: implement $.isArray (determine whether the argument is an array)
 
 $.extend($, {
   isArray: function(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]";
   },
-  $.each: function(collection, cb) {
-    if (isArrayLike(collection)) {
+  each: function(collection, cb) {
+    if (isArrayLike(collection)) { // applies when collecttion is an array ['a', 'b']
       for (let i=0; i < collection.length; i++) {
         cb(i, collection[i]);
       }
-    } else {
+    } else { // applies when collection is an object {foo: 'bar', zed: 'ted'}
       for (let prop in collection) {
         cb(prop, collection[prop]);
       }
     }
-    return collection;
+    return collection; // always return the original collection
   },
   makeArray: function(arr) {
   },
   proxy: function(fn, context) {
   },
 });
-*/
-});
 
 // test
 console.log('isArray? []: ', $.isArray([])); // == true
 console.log('isArray? arguments: ', $.isArray(arguments)); // == false
 
-// test with browser:
-// const iframe = document.createElement('iframe');
-// document.body.appendChild(iframe);
-// const _Array = iframe.contentWindow.Array; // $.isArray(new _Array()) == true;
+/* test with browser:
+ * const iframe = document.createElement('iframe');
+ * document.body.appendChild(iframe);
+ * const _Array = iframe.contentWindow.Array; // $.isArray(new _Array()) == true;
+ */
 
-// ----- Exercise: implement $.isArrayLike(obj)
-// Determine whether the argument is LIKE an array
+// ----- Exercise: implement $.isArrayLike(obj) // Determine whether the argument is LIKE an array
 const isArrayLike = function(object) {
   if (typeof object.length === 'number') {
     if (object.length === 0) return true;
@@ -80,7 +77,7 @@ const isArrayLike = function(object) {
  * };
  */
 
-//test
+// test
 console.log(`isArrayLike? ['a', 'b', 'c'] : ${isArrayLike(['a', 'b', 'c'])}`); // == true
 console.log(`isArrayLike? {length: 0} : ${isArrayLike({length: 0})}`); // == true, also true with 'length'
 console.log(`isArrayLike? {'hello': 5, 5: 'hi'} : ${isArrayLike({'hello': 5, 5: 'hi'})}`); // == false
@@ -88,22 +85,25 @@ console.log(`isArrayLike? {0: 'foo', 5: 'bar', length: 6} \
 : ${isArrayLike({0: 'foo', 5: 'bar', length: 6})}`); // == true
 console.log(`isArrayLike? arguments : ${isArrayLike(arguments)}`); // == true
 
-// test with browser
-// const divs = document.getElementsByTagName('div');
-// isArrayLike(divs) == true;
-// const lis = document.getElementsByTagName('li');
-// isArrayLike(lis) == true;
+/* test with browser
+ * const divs = document.getElementsByTagName('div');
+ * isArrayLike(divs) == true;
+ * const lis = document.getElementsByTagName('li');
+ * isArrayLike(lis) == true;
+ */
 
 // ----- Exercise: implement $.each(obj, cb(index, value)) // Iterate over arrays or objects
-
-//test
-$.each(['a', 'b', 'c'], function(index, item) {
-    console.log(`${item} is at index ${index}`);
+// test
+const resultEachArr = $.each(['a', 'b', 'c'], function(index, item) {
+  console.log(`${item} is at index ${index}`);
 });
-
-$.each({foo: 'bar', zed: 'ted'}, function(prop.value) {
-    console.log(`prop: ${prop}, value: ${value}`);
+console.log(resultEachArr);
+const resultEachObj = $.each({foo: 'bar', zed: 'ted'}, function(prop,value) {
+  console.log(`prop: ${prop}, value: ${value}`);
 });
+console.log(resultEachObj);
+
+// ----- Exercise: implement $.makeArray(arr) 
 // $.prototype.text = function(text) { /* do sth */ };
 // $.prototype.html = function(html) { /* do sth */ };
 $.extend($.prototype, {

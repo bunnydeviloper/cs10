@@ -72,7 +72,7 @@ Object.prototype.toString.call(obj) === '[object Array]'; // true
     1. `arrayLike instanceof Array;` // false, but `arrayLike instanceof Object:` // true
     2. `arrayLike[0] = 'prop';`, then `arrayLike.length;` // still result in 0, doesn't auto-update
 
-* Exercise: implement $.isArrayLike (to be used with NodeList)
+* Exercise: implement $.isArrayLike
 
 **Ternery Operator**
 * `return condition ? truthExpression : falseyExpression;`

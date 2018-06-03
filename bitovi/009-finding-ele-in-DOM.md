@@ -1,8 +1,16 @@
-Training Series - Finding Elements in the DOM
-This week is the first in a sub-series where we break down jQuery to it's core. Build your own version of jQuery with us and gain insight into why this library is so powerful in modern applications!
-This week's agenda:
-* Finding elements from the document
-* Creating the $ function
+# Training Series - Finding Elements in the DOM
+
+* Finding elements from the document with simple API:
+  * `document.getElementById( id )`
+  * `document.getElementsByTagName( tag )`
+  * `document.getElementsByClassName( className )`
+  * `document.querySelector( selector )`
+  * `document.querySelectorAll( selector )`
+* NOTE: ID must be unique (1 id per element), whereas same class can apply to multiple elements
+* Also: ID is a global variable, which should normally be avoided in programming
+
+* Exercise: Creating the $ function
+
 * Creating text/html/val functions
 * Finding elements from an element
 * Creating a find function

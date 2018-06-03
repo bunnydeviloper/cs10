@@ -39,6 +39,11 @@ $.extend($, {
     return collection; // always return the original collection
   },
   makeArray: function(arr) {
+    const realArray = [];
+    $.each(arr, function(i, item) {
+      realArray.push(item);
+    });
+    return realArray;
   },
   proxy: function(fn, context) {
   },
@@ -104,6 +109,34 @@ const resultEachObj = $.each({foo: 'bar', zed: 'ted'}, function(prop,value) {
 console.log(resultEachObj);
 
 // ----- Exercise: implement $.makeArray(arr) 
+const originalInput = {0: 'foo', 5: 'bar', length: 6};
+console.log(`$isArrray? ${JSON.stringify(originalInput)}: ${$.isArray(originalInput)}`);
+console.log(`$isArrrayLike? ${JSON.stringify(originalInput)}: ${isArrayLike(originalInput)}`);
+const appliedMakeArray = $.makeArray(originalInput);
+console.log(`--> applied $.makeArray: ${appliedMakeArray}`);
+console.log(`--> $isArray?: ${$.isArray(appliedMakeArray)}`);
+if (appliedMakeArray.length === originalInput.length) console.log('--> both old and new have same length');
+for (let i=0; i<appliedMakeArray.length; i++) {
+  console.log('--> ', appliedMakeArray[i], ' same as ', originalInput[i]);
+  // if item doesn't exist at an index, it will be 'undefined'
+}
+
+/* test with browser
+ * const childNodes = document.body.childNodes;
+ * ok(! $.isArray(childNOdes) );
+ * const childArray = $.makeArray(childNodes);
+ * ok( $.isArray(childArray) );
+ * equal(childArray.length, childNodes.length);
+ * for (let i=0; i<childArray.length; i++) {
+ *   equal(childArray[i], childNodes[i]);
+ * }
+ */
+
+// ----- Exercise: implement $.proxy(fn, context)
+
+
+
+
 // $.prototype.text = function(text) { /* do sth */ };
 // $.prototype.html = function(html) { /* do sth */ };
 $.extend($.prototype, {

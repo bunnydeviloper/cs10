@@ -76,7 +76,31 @@ Object.prototype.toString.call(obj) === '[object Array]'; // true
 * Exercise: implement $.isArrayLike
 * Exercise: implement $.each
 * Exercise: implement $.makeArray (convert array-like object into true JS array)
-* Exercise: implement $.proxy
+* Exercise: implement $.proxy(fn, context)
+  * Becareful of context:
+  ```js
+  const dog = {
+    name: 'xixi',
+    speak: function() {
+      console.log( this.name + ' says woof');
+    }
+  };
+
+  const speak = dog.speak;
+  speak() // 'this' will not work, because 'this' will be the window
+  setTimeout(dog.speak, 1000); // same here, 'this' will be pointing at the window
+
+  dog.speak(); // can only use dot call operator to make 'this' works properly 
+
+  // use $.proxy(fn, context): pass the fn you want to call as 1st arg, then pass 'this' into the 2nd arg
+  const speak = $.proxy( dog.speak, dog );
+  speak(); // now 'this' will have the right context
+  setTimeout(speak, 1000); // 'this' will have the right context here as well
+
+  // Extra: you can use binding in modern browser as well:
+  const speak = dog.speak.bind(dog);
+  speak();
+  ```
 
 **Ternery Operator**
 * `return condition ? truthExpression : falseyExpression;`

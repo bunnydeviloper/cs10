@@ -73,20 +73,15 @@ Object.prototype.toString.call(obj) === '[object Array]'; // true
     2. `arrayLike[0] = 'prop';`, then `arrayLike.length;` // still result in 0, doesn't auto-update
 
 * Exercise: implement $.isArrayLike
+* Exercise: implement $.each
 
 **Ternery Operator**
 * `return condition ? truthExpression : falseyExpression;`
 
 
 
-
-
-
+* Proxying functions
 $.proxy
-
 
 * Extending properties
 
-* Type checking
-* Iterating objects and arrays
-* Proxying functions

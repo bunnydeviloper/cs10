@@ -1,7 +1,8 @@
+console.log('---------- This is exercises for lesson 8 ----------');
+
+$ = function(selector) {};
+
 // ----- Exercise: implement $.extend
-
-$ = function(selector) { /* do sth */ };
-
 $.extend = function(target, object) { //1st arg is 'default', 2nd arg is 'additional' props
   // copy all properties from object into target
   for (const prop in object) {
@@ -21,7 +22,6 @@ console.log('result', result); // { first: 'Molly', last: 'Bloom' }
 console.log('result === target: ', result === target); //true
 
 // ----- Exercise: implement $.isArray (determine whether the argument is an array)
-
 $.extend($, {
   isArray: function(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]";
@@ -54,13 +54,12 @@ $.extend($, {
 
 // test
 console.log('isArray? []: ', $.isArray([])); // == true
-console.log('isArray? arguments: ', $.isArray(arguments)); // == false
+// console.log('isArray? arguments: ', $.isArray(arguments)); // == false
 
-/* test with browser:
- * const iframe = document.createElement('iframe');
- * document.body.appendChild(iframe);
- * const _Array = iframe.contentWindow.Array; // $.isArray(new _Array()) == true;
- */
+// test with browser:
+const iframe = document.createElement('iframe');
+document.body.appendChild(iframe);
+const _Array = iframe.contentWindow.Array; // $.isArray(new _Array()) == true;
 
 // ----- Exercise: implement $.isArrayLike(obj) // Determine whether the argument is LIKE an array
 const isArrayLike = function(object) {
@@ -91,14 +90,13 @@ console.log(`isArrayLike? {length: 0} : ${isArrayLike({length: 0})}`); // == tru
 console.log(`isArrayLike? {'hello': 5, 5: 'hi'} : ${isArrayLike({'hello': 5, 5: 'hi'})}`); // == false
 console.log(`isArrayLike? {0: 'foo', 5: 'bar', length: 6} \
 : ${isArrayLike({0: 'foo', 5: 'bar', length: 6})}`); // == true
-console.log(`isArrayLike? arguments : ${isArrayLike(arguments)}`); // == true
+// console.log(`isArrayLike? arguments : ${isArrayLike(arguments)}`); // == true
 
-/* test with browser
- * const divs = document.getElementsByTagName('div');
- * isArrayLike(divs) == true;
- * const lis = document.getElementsByTagName('li');
- * isArrayLike(lis) == true;
- */
+// test with browser
+const divs = document.getElementsByTagName('div');
+isArrayLike(divs) == true;
+const lis = document.getElementsByTagName('li');
+isArrayLike(lis) == true;
 
 // ----- Exercise: implement $.each(obj, cb(index, value)) // Iterate over arrays or objects
 // test
@@ -125,16 +123,15 @@ for (let i=0; i<appliedMakeArray.length; i++) {
   // if item doesn't exist at an index, it will be 'undefined'
 }
 
-/* test with browser
- * const childNodes = document.body.childNodes;
- * ok(! $.isArray(childNOdes) );
- * const childArray = $.makeArray(childNodes);
- * ok( $.isArray(childArray) );
- * equal(childArray.length, childNodes.length);
- * for (let i=0; i<childArray.length; i++) {
- *   equal(childArray[i], childNodes[i]);
- * }
- */
+// test with browser
+const childNodes = document.body.childNodes;
+// ok(! $.isArray(childNOdes) );
+const childArray = $.makeArray(childNodes);
+// ok( $.isArray(childArray) );
+if (childArray.length === childNodes.length) console.log('childArray has same length with childNodes');
+for (let i=0; i<childArray.length; i++) {
+  console.log(childArray[i], childNodes[i]);
+}
 
 // ----- Exercise: implement $.proxy(fn, context)
 // Take a fn and returns a new one that calls the original with a particular context

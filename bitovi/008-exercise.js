@@ -46,6 +46,9 @@ $.extend($, {
     return realArray;
   },
   proxy: function(fn, context) {
+    return function() {
+      return fn.apply(context, arguments); //arguments come from fn
+    };
   },
 });
 
@@ -109,6 +112,7 @@ const resultEachObj = $.each({foo: 'bar', zed: 'ted'}, function(prop,value) {
 console.log(resultEachObj);
 
 // ----- Exercise: implement $.makeArray(arr) 
+// test
 const originalInput = {0: 'foo', 5: 'bar', length: 6};
 console.log(`$isArrray? ${JSON.stringify(originalInput)}: ${$.isArray(originalInput)}`);
 console.log(`$isArrrayLike? ${JSON.stringify(originalInput)}: ${isArrayLike(originalInput)}`);
@@ -133,9 +137,20 @@ for (let i=0; i<appliedMakeArray.length; i++) {
  */
 
 // ----- Exercise: implement $.proxy(fn, context)
+// Take a fn and returns a new one that calls the original with a particular context
 
+// test
+const dog = {
+  name: 'Xixi',
+  speak: function(words) {
+    return this.name + ' says ' + words;
+  }
+};
+const speakProxy = $.proxy(dog.speak, dog);
+console.log(speakProxy('woofofo!'));
+console.log('equal test: ', speakProxy('woof') == 'Xixi says woof');
 
-
+// ----- Extras -----
 
 // $.prototype.text = function(text) { /* do sth */ };
 // $.prototype.html = function(html) { /* do sth */ };

@@ -39,6 +39,12 @@ $.extend($, {
     }
     return collection;
   },
+  makeArray: function(arr) {
+  },
+  proxy: function(fn, context) {
+  },
+});
+*/
 });
 
 // test
@@ -98,21 +104,6 @@ $.each(['a', 'b', 'c'], function(index, item) {
 $.each({foo: 'bar', zed: 'ted'}, function(prop.value) {
     console.log(`prop: ${prop}, value: ${value}`);
 });
-
-
-
-
-
-// $.makeArary = function(arr) { /* do sth */ };
-// $.proxy = function(fn, context) { /* do sth */ };
- 
-/*
-$.extend($, {
-    makeArray: function(arr) {},
-    proxy: function(fn, context) {},
-});
-*/
-
 // $.prototype.text = function(text) { /* do sth */ };
 // $.prototype.html = function(html) { /* do sth */ };
 $.extend($.prototype, {

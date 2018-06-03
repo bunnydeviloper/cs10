@@ -27,7 +27,18 @@ $.extend($, {
   isArray: function(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]";
   },
-// $.each = function(arr, callback) { /* do sth */ };
+  $.each: function(collection, cb) {
+    if (isArrayLike(collection)) {
+      for (let i=0; i < collection.length; i++) {
+        cb(i, collection[i]);
+      }
+    } else {
+      for (let prop in collection) {
+        cb(prop, collection[prop]);
+      }
+    }
+    return collection;
+  },
 });
 
 // test
@@ -53,6 +64,16 @@ const isArrayLike = function(object) {
   return false;
 };
 
+/* rewrite with ternary operators
+ * const isArrayLike = function(object) {
+ *   return typeof(object.length === 'number') ?
+ *     (object.length >= 0 ?
+ *       object.length === 0 || ((object.length -1) in object)
+ *       : false;
+ *     : false;
+ * };
+ */
+
 //test
 console.log(`isArrayLike? ['a', 'b', 'c'] : ${isArrayLike(['a', 'b', 'c'])}`); // == true
 console.log(`isArrayLike? {length: 0} : ${isArrayLike({length: 0})}`); // == true, also true with 'length'
@@ -61,6 +82,7 @@ console.log(`isArrayLike? {0: 'foo', 5: 'bar', length: 6} \
 : ${isArrayLike({0: 'foo', 5: 'bar', length: 6})}`); // == true
 console.log(`isArrayLike? arguments : ${isArrayLike(arguments)}`); // == true
 
+// test with browser
 // const divs = document.getElementsByTagName('div');
 // isArrayLike(divs) == true;
 // const lis = document.getElementsByTagName('li');
@@ -86,8 +108,6 @@ $.each({foo: 'bar', zed: 'ted'}, function(prop.value) {
  
 /*
 $.extend($, {
-    isArray: function(array) {},
-    each: function(arr, callback) {},
     makeArray: function(arr) {},
     proxy: function(fn, context) {},
 });

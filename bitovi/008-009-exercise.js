@@ -180,23 +180,31 @@ console.log('---------- This is exercises for lesson 9 ----------');
 // hint: html() should be 'chainable', returning the original $ instance when setting
 
 $.extend($.prototype, {
-  html: function(string) {
-
-  },
-  val: function(value) {},
-  text: function(string) {},
-
-  find: function(el) {},
-  next: function() {},
-  prev: function() {},
-  parent: function() {},
-  children: function() {},
-
-  attr: function(attr, val) {},
-  css: function(style, val) {},
-  width: function() {},
-  hide: function() {},
-  show: function() {},
+    // eg: new $('li').html("") -> to replace all content to empty
+    html: function(newHTMLString) {
+      if ( arguments.length ) { // shouldn't use 'if(newHTMLString)' (think "", or 0...)
+        // SETTER
+        return $.each(this, function(i, element) {
+          element.innerHTML = newHTMLString;
+        });
+      } else { // GETTER
+        return this[0].innerHTML;
+      }
+    },
+    val: function(value) {},
+    text: function(string) {},
+  
+    find: function(el) {},
+    next: function() {},
+    prev: function() {},
+    parent: function() {},
+    children: function() {},
+  
+    attr: function(attr, val) {},
+    css: function(style, val) {},
+    width: function() {},
+    hide: function() {},
+    show: function() {},
 
 });
 

@@ -3,6 +3,8 @@ console.log('---------- This is exercises for lesson 9 ----------');
 console.log(document.getElementById('ironman'));
 
 // ----- Exercise: creating the $ function
+// fn will take a selector as arg, select elements from DOM, and return an array-like object
+// hint: make an 'array-like' object, set length to curr || 0, add items w/ [].push.apply(this, items)
 const $ = function(selector) {
   const elements = document.querySelectorAll(selector);
   Array.prototype.push.apply(this, elements);
@@ -19,10 +21,22 @@ console.log(listOfHeros[0]); // <li><a href='#ironman">Ironman</a></li>
 Array.prototype.push = function(a, b, c) { // can have unlimited arguments
   const startLength = this.length || 0;
   for (let i=0; i < arguments.length; i++) {
-    this[startLength + 1] = arguments[i];
+    this[startLength + i] = arguments[i];
   }
   this.length = startLength + arguments.length;
 };
+
+// ----- Exercise: add html method to get/set the innerHTML of an element(s)
+// hint: html() should be 'chainable', returning the original $ instance when setting
+
+
+// test
+const superheros = new $('#superheros li');
+console.log(superheros);
+// superheros.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>'
+
+
+
 
 // $li.html();
 

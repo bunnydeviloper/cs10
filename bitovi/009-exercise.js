@@ -1,9 +1,26 @@
 console.log('---------- This is exercises for lesson 9 ----------');
 
-// $ = function(selector) {};
+console.log(document.getElementById('ironman'));
+
+// ----- Exercise: creating the $ function
+const $ = function(selector) {
+  const arr = [];
+  arr.length = 0;
+  arr.push.apply(this, items);
+
+  return //array-like object
+};
 
 /*
-$.extend($.prototype, {
+@.extend = function(target, object) {
+  for (let prop in object) {
+    if (object.hasOwnProperty(prop)) target[prop] = object[prop];
+  }
+  console.log(target);
+  return target;
+};
+
+@.extend($.prototype, {
   html: function(string) {},
   val: function(value) {},
   text: function(string) {},
@@ -23,16 +40,7 @@ $.extend($.prototype, {
 });
 */
 
-// ----- Exercise: creating the $ function
 
-console.log(document.getElementById('ironman'));
-const $ = function(selector) {
-  const arr = [];
-  arr.length = 0;
-  arr.push.apply(this, items);
-
-  return //array-like object
-};
 
 // test
 //const ironMan = new $('#ironMan');

@@ -5,11 +5,7 @@ console.log(document.getElementById('ironman'));
 // ----- Exercise: creating the $ function
 const $ = function(selector) {
   const elements = document.querySelectorAll(selector);
-  for (let i=0; i< elements.length; i++) {
-    const node = elements[i];
-    this[i] = node; // can you combine two lines into 'this[i] = elements[i]' ???
-  }
-  this.length = elements.length;
+  Array.prototype.push.apply(this, elements);
 };
 
 // test
@@ -19,6 +15,14 @@ console.log(listOfHeros instanceof $); // true
 console.log(listOfHeros.length); // 3
 console.log(listOfHeros[0]); // <li><a href='#ironman">Ironman</a></li>
 
+// ----- Extras: write array push fn -----
+Array.prototype.push = function(a, b, c) { // can have unlimited arguments
+  const startLength = this.length || 0;
+  for (let i=0; i < arguments.length; i++) {
+    this[startLength + 1] = arguments[i];
+  }
+  this.length = startLength + arguments.length;
+};
 
 // $li.html();
 

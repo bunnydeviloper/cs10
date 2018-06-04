@@ -10,8 +10,8 @@
 * Also: ID is a global variable, which should normally be avoided in programming
 
 * Exercise: Creating the $ function
+* Exercise: Creating text/html/val functions
 
-* Creating text/html/val functions
 * Finding elements from an element
 * Creating a find function
 

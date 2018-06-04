@@ -1,6 +1,28 @@
-console.log('---------- This is exercises for lesson 8 ----------');
+// ----- Exercise: creating the $ function
+// fn will take a selector as arg, select elements from DOM, and return an array-like object
+// hint: make an 'array-like' object, set length to curr || 0, add items w/ [].push.apply(this, items)
+const $ = function(selector) {
+  const elements = document.querySelectorAll(selector);
+  Array.prototype.push.apply(this, elements);
+};
 
-$ = function(selector) {};
+// test
+const listOfHeros = new $('ul li'); // const $li = new $("ul li");
+console.log(listOfHeros); // $ {0: li, 1: li, 2: li, Length: 3} // can expand to see li elements
+console.log(listOfHeros instanceof $); // true
+console.log(listOfHeros.length); // 3
+console.log(listOfHeros[0]); // <li><a href='#ironman">Ironman</a></li>
+
+// ----- Extras: write array push fn -----
+Array.prototype.push = function(a, b, c) { // can have unlimited arguments
+  const startLength = this.length || 0;
+  for (let i=0; i < arguments.length; i++) {
+    this[startLength + i] = arguments[i];
+  }
+  this.length = startLength + arguments.length;
+};
+
+console.log('---------- This is exercises for lesson 8 ----------');
 
 // ----- Exercise: implement $.extend
 $.extend = function(target, object) { //1st arg is 'default', 2nd arg is 'additional' props
@@ -50,6 +72,7 @@ $.extend($, {
       return fn.apply(context, arguments); //arguments come from fn
     };
   },
+  fn: $.prototype,
 });
 
 // test
@@ -147,11 +170,39 @@ const speakProxy = $.proxy(dog.speak, dog);
 console.log(speakProxy('woofofo!'));
 console.log('equal test: ', speakProxy('woof') == 'Xixi says woof');
 
-// ----- Extras -----
+// ----- --------------- -----
+// ----- Lesson Number 9 -----
 
-// $.prototype.text = function(text) { /* do sth */ };
-// $.prototype.html = function(html) { /* do sth */ };
+console.log('---------- This is exercises for lesson 9 ----------');
+
+// ----- Exercise: add html method to get/set the innerHTML of an element(s)
+// jQuery html(): GET the HTML contents of the 1st ele or SET the HTML contents of every matched element.
+// hint: html() should be 'chainable', returning the original $ instance when setting
+
 $.extend($.prototype, {
-    text: function(text) {},
-    html: function(html) {},
+  html: function(string) {
+
+  },
+  val: function(value) {},
+  text: function(string) {},
+
+  find: function(el) {},
+  next: function() {},
+  prev: function() {},
+  parent: function() {},
+  children: function() {},
+
+  attr: function(attr, val) {},
+  css: function(style, val) {},
+  width: function() {},
+  hide: function() {},
+  show: function() {},
+
 });
+
+
+// test
+const superheros = new $('#superheros li');
+console.log(superheros);
+// superheros.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>'
+

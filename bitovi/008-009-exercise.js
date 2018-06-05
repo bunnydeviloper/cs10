@@ -179,6 +179,8 @@ console.log('---------- This is exercises for lesson 9 ----------');
 // jQuery html(): GET the HTML contents of the 1st ele or SET the HTML contents of every matched element.
 // hint: html() should be 'chainable', returning the original $ instance when setting
 
+// ----- Exercise: add an val method to get/set the value of an element
+
 $.extend($.prototype, {
     // eg: new $('li').html("") -> to replace all content to empty
     html: function(newHTMLString) {
@@ -191,7 +193,9 @@ $.extend($.prototype, {
         return this[0].innerHTML;
       }
     },
-    val: function(value) {},
+    val: function(value) {
+
+    },
     text: function(string) {},
   
     find: function(el) {},
@@ -209,8 +213,12 @@ $.extend($.prototype, {
 });
 
 
-// test
-const superheros = new $('#superheros li');
-console.log(superheros);
-// superheros.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>'
+// test for html()
+const randomList = new $('#random li');
+randomList.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>' //changed all three li
+
+// test for val()
+// <input type="text" value="some text">
+// $('input').val() // 'some text'
+// $('input').val('new text'); //<input type="text" value="new text">
 

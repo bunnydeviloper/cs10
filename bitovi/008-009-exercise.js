@@ -179,30 +179,53 @@ console.log('---------- This is exercises for lesson 9 ----------');
 // jQuery html(): GET the HTML contents of the 1st ele or SET the HTML contents of every matched element.
 // hint: html() should be 'chainable', returning the original $ instance when setting
 
+// ----- Exercise: add an val method to get/set the value of an element
+
 $.extend($.prototype, {
-  html: function(string) {
-
-  },
-  val: function(value) {},
-  text: function(string) {},
-
-  find: function(el) {},
-  next: function() {},
-  prev: function() {},
-  parent: function() {},
-  children: function() {},
-
-  attr: function(attr, val) {},
-  css: function(style, val) {},
-  width: function() {},
-  hide: function() {},
-  show: function() {},
+    // eg: new $('li').html("") -> to replace all content to empty
+    html: function(newHTMLString) {
+      if ( arguments.length ) { // shouldn't use 'if(newHTMLString)' (think "", or 0...)
+        // SETTER
+        return $.each(this, function(i, element) {
+          element.innerHTML = newHTMLString;
+        });
+      } else { // GETTER
+        return this[0].innerHTML;
+      }
+    },
+    val: function(newValue) { // same as html fn
+      if (arguments.length) {
+        return $.each(this, function(i, element) {
+            element.value = newValue;
+        });
+      } else {
+        return this[0].value;
+      }
+    },
+    text: function(string) {},
+  
+    find: function(el) {},
+    next: function() {},
+    prev: function() {},
+    parent: function() {},
+    children: function() {},
+  
+    attr: function(attr, val) {},
+    css: function(style, val) {},
+    width: function() {},
+    hide: function() {},
+    show: function() {},
 
 });
 
 
-// test
-const superheros = new $('#superheros li');
-console.log(superheros);
-// superheros.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>'
+// test for html()
+const randomList = new $('#random');
+randomList.html('<h2>Awesome Superheros</h2>').html(); // '<h2>Awesome Superheros</h2>' 
+
+// test for val()
+const input = new $('input');
+console.log(input.val()); //'some text'
+input.val('new text'); //changed the value inside: '<input type="text" value="new text">'
+console.log(input.val()); //'new text'
 

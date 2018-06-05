@@ -193,8 +193,14 @@ $.extend($.prototype, {
         return this[0].innerHTML;
       }
     },
-    val: function(value) {
-
+    val: function(newValue) { // same as html fn
+      if (arguments.length) {
+        return $.each(this, function(i, element) {
+            element.value = newValue;
+        });
+      } else {
+        return this[0].value;
+      }
     },
     text: function(string) {},
   
@@ -214,11 +220,12 @@ $.extend($.prototype, {
 
 
 // test for html()
-const randomList = new $('#random li');
-randomList.html('<div>Awesome Superheros</div>').html(); // '<div>Awesome Superheros</div>' //changed all three li
+const randomList = new $('#random');
+randomList.html('<h2>Awesome Superheros</h2>').html(); // '<h2>Awesome Superheros</h2>' 
 
 // test for val()
-// <input type="text" value="some text">
-// $('input').val() // 'some text'
-// $('input').val('new text'); //<input type="text" value="new text">
+const input = new $('input');
+console.log(input.val()); //'some text'
+input.val('new text'); //changed the value inside: '<input type="text" value="new text">'
+console.log(input.val()); //'new text'
 

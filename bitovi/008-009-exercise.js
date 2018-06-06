@@ -2,11 +2,12 @@
 // fn will take a selector as arg, select elements from DOM, and return an array-like object
 // hint: make an 'array-like' object, set length to curr || 0, add items w/ [].push.apply(this, items)
 const $ = function(selector) {
+  if ( !(this instanceof $) ) return new $(selector); // remove the need to call 'new'
   const elements = document.querySelectorAll(selector);
   Array.prototype.push.apply(this, elements);
 };
 
-// test
+// test for $ function
 const listOfHeros = new $('ul li'); // const $li = new $("ul li");
 console.log(listOfHeros); // $ {0: li, 1: li, 2: li, Length: 3} // can expand to see li elements
 console.log(listOfHeros instanceof $); // true
@@ -38,16 +39,18 @@ $.extend = function(target, object) { //1st arg is 'default', 2nd arg is 'additi
 const target = { first: 'Molly' }, object = { last: 'Bloom' };
 const result = $.extend(target, object);
 
-// test
+// test for $.extend
 console.log('target', target); // { first: 'Molly', last: 'Bloom' }
 console.log('result', result); // { first: 'Molly', last: 'Bloom' }
 console.log('result === target: ', result === target); //true
 
-// ----- Exercise: implement $.isArray (determine whether the argument is an array)
 $.extend($, {
+  // ----- Exercise: implement $.isArray (determine whether the argument is an array)
   isArray: function(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]";
   },
+
+  // ----- Exercise: implement $.each(obj, cb(index, value)) // Iterate over arrays or objects
   each: function(collection, cb) {
     if (isArrayLike(collection)) { // applies when collecttion is an array ['a', 'b']
       for (let i=0; i < collection.length; i++) {
@@ -60,6 +63,8 @@ $.extend($, {
     }
     return collection; // always return the original collection
   },
+
+  // ----- Exercise: implement $.makeArray(arr) 
   makeArray: function(arr) {
     const realArray = [];
     $.each(arr, function(i, item) {
@@ -67,15 +72,19 @@ $.extend($, {
     });
     return realArray;
   },
+
+  // ----- Exercise: implement $.proxy(fn, context)
+  // Take a fn and returns a new one that calls the original with a particular context
   proxy: function(fn, context) {
     return function() {
       return fn.apply(context, arguments); //arguments come from fn
     };
   },
+
   fn: $.prototype,
 });
 
-// test
+// test for $.isArray
 console.log('isArray? []: ', $.isArray([])); // == true
 // console.log('isArray? arguments: ', $.isArray(arguments)); // == false
 
@@ -107,7 +116,7 @@ const isArrayLike = function(object) {
  * };
  */
 
-// test
+// test for isArrayLike
 console.log(`isArrayLike? ['a', 'b', 'c'] : ${isArrayLike(['a', 'b', 'c'])}`); // == true
 console.log(`isArrayLike? {length: 0} : ${isArrayLike({length: 0})}`); // == true, also true with 'length'
 console.log(`isArrayLike? {'hello': 5, 5: 'hi'} : ${isArrayLike({'hello': 5, 5: 'hi'})}`); // == false
@@ -121,8 +130,7 @@ isArrayLike(divs) == true;
 const lis = document.getElementsByTagName('li');
 isArrayLike(lis) == true;
 
-// ----- Exercise: implement $.each(obj, cb(index, value)) // Iterate over arrays or objects
-// test
+// test for $.each
 const resultEachArr = $.each(['a', 'b', 'c'], function(index, item) {
   console.log(`${item} is at index ${index}`);
 });
@@ -132,8 +140,7 @@ const resultEachObj = $.each({foo: 'bar', zed: 'ted'}, function(prop,value) {
 });
 console.log(resultEachObj);
 
-// ----- Exercise: implement $.makeArray(arr) 
-// test
+// test for $.makeArray(arr)
 const originalInput = {0: 'foo', 5: 'bar', length: 6};
 console.log(`$isArrray? ${JSON.stringify(originalInput)}: ${$.isArray(originalInput)}`);
 console.log(`$isArrrayLike? ${JSON.stringify(originalInput)}: ${isArrayLike(originalInput)}`);
@@ -156,10 +163,7 @@ for (let i=0; i<childArray.length; i++) {
   console.log(childArray[i], childNodes[i]);
 }
 
-// ----- Exercise: implement $.proxy(fn, context)
-// Take a fn and returns a new one that calls the original with a particular context
-
-// test
+// test for $.proxy(fn, context)
 const dog = {
   name: 'Xixi',
   speak: function(words) {
@@ -175,13 +179,19 @@ console.log('equal test: ', speakProxy('woof') == 'Xixi says woof');
 
 console.log('---------- This is exercises for lesson 9 ----------');
 
-// ----- Exercise: add html method to get/set the innerHTML of an element(s)
-// jQuery html(): GET the HTML contents of the 1st ele or SET the HTML contents of every matched element.
-// hint: html() should be 'chainable', returning the original $ instance when setting
-
-// ----- Exercise: add an val method to get/set the value of an element
+const getText = function(element) {
+  let text = '';
+  $.each(element.childNodes, function(i, child) {
+    (child.nodeType === 3) ? text += child.nodeValue : text += getText(child);
+    // note: nodeType === 3 when it is a text node
+  });
+  return text;
+};
 
 $.extend($.prototype, {
+    // ----- Exercise: add html method to get/set the innerHTML of an element(s)
+    // jQuery html(): GET the HTML contents of the 1st ele or SET the HTML contents of every matched element.
+    // hint: html() should be 'chainable', returning the original $ instance when setting
     // eg: new $('li').html("") -> to replace all content to empty
     html: function(newHTMLString) {
       if ( arguments.length ) { // shouldn't use 'if(newHTMLString)' (think "", or 0...)
@@ -193,6 +203,8 @@ $.extend($.prototype, {
         return this[0].innerHTML;
       }
     },
+
+    // ----- Exercise: add an val method to get/set the value of an element
     val: function(newValue) { // same as html fn
       if (arguments.length) {
         return $.each(this, function(i, element) {
@@ -202,30 +214,66 @@ $.extend($.prototype, {
         return this[0].value;
       }
     },
-    text: function(string) {},
+
+    // ----- Exercise: add a text method to get/set the text of an element
+    text: function(newText) {
+      // to SET, clear html and append document.createTextNode( text ).
+      if ( arguments.length ) {
+        this.html('');
+        return $.each(this, function(i, element) {
+          const textNode = document.createTextNode(newText);
+          element.appendChild(textNode);
+        });
+      } else {
+      // to GET, recurse through each child if child.nodeType === 3, read and accumulate child.nodeValue
+        return getText(this[0]); // getText() is a helper function from above
+      }
+    },
   
-    find: function(el) {},
+    // ----- Exercise: add a find method that returns items within the current elements
+    find: function(selector) {
+      // note: have $ also accept an array of nodes in $ fn
+      let nodes = [];
+      $.each(this, function(i, element) {
+        const elements = element.querySelectorAll(selector);
+        nodes.push.apply(nodes, elements);
+        // if you do nodes.push(elements), it'll be an array of array
+        // hence, do .apply() to spread it out to an array of all elements
+      });
+      return $(nodes);
+    },
+
     next: function() {},
     prev: function() {},
     parent: function() {},
     children: function() {},
-  
     attr: function(attr, val) {},
     css: function(style, val) {},
     width: function() {},
     hide: function() {},
     show: function() {},
-
 });
 
 
 // test for html()
 const randomList = new $('#random');
-randomList.html('<h2>Awesome Superheros</h2>').html(); // '<h2>Awesome Superheros</h2>' 
+randomList.html('<h2>Awesome Superheros</h2>').html(); //changed the innerHTML of #random to: '<h2>Awesome Superheros</h2>' 
 
 // test for val()
-const input = new $('input');
-console.log(input.val()); //'some text'
-input.val('new text'); //changed the value inside: '<input type="text" value="new text">'
-console.log(input.val()); //'new text'
+console.log($('input').val()); //'some text'
+$('input').val('new text'); //changed the value inside: '<input type="text" value="new text">'
+console.log($('input').val()); //'new text'
 
+// test for text()
+console.log($('ul#superheros').text()); // note: there are NodeList[7] in the childNodes
+/* result
+
+      Ironman
+      Superwoman
+      Deadpool
+    
+*/
+$('ul#superheros li:first-child').text('I AM IRON MAN!').text() //-> 'I AM IRON MAN!'
+
+// test for find()
+const heroImages = $('div').find('img');

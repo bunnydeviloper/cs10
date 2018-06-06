@@ -13,5 +13,13 @@
 * Exercise: Creating text/html/val functions
 
 * Finding elements from an element
+  * Elements have the same query methods as document.
+  * `element.getElementById( id )`
+  * `element.getElementsByTagName( tag )`
+  * `element.getElementsByClassName( className )`
+  * `element.querySelector( selector )`
+  * `element.querySelectorAll( selector )`
+* **Chaining**: `document.getElementById('#superheros').querySelectorAll('li a');`
+
 * Creating a find function
 

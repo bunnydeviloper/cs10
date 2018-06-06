@@ -230,7 +230,19 @@ $.extend($.prototype, {
       }
     },
   
-    find: function(el) {},
+    // ----- Exercise: add a find method that returns items within the current elements
+    find: function(selector) {
+      // note: have $ also accept an array of nodes in $ fn
+      let nodes = [];
+      $.each(this, function(i, element) {
+        const elements = element.querySelectorAll(selector);
+        nodes.push.apply(nodes, elements);
+        // if you do nodes.push(elements), it'll be an array of array
+        // hence, do .apply() to spread it out to an array of all elements
+      });
+      return $(nodes);
+    },
+
     next: function() {},
     prev: function() {},
     parent: function() {},
@@ -262,3 +274,6 @@ console.log($('ul#superheros').text()); // note: there are NodeList[7] in the ch
     
 */
 $('ul#superheros li:first-child').text('I AM IRON MAN!').text() //-> 'I AM IRON MAN!'
+
+// test for find()
+const heroImages = $('div').find('img');

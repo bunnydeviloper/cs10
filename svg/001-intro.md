@@ -51,3 +51,13 @@
 
   * **stroke**: unique SVG styling of CSS `border` (but on steroids :smile:)
     * enhance ability to 1) create custom strokes and 2) animate a stroke's movement
+
+**Position Attributes** vs **CSS Transforms**
+  * Browser support: EI does not support CSS transforms on SVG elements
+  ```
+  // The x and y attributes work everywhere that SVG elements do (IE8+, Android 3+)
+  $("rect").velocity({ x: 100, y: 100 });
+
+  // Alternatively, positional transforms (such as *translateX* and *translateY*) work everywhere EXCEPT IE
+  $("rect").velocity({ translateX: 100, translateY: 100 });js
+  ```

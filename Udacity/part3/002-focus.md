@@ -35,5 +35,26 @@
   * solution: once user clicked on section, give link tabindex="-1", & change focus to section w/ JS
 
 * **Skip Links**:
+  * `<a href="#maincontent" class="skip-link">Skip to main content</a>`
+  * put this tag before `<nav>` tag
+  * connect id to the main content: `main id="maincontent">...</main>`
+    * optional: for older browser, you can add tabindex="-1" to `main` element as well
+  * skip-link css:
+    * ``` css
+      .skip-link {
+        position: absolute;
+        top: -40px; /* make it appear off screen initially */
+        left: 0;
+        background: #BF1722;
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+
+      /* use focus pseudo class to move skip-link element back on screen */
+      .skip-link:focus {
+        top: 0;
+      }
+      ```
 
 * **Focus ring**

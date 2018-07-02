@@ -10,6 +10,7 @@
 * Tab order corresponds with DOM order
   * (styling or visual changes, eg float:right, will not change DOM order)
 * Navigation order should be logical and intuitive
+* Exercise!
 
 ### Tab Index
 * To be used when you have navigation bar offscreen/to the side, or have a pop up modal window
@@ -33,6 +34,7 @@
   * eg: click on nav bar/links/table of content, and the page scroll down to that specific section
   * then: when user wants to click on any links WITHIN that section, they have to tab tab tab again...
   * solution: once user clicked on section, give link tabindex="-1", & change focus to section w/ JS
+  * Exercise!
 
 ### Skip Links
   * `<a href="#maincontent" class="skip-link">Skip to main content</a>`
@@ -58,3 +60,11 @@
       ```
 
 ### Focus ring
+
+### Focus in complex components
+* eg: have a select tag, and once user clicked on it, it shows a dropdown menu
+  * user can use up/down keys to navigate through the options
+  * ARIA Authoring Best Practices guide (ARIA Design Patterns Docs)
+### Keyboard Design Patterns:
+* Roving focus (roving tabindex)
+* Exercise!

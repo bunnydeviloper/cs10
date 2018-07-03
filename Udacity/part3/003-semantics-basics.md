@@ -40,6 +40,15 @@
       <label for="letter">Receive promotional offers?</label>
       ```
   * Text alternative (not visible): image of wombat with alt "wombat"
+    * alt is useful for when the image fail to load, or you're a web crawling bot/screen
+    * alt is different from figcaption or title
+    * empty alt="" will remove the image from the a11y tree and will be skipped by screen reader
+      * use in the case of "magnifying glass" for search link (b/c it's redundant)
+    * important images should have descriptive alt text
+    * decorative images should have blank alt text (so screen reader will skip it completely)
+      * must use alt="", otherwise, screen reader will try to read the file name
+    * thumbnail images are decorative, since link tag already have description
+
 
 ### The Accessibility tree
 * an API describing the page's structure, similar to DOM API

@@ -85,5 +85,13 @@
 ### Offscreen content
 * note: use `document.activeElement` to see where your focus is
 * in chrome dev-tool, you can check your a11y quality/focus by performing an audit (in audit tab)
-* if content is offscreen, change CSS to `display: none` or `visibility: hidden` to prevent focus to move to that element
+* if content is offscreen, change CSS to `display: none` or `visibility: hidden`
+  * this will prevent focus to move to that element (or any of its children)
 * when the ele comes on screen, change CSS to `display: block` or `visibility: visible`
+
+### Modals and keyboard traps
+* keyboard traps: when you stuck at one element, can you cannot 'tap' to move on
+* modals: need to add 'temporary keyboard trap' to ensure user click on the content in the modal only
+  * then after modal is closed, we restore to previouly focused item
+* Exercise!
+

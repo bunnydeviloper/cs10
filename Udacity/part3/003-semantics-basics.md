@@ -20,3 +20,9 @@
   * 'no preference, preferred seat type, collapsed, combo box' // value, name, state, role
 
 ### The Accessibility tree
+* an API describing the page's structure, similar to DOM API
+  * but with less information and fewer nodes b/c a lot of that is for visual presentation
+  * imagine an HTML page from the 90s, little to no CSS or styling
+* considering A11y tree when writing HTML will help making your sites more accessible
+
+### Semantics in Native HTML

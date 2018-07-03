@@ -67,4 +67,23 @@
   * ARIA Authoring Best Practices guide (ARIA Design Patterns Docs)
 ### Keyboard Design Patterns:
 * Roving focus (roving tabindex)
+  * Radio button with `<ul>` element
+  * Set tabindex="-1" for all `<li>` children and tabindex="0" on currently active item
+    ```html
+    <li tabindex="0" checked>
+    <li tabindex="-1">
+    <li tabindex="-1">
+    <li tabindex="-1">
+    ```
+  * our component uses a keyboard event listener to determine which key user presses
+  * then, set tabindex on the next item to 0, and the previous item to -1
+  * call focus() on the new item, move the focus ring to the new item
+  * lastly, add 'checked' attr to new item (to filled in radio button), and remove 'checked' attr from the previous item
+  * if reaches bottom of list, wrap around to the first item
 * Exercise!
+
+### Offscreen content
+* note: use `document.activeElement` to see where your focus is
+* in chrome dev-tool, you can check your a11y quality/focus by performing an audit (in audit tab)
+* if content is offscreen, change CSS to `display: none` or `visibility: hidden` to prevent focus to move to that element
+* when the ele comes on screen, change CSS to `display: block` or `visibility: visible`

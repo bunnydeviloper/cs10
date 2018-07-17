@@ -35,3 +35,35 @@
 
 **Roleplaying**: make sure keep role and tabindex on the same element
   `<div tabindex="0" class="checkbox" checked role-"checkbox" aria-checked="true">First choice</div>`
+
+* More ways to label:
+  * aria-label:
+    * `button aria-label="menu" class="hamburger"></button>`
+    * `button aria-label="close">Close this window</button>`
+    * this overwrites any native labeling such as `<label>` or the original text content
+  * aria-labelledby: use id referrence for label, only affect A11yTree
+    ```html
+    <span id="rg-label">Drink options</span>
+    <div role="radiogroup" aria-labelledby="rg-label">...</div>
+
+    <!-- similar to using a <label> element, but does not restricted to just 'input' element -->
+    <input type="radio" id="rb01">
+    <label for="rb01">Coffee</label>
+
+    <!-- aria-labelledby can concat multiple labels (same order) and use on 'hidden' ele -->
+    <div id="men-lb1" hidden>Men's T-shirts</div>
+    <button id="men-btn" aria-labelledby="men-lb1 men-btn">Shop Now</button>
+    ```
+    * note: aria-labelledby will always overwrite aria-label or native label or content
+      ```html
+      <span role="checkbox" aria-checked="false" aria-labelledby="label" aria-label="Not checked"></span>
+      <span id="label>Wallaby</span>
+      <!-- this will have the label 'Wallaby' -->
+      ```
+    * note: `<div role="button">Click this</div>` will have a label 'Click this'
+      * b/c once we declared role, it will show up in the A11yTree
+
+  * aria-describedby
+  * aria-owns: redefined child-parent relationship in A11y tree
+  * aria-activedescendant
+  * aria-posinset and aria-setsize

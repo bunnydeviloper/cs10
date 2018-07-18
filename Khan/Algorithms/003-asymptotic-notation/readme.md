@@ -19,7 +19,7 @@
 * if a < b, then running time of big-Theta(n(power)a) grows slower than big-Theta(n(power)b)
   * the exponents don't have to be integer: big-Theta(n(power)2) < big-Theta(n(power)2.5)
     * n(power)2.5 is same as n(power)2 * n(squareroot)
-<img src="running-time-fast-to-slow" />
+<img src="running-time-fast-to-slow.PNG" alt="sorted running time" />
 
 ### Practice: Comparing function growth
 

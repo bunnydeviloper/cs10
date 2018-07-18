@@ -20,8 +20,10 @@
   * the exponents don't have to be integer: big-Theta(n(power)2) < big-Theta(n(power)2.5)
     * n(power)2.5 is same as n(power)2 * n(squareroot)
 <img src="running-time-fast-to-slow.PNG" alt="sorted running time" />
+* note: exponential fn a(power)n, where a>1, grows faster than any polynomial fn n(power)b, where b is const
 
 ### Practice: Comparing function growth
+<img src="running-time-graph.PNG" alt="running time graph" width=400 />
 
 ### Big-O notation
 

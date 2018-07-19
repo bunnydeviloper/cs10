@@ -57,16 +57,31 @@ Incorporate CSS styling into your accessible web design and use accessible color
   ```
 
 ###Responsive design for multi-device
+* focus on responsive design is also a huge plus for a11y
+1. make sure you're always using meta viewport tag
+  `<meta name="viewport" content="width=device-width, initial-scale=1">`
+2. designing with a responsive grid (means the content will reflow when the page size changes)
+  * use relative units:
+    * width: 50% => relative to the containing block
+    * font-size; 1.2em => relative to the font-size of the parent
+    * font-size: 2rem => relative to the font-size of the root
+3. use appropriate touch targets for buttons, links...
+  * 48dp minimum touch target size (about the size of somebody's finger touch)
+  * 32dp margin around touch target (to make sure you're not touching other ele around it)
 
-### Mobile screen readers
+### Mobile screen readers (iOS or Android)
 
-### Mobile screen readers iOS
-
-### Mobile screen readers Android
-
-### Segue to color and contrast
-
-### Meeting contrast requirements
+### Segue to color and contrast, meeting contrast requirements
+* example range of contrast with corresponding contrast ratio:
+  * 15.9 : 1 => this is very defined, bold
+  * 5.7  : 1
+  * 3.5  : 1
+  * 1.6  : 1 => this is very light, almost transparent
+  * => relationship between the foreground color and background color in terms of luminance
+  * NOTE: contrast minimum is 4.5 : 1, other requirements depending on the text, img...
+* you can open dev tools, run audit on accessibility, and see where the page need to be fixed
+  * to check contrast ratio: click on element, click on a11y properties, and copy the color
+  * the dev tool will recommend a minimum value, and an optinal (enhanced) value
 
 ### Don't convey info with color alone
 

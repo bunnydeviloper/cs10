@@ -13,6 +13,13 @@
 ### Challenge: implement selection sort
 
 ### Analysis of selection sort
-* 
+* how many times does the loop inside indexOfMinimum fn run?
+* arithmetic series:
+  * sum of number from 1 to n: (n + 1)/(n/2) = n(square)/2 + n/2
+* the total running time for selection sort has three parts:
+  * running time for all the calls to `indexOfMinimum` -> big-Theta(n(square))
+  * running time for all the calls to `swap` -> big-Theta(n), const time
+  * running time for rest of the loop in the `selectionSort` function -> big-Theta(n)
+  * HENCE: add up, running time for selection sort is big-Theta(n(square))
 
 ### Project: selection sort visualizer

@@ -84,9 +84,18 @@ Incorporate CSS styling into your accessible web design and use accessible color
   * the dev tool will recommend a minimum value, and an optinal (enhanced) value
 
 ### Don't convey info with color alone
+* provide multiple ways for user to understand the content of the page
+  * eg: for an invalid field, in addition to underline, add a message to alert user
 
 ### High contrast mode
-
-### Outro
+* allow user to invert foreground and background color
+* change system setting or install some popular chrome extension
 
 ### Course outro
+**It's important to remember that no matter what your product is,
+there's a whole range of user out there, not just the narrow spectrum that we maybe designing for.**
+* How can we have the most impact on users with the least amount of effort?
+  1. How frequently is this piece of UI used? Is it critical or just handy feature?
+  2. How badly does this accessibility issue affect your users? 
+    * is it preventing user from using the app? or it's annoying but can be work around.
+  3. How expensive is it going to be to fix this issue? time and resource constraint

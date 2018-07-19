@@ -33,7 +33,9 @@ const selectionSort = (array) => {
 };
 
 const array = [22, 11, 99, 88, 8, 7, 42];
-
 selectionSort(array);
-
 console.log(`Array after sorting: ${array}`);
+
+const another = [-1, 3, 0, 5, 8];
+selectionSort(another);
+console.log(`Array after sorting: ${another}`);

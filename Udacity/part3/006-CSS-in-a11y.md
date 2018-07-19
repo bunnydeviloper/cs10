@@ -35,4 +35,43 @@ Incorporate CSS styling into your accessible web design and use accessible color
 * if possible, leave the default focus ring behaviour
 * if the ring is clashing with your page styles or ugly then you can make custom focus
 
-### 
+### Input Modality
+* focus behaviour are not consistent accross browsers, so be careful
+* focus behaviour also different between mouse and keyboard input
+
+### Styling with ARIA
+* when u are building components, it's common to reflect the state of the component using CSS classes:
+  ```html
+  <div class="toggle" role="button" aria-labelledby="muteLb1" aria-pressed="false"></div>
+
+  <!-- after user clicked to toggle -->
+  <div class="toggle pressed" role="button" aria-labelledby="muteLb1" aria-pressed="true"></div>
+  ```
+  ```css
+  .toggle.pressed {}
+
+  /* should remove the pressed class and use aria CSS attribute selector instead */
+  .toggle[aria-presssed="true"] {
+    // transition to pressed state
+  }
+  ```
+
+###Responsive design for multi-device
+
+### Mobile screen readers
+
+### Mobile screen readers iOS
+
+### Mobile screen readers Android
+
+### Segue to color and contrast
+
+### Meeting contrast requirements
+
+### Don't convey info with color alone
+
+### High contrast mode
+
+### Outro
+
+### Course outro

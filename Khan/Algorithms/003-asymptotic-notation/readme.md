@@ -23,10 +23,36 @@
 * note: exponential fn a(power)n, where a>1, grows faster than any polynomial fn n(power)b, where b is const
 
 ### Practice: Comparing function growth
-<img src="running-time-graph.PNG" alt="running time graph" width=400 />
+<img src="running-time-graph.PNG" alt="running time graph" />
+* note: running time should be on y axis
+<img src="compare-function-growth.PNG" alt="compare function growth" />
+<img src="match-fn.PNG" alt="match function" />
 
 ### Big-O notation
+* big-O of f(n): once n gets large enough, the running time is at MOST k * f(n) for some const k
+* asymptotic upper bound:
+  * bounds the growth of the running time from above for large enough input sizes
 
 ### Big-Omega notation
+* big-Omega of f(n): n gets large, the running time is at LEAST k * f(n) for some const k
+* asymptotic lower bound:
+  * bounds the growth of the running time from below for large enough input sizes
 
 ### Practice: Asymptotic notation
+* When we find two fn differ by a constant multiplier,
+* then we can always find k to serve as upper bound (big-O) or lower bound (big-Omega)
+  * hence we can find big-Theta
+* question 1:
+  * log(base-8)n is big-O of log(base-2)n
+  * log(base-8)n is big-Omega of log(base-2)n
+  * HENCE: log(base-8)n is big-Theta of log(base-2)n
+* question 2: what are the relationship b/b 8(power)n and 4(power)n?
+  * => 8(power)n is big-Omega of 4(power)n
+* question 3: what are the asymptotic relationship b/w n(power)k and c(power)n?
+  * => n(power)k is big-O of c(power)n
+  * n(power)k is polynomial, c(power)n is exponential fn
+  * polynomials always grow more slowly than exponentials
+* question 4:
+  <img src="practice-question.PNG" alt="practice log question" />
+* question 5:
+  <img src="practice-question5.PNG" alt="practice log question 5" />

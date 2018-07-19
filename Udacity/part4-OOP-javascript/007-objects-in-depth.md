@@ -27,7 +27,28 @@
   ```
 * data within objects are *mutable*
 * use dot notation or square bracket notation to add properties
-* use delete operator to remove properties (`delete bicycle.id`)
+* use delete operator to remove properties (`delete bicycle.id`) // return true
+* Passing arguments:
+  * primitive (string, number, boolean...) are immutable, and limit to the local scope
+  * if you pass an object into a function, JS passes a *reference* to that object
+  ```js
+  let originalObject = { favoriteColor: 'red' };
+  function setToBlue(object) { object.favoriteColor = 'blue'; }
+  setToBlue(originalObject);
+
+  originalObject.favoriteColor; // 'blue'
+  ```
+  * When reassigning an object to a new variable, and then change that copy, the ref. changes too
+  ```js
+  const iceCreamOriginal = { Andrew: 3, Richard: 8 };
+  const iceCreamCopy = iceCreamOriginal;
+  iceCreamCopy.Richard; // 8
+  iceCreamCopy.Richard = 99; // change value of the copied version
+
+  iceCreamCopy.Richard; // 99
+  iceCreamOrignal.Richard; // 99, the original reference changed as well
+
+  ```
 
 ### Invoking object methods
 

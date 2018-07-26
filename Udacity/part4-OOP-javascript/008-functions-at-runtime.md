@@ -40,7 +40,7 @@
   each([-2, 7, 11, -4, -10], isPositive); // 7, 11
   ```
 * Array methods
-  * forEach()
+  * forEach(): modifies the original array and DOES NOT return anything
     ```js
     function logIfOdd(n) { if (n % 2 !== 0) { console.log(n); } }
     logIfOdd(2); // (nothing is logged)
@@ -51,10 +51,32 @@
     // 5
     // 3
     ```
-  * map()
-  * filter()
+  * map(): returns a NEW array based on cb fn's return values
+    ```js
+    const names = ['David', 'Richard', 'Veronika'];
+    const nameLengths = names.map(function(e) { return e.length; });
+    console.log(nameLengths); // [5, 7, 8]
+    ```
+  * filter(): returns a new array with only elements that passed the test in cb fn
+    ```js
+    names.filter(function(e) { return e.length < 6; }); // ['David']
+    ```
 
 ### Scope
+* lexical scope: determine where a variable can be seen in some code (block scope VS fn scope)
+* runtime scope: when a fn is run, it creates a new runtime scope, represents the **context** of fn (= the set of variables available for fn to use)
+* ES6 syntax: use `let` and `const` to declare block-scoped variables, replace the need for `var`
+* Scope chain: local variables > parent's variables > global/window variables
+* Variable shadowing: when you create a var w/ the same name as another var somewhere in scope chain
+  ```js
+  const symbol = '¥';
+  function displayPrice(price) {
+    const symbol = '$'; // variable created in the inner scope will override outer scope
+    console.log(symbol + price);
+  }
+  displayPrice('80'); // '$80'
+  console.log(symbol); // '¥'
+  ```
 
 ### Closure
 

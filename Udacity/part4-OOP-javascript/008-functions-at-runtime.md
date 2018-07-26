@@ -117,6 +117,7 @@
   counter.count; // undefined
   count; // undefined
   ```
+* Gabage collection: when data is no longer referable (when there is no remaining references to that data available for executable code), it is "gabage collected" and will be destroyed at some later point in time to frees up resources (computer memory) to re-use later
 
 ### Immediately-invoked Function Expression
 

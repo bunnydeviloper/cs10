@@ -83,9 +83,38 @@
   };
   triangle.identify(); // 'This is a scalene triangle.'
   ```
+* a value for `this` is set when a method is invoked on an object, refers to that object
+* using `this`, methods can access and manipulate an object's properties
+* `this` is a reserved word in JS
 
 ### Beware of globals
+**How the fn is invoked determines the value of `this` inside the fudntion**
+  * when a *regular* fn is invoked, the value of `this` is the global `window` object
+    ```js
+    const car = {
+      numberOfDoors: 4,
+      drive: function () { console.log(`Get in one of the ${this.numberOfDoors} doors, and let's go!`); }
+    };
+    const letsRoll = car.drive;
+    letsRoll(); // `this` refers to the `window` object
+        ```
+  * when invoked as a method, the value of `this` will refer to the obj **left of the dot**
+    `car.drive();`
+* the `window` object: provided by the browser environment and is globally accessible
+* since `window` obj is at the highest level (global), every var. declaration automatically become a property on the `window` obj
+  ```js
+  var currentFood = "ice cream";
+  window.currentFood === currentFood; // true
+  // only declaring with `var` or function() will add them to the window object, can't use `let` or `const`
+  let currentlyStudy = "objects and methods";
+  window.currentlyStudy === currentlyStudy; // false
+  ```
+* Global variables and functions are NOT ideal b/c:
+  * tight coupling: when pieces of code are joined together where changing one unintentionally alters the functioning of some other code
+  * name collisions: multiple fns will try to update/set the var., but these changes are overridden by each other
 
 ### Extracting properties and values
+* Object.keys()
+* Object.values()
 
 ### Lesson Summary

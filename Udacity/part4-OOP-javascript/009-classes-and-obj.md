@@ -31,10 +31,63 @@
 ### The 'this' keyword
 * `this` refers to "this object" or "the object at hand"
 * the value for `this` is set when a method is invoked on an object
-  * when invoking constructor fn w `new` operator, `this` gets set to the newly-created obj
-  * when calling a fn that belongs to an obj (=method) sets `this` to the obj itself
+  1. when invoking constructor fn w `new` operator, `this` gets set to the newly-created obj
+  2. when calling a fn that belongs to an obj (=method) sets `this` to the obj itself
+  3. when calling a fn on its own will set `this` to `window`, which is the global object
+  4. set `this` ourselves
 
 ### Setting our own 'this'
+* call(the obj to set the value of `this`, receiving fn's args1, receiving fn's args2, ...)
+  * `call()` let you "borrow" a method from one obj and then use it on *another* obj
+  ```js
+  const meBeforeYou = {
+    title: "Me Before You",
+    describe: function () { console.log(`${this.title} is a romantic novel.`); }
+  }
+  function sayHello(name) {
+    console.log(`Hello ${name}, have you read ${this.title} yet?`);
+  }
+  const PSILoveYou = { title: "P/S I Love You" }
+  meBeforeYou.describe.call(PSILoveYou); // P/S I Love You is a romantic novel
+  sayHello.call(meBeforeYou, "Sophia"); // Hello Sophia, have you read Me Before You yet?
+  ```
+* apply(the obj to set the value of `this`, [args1, args2, args3...])
+  * `call()` may be limited if you don't know ahead of time the # of args that the fn needs
+  * `apply()` can unpacks multiples args and apply one by one (performance will be a little slower)
+
+* bind():
+  * NOTE:
+    1. `call()` and `apply()` invoke a fn, whereas `bind()` returns a new fn with `this` bound to a specific obj
+    2. `bind()` is a method that is called on a function, passing in the object as argument
+  * **callbacks** and `this`
+    ```js
+    function invokeTwice(cb) {
+       cb();
+       cb();
+    }
+    const dog = {
+      age: 5,
+      growOneYear: function () {
+        this.age += 1;
+      }
+    };
+    dog.growOneYear();
+    console.log(dog.age); // 6
+
+    // PROBLEM:
+    invokeTwice(dog.growOneYear); // note: growOneYear is invoked as a fn, rather than a method
+    // hence `this` loses reference to the dog object and `this` is now the global `window` obj
+    console.log(dog.age); // 6
+
+    // FIX: use anonymous closure to close over the `dog` obj
+    invokeTwice(function () { dog.growOneYear(); });
+    console.log(dog.age); // 8, increase from 6 to 8
+
+    // FIX: use bind()
+    const myGrow = dog.growOneYear.bind(dog);
+    invokeTwice(myGrow);
+    console.log(dog.age); // 10
+    ```
 
 ### Prototypal inheritance: subclasses
 

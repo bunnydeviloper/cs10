@@ -119,6 +119,52 @@
   ```
 * Gabage collection: when data is no longer referable (when there is no remaining references to that data available for executable code), it is "gabage collected" and will be destroyed at some later point in time to frees up resources (computer memory) to re-use later
 
-### Immediately-invoked Function Expression
+### Immediately-invoked Function Expression (IIFE)
+* Function declaration VS function expression
+  * Declarartion: doesn't require a var to be assigned to it, doesn't return a value
+  * Expression: commonly assigned to var (but not needed), does return a value, can be anynomous or named
+  ```js
+  function sayHi() { return 'Hi!'; } // declaration
+
+  (function sayHi() { return 'Hi!'; }) // expression
+  (function sayHi() { return 'Hi!'; })() // expression, IIFE
+  (function sayHi() { return 'Hi!'; }()) // expression, IIFE, alternative way to write
+  (function sayHi(name) { return `Hi ${name}!`; })('Sophia') // expression, IIFE, pass argument
+
+  const sayHi = function () { return 'Hi!'; } // expression, assigned to var, anonymous
+  const sayHi = function sayHi() { return 'Hi!'; } // expression, assigned to var, named
+  ```
+* IIFE's and private scope (private state)
+  ```js
+  const myFunction = (
+    function () {
+      const hi = 'Hi!';
+      return function () { console.log(hi); }
+    }
+  )();
+  ```
+* enclose IIFE and private scope within the event handler itself
+  ```js
+  button.addEventListener('click', (function() {
+    // instead of global var, containing count in a closure allows retain data from each click
+    let count = 0;
+    return function() {
+      count += 1;
+      if (count === 2) {
+        alert('This alert appears every other press!');
+        count = 0;
+      }
+    };
+  })());
+  ```
+* NOTE: IIFE is only intended to be invoked once, to create a unique execution context
+* If you have one-time task (click, initializing app), an IIFE is great b/c you don't pollute your global env.
+* Quiz: What is the return value? ==> return 2, delete operator only works on object's properties
+  ```js
+  (function(n){
+    delete n;
+    return n;
+  })(2);
+  ```
 
 ### Lesson summary

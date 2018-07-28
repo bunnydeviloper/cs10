@@ -148,6 +148,25 @@
   ```
 
 ### Prototypal inheritance: subclasses
+* secret link: *__proto__* property, which is a property of all objects, made by constructor fn, points directly to the constructor's prototype object
+  ```js
+  const bear = {
+    claws: true,
+    diet: 'carnivore'
+  }
+  function PolarBear() {}
+  PolarBear.prototype = bear;
+  const snowball = new PolarBear();
+  snowball.color = 'white';
+  snowball.favoriteDrink = 'cola';
+
+  console.log(snowball); // { color: 'white', favoriteDrink: 'cola' }
+  console.log(snowball.claws); // true, this property is inherited
+  console.log(snowball.diet); // 'carnivore', also inherited
+
+  console.log(snowball.__proto__); // { claws: true, diet: 'carnivore' }
+  console.log(snowball.__proto__ === bear); // true
+  ```
 
 
 ### Lesson Summary

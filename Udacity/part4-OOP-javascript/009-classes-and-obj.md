@@ -183,7 +183,11 @@
   3. instanceObj.__proto__ points to ConstructorFn.prototype, hence search in the prototype
   4. If found, return, and then invoke the method
   5. The value of `this` is set to instanceObj
-  
+* NOTE about Object.create():
+  * It returns a new object whose `__proto__` property is set to the object pased into `Object.create()`
+  * using `Object.create()`, we can have objects inherit from just about any object we want (not only the `prototype`)
+  * `Object.create()` allows us to implement prototypal inheritance without mutating the prototype
+* **subclass** means creating a "child" object that inherits most or all of a "parent" object's properties and methods. Then we can implement child's unique properties and methods separately, while still retaining data and functionality from its parents
 
 ### Lesson Summary
 

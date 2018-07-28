@@ -116,12 +116,12 @@
     color: "brown",
   }
   console.log(dog1.color); // undefined
-  console.log(dog1.name); // "Java"
+  console.log(dog1.bark); // [Function]
 
   // any new Dog objects created moving forward will use the updated prototype
   const husky = new Dog(3, 50, 'Tony');
-  console.log(husky.name); // "Tony"
   console.log(husky.color); // "brown"
+  console.log(husky.bark); // undefined
 
   ```
 

@@ -122,8 +122,19 @@
   const husky = new Dog(3, 50, 'Tony');
   console.log(husky.color); // "brown"
   console.log(husky.bark); // undefined
-
   ```
+* hasOwnProperty('property name'): allows you to check whether the property was owned or inherited, returns true/false
+* isPrototypeOf(): check whether an object exists in another object's prototype chain
+  ```js
+  // continue from code above
+  const own = husky.hasOwnProperty('name');
+  console.log(own); // true
+  const inherited = husky.hasOwnProperty('color');
+  console.log(inherited); // false
+  const inherited2 = husky.isProtoypeOf('color');
+  console.log(inherited2); // true
+  ```
+
 
 ### Lesson Summary
 

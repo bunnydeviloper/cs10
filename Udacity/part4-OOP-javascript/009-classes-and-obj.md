@@ -111,10 +111,12 @@
   dog2.bark(); // Jodi says woof!
 
   // if you replace the prototype object with something else entirely, the intances retain old link and do not have access to the updated prototype's properties
-  Dog.prototype = {
+  const replaceProperties = {
     isHungry: false,
     color: "brown",
   }
+  Dog.prototype = replaceProperties;
+
   console.log(dog1.color); // undefined
   console.log(dog1.bark); // [Function]
 
@@ -126,17 +128,25 @@
 * hasOwnProperty('property name'): allows you to check whether the property was owned or inherited, returns true/false
 * isPrototypeOf(): check whether an object exists in another object's prototype chain
 * Object.getPrototypeOf(): get all prototype properties
+* the `constructor` property: returns a reference to the constructor fn that created that obj in the 1st place
   ```js
   // continue from code above
   const own = husky.hasOwnProperty('name');
   console.log(own); // true
+
   const inherited = husky.hasOwnProperty('color');
   console.log(inherited); // false
-  const inherited2 = husky.isProtoypeOf('color');
-  console.log(inherited2); // true
+
+  const result = replaceProperties.isProtoypeOf(husky);
+  console.log(result); // true
+
   const myPrototype = Object.getPrototypeOf(husky);
-  console.log(myPrototype); //
+  console.log(myPrototype); // { isHungry: false, color: 'brown' } // note: doesn't return the constructor
+
+  console.log(husky.constructor); // function Dog (age, weight, name) { this.age = age ...}
+  console.log(replaceProperties.constructor); // function Object() { [native code] }
   ```
+
 
 
 

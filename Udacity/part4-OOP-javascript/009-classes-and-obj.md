@@ -99,14 +99,30 @@
     this.name = name;
   }
   // instead of defining bark method inside constructor fn, we move it outside and link to prototype chain
+  // by adding methods to the prototype, memory is saved as more instances are created
+  // along with being more efficient, we don't have to update all "children" objects (instances) individually
   Dog.prototype.bark = function () {
       console.log(`${this.name} says woof!`);
   };
 
-  dog1 = new Dog(2, 60, 'Java');
-  dog2 = new Dog(4, 55, 'Jodi');
+  const dog1 = new Dog(2, 60, 'Java');
+  const dog2 = new Dog(4, 55, 'Jodi');
   dog1.bark(); // Java says woof! // Note: we don't need to use dog1.prototype.bark();
   dog2.bark(); // Jodi says woof!
+
+  // if you replace the prototype object with something else entirely, the intances retain old link and do not have access to the updated prototype's properties
+  Dog.prototype = {
+    isHungry: false,
+    color: "brown",
+  }
+  console.log(dog1.color); // undefined
+  console.log(dog1.name); // "Java"
+
+  // any new Dog objects created moving forward will use the updated prototype
+  const husky = new Dog(3, 50, 'Tony');
+  console.log(husky.name); // "Tony"
+  console.log(husky.color); // "brown"
+
   ```
 
 ### Lesson Summary

@@ -125,6 +125,7 @@
   ```
 * hasOwnProperty('property name'): allows you to check whether the property was owned or inherited, returns true/false
 * isPrototypeOf(): check whether an object exists in another object's prototype chain
+* Object.getPrototypeOf(): get all prototype properties
   ```js
   // continue from code above
   const own = husky.hasOwnProperty('name');
@@ -133,7 +134,10 @@
   console.log(inherited); // false
   const inherited2 = husky.isProtoypeOf('color');
   console.log(inherited2); // true
+  const myPrototype = Object.getPrototypeOf(husky);
+  console.log(myPrototype); //
   ```
+
 
 
 ### Lesson Summary

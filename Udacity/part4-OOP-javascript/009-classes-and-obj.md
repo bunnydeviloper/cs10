@@ -149,6 +149,7 @@
 
 ### Prototypal inheritance: subclasses
 * secret link: *__proto__* property, which is a property of all objects, made by constructor fn, points directly to the constructor's prototype object
+* `Object.create()`: takes a single object as arg, and return a new obj with similar `__proto__`
   ```js
   const bear = {
     claws: true,
@@ -168,6 +169,11 @@
   console.log(snowball.__proto__ === bear); // true
   console.log(snowball.__proto__ === PolarBear.prototype); // true
   console.log(snowball.__proto__ === Object.getPrototypeOf(snowball)); // true
+
+  const panda = Object.create(snowball);
+  console.log(panda); // {}, panda extends snowball (panda inherits from snowball)
+  console.log(panda.claws); // true, this is possible thanks to __proto__
+  console.log(panda.diet); // 'carnivore', panda can access snowball's properties as if it were its own
   ```
 * NOTE: you should NOT use `__proto__` to manage inheritance
 * ALSO: Child.prototype and Parent.prototype refer to the same object, which means any changes you make to Child's prototype will also be made to Parent's prototype (we don't want children to be able to modify properties of their parents) ==> DONT use `Child.prototype = Parent.prototype;` // no prototype chain will be set up
@@ -177,7 +183,7 @@
   3. instanceObj.__proto__ points to ConstructorFn.prototype, hence search in the prototype
   4. If found, return, and then invoke the method
   5. The value of `this` is set to instanceObj
-
+  
 
 ### Lesson Summary
 

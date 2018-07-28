@@ -90,6 +90,24 @@
     ```
 
 ### Prototypal inheritance: subclasses
+* Prototype chain
+* Example:
+  ```js
+  function Dog(age, weight, name) {
+    this.age = age;
+    this.weight = weight;
+    this.name = name;
+  }
+  // instead of defining bark method inside constructor fn, we move it outside and link to prototype chain
+  Dog.prototype.bark = function () {
+      console.log(`${this.name} says woof!`);
+  };
+
+  dog1 = new Dog(2, 60, 'Java');
+  dog2 = new Dog(4, 55, 'Jodi');
+  dog1.bark(); // Java says woof! // Note: we don't need to use dog1.prototype.bark();
+  dog2.bark(); // Jodi says woof!
+  ```
 
 ### Lesson Summary
 

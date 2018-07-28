@@ -166,7 +166,17 @@
 
   console.log(snowball.__proto__); // { claws: true, diet: 'carnivore' }
   console.log(snowball.__proto__ === bear); // true
+  console.log(snowball.__proto__ === PolarBear.prototype); // true
+  console.log(snowball.__proto__ === Object.getPrototypeOf(snowball)); // true
   ```
+* NOTE: you should NOT use `__proto__` to manage inheritance
+* ALSO: Child.prototype and Parent.prototype refer to the same object, which means any changes you make to Child's prototype will also be made to Parent's prototype (we don't want children to be able to modify properties of their parents) ==> DONT use `Child.prototype = Parent.prototype;` // no prototype chain will be set up
+* PROCESS:
+  1. JS engine searches inside the instanceObj
+  2. If not found, then move to search the intanceObj.__proto__ property
+  3. instanceObj.__proto__ points to ConstructorFn.prototype, hence search in the prototype
+  4. If found, return, and then invoke the method
+  5. The value of `this` is set to instanceObj
 
 
 ### Lesson Summary

@@ -89,7 +89,7 @@
     console.log(dog.age); // 10
     ```
 
-### Prototypal inheritance: subclasses
+### Prototypal inheritance:
 * Prototype chain
 * Example:
   ```js
@@ -147,7 +147,7 @@
   console.log(replaceProperties.constructor); // function Object() { [native code] }
   ```
 
-
+### Prototypal inheritance: subclasses
 
 
 ### Lesson Summary

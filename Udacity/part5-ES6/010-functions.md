@@ -32,6 +32,38 @@
 * With arrow fn: the value of `this` is based on the *function's surrounding context*
   * which means the value of `this` inside the => fn is the same as outside the => fn
 * 
+```js
+// constructor
+function IceCream() { this.scoops = 0; }
+
+// adds scoop to ice cream
+IceCream.prototype.addScoop = function() {
+  setTimeout(function() {
+    this.scoops++; // 'this' is passed in setTimeout without a context
+    console.log('scoop added!');
+  }, 500);
+};
+
+const dessert = new IceCream();
+dessert.addScoop();
+
+console.log(dessert.scoops); // 0, the value of `this` is actually global object and NOT dessert object
+console.log(scoops); // NaN, b/c 'undefined' + 1 is NaN
+
+// FIX: use closure
+IceCream.prototype.addScoopFix = function() {
+  const cone = this; // sets `this` to the `cone` variable
+  setTimeout(function() {
+    cone.scoops++; // references the `cone` variable
+    console.log('scoop added!');
+  }, 0.5);
+};
+
+console.log(dessert.scoops); // 1
+console.log(scoops); // 1
+
+
+```
 
 ### Default function parameters
 

@@ -1,3 +1,4 @@
+// ----------------------------------------- Class constructor with ES6 new syntax
 class Dessert {
   constructor(eat = false, calories = 0, flavor, color = { chocolate: "brown", vanila: "white", cherry: "pink" }) {
     this.eat = eat;
@@ -25,7 +26,7 @@ class Dessert {
 // when creating a new intance of JS class, the `new` keyword must be used
 const myDessert = new Dessert();
 // const herDessert = Dessert(); // ERROR!
-console.log(myDessert);
+console.log('---Constructor with class syntax--- ', myDessert);
 
 // ----------------------------------------- ES5 equivalent
 
@@ -45,7 +46,10 @@ ES5Dessert.prototype.buyIceCream = function(type) {
   this.flavor = type;
 }
 
-// ----------------------------------------- subclass
+const myES5Dessert = new ES5Dessert();
+console.log('---Constructor with ES5 equivalent--- ', myES5Dessert);
+
+// ----------------------------------------- subclass with new ES6 syntax
 
 // IceCream is a subclass of Dessert
 class IceCream extends Dessert {
@@ -71,8 +75,9 @@ class IceCream extends Dessert {
 const myIceCream = new IceCream(); // you can pass values into args or not
 myIceCream.buyIceCream('cherry');
 myIceCream.addTopping('kitkat pieces');
-console.log(myIceCream);
+console.log('--- subclass IceCream with ES6 syntax --- ', myIceCream);
 myIceCream.buyIceCream('chocolate');
-console.log(myIceCream);
+console.log('--- buy another ice cream, ES6 syntax --- ', myIceCream);
 
 // ----------------------------------------- ES5 equivalent (subclass)
+

@@ -90,6 +90,26 @@
   ```
 
 ### Defaults and destructuring
+* combine default fn parameters with destructuring
+  ```js
+  function createGrid([width = 5, height = 5]) { return `Generates a ${width} x ${height} grid`; }
+  createGrid([]); // Generates a 5 x 5 grid
+  createGrid([2]); // Generates a 2 x 5 grid
+  createGrid([2, 3]); // Generates a 2 x 3 grid
+  createGrid([undefined, 3]); // Generates a 5 x 3 grid
+
+  // createGrid(); // ERROR!
+  function createGrid2([width = 5, height = 5] = []) { return `Generates a ${width} x ${height} grid`; }
+  createGrid2(); // WORKS!, leverage the use of default parameters
+
+  function house([houseColor = 'green', shutterColors = ['red']]) {
+    return `I have a ${houseColor} house with ${shutterColors.join(' and ')} shutters`;
+  }
+  // house('red', []); // not work, since house() only expect 1 parameter
+  house(['green', ['white', 'pink']]); // I have a green house with white and pink shutters
+  // house(['blue', 'purple']); // not work, since the 2nd param uses .join() and can only be used on array
+  house(['blue']); // I have a blue house with red shutters
+  ```
 
 ### Quiz
 

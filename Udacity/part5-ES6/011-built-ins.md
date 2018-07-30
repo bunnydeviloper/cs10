@@ -68,6 +68,9 @@
 
 ### Sets
 * a set is an object that lets you store unique items, you can add/remove items, and loop over set
+  * `{ 1, 'Lobster', true, false, '1' }`
+
+### Modifying sets
 * the biggest different between a set and an array are:
   * sets are not indexed-based
   * items in a set can't be accessed individually
@@ -78,35 +81,100 @@
   console.log(games); // Set {'Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart'}
   // note, the 'Super Mario Bros.' was duplicate so it was removed
 
-  games.add('Banjo-Tooie');
+  games.add('Banjo-Tooie'); // add() returns the Set if it was successfully added
   games.add('Age of Empires');
-  games.delete('Super Mario Bros.');
+  games.delete('Super Mario Bros.'); // delete() returns Boolean ('true' or 'false')
 
-  console.log(games); // new Set {'Banjo-Tooie', 'Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart'}
+  console.log(games); // new Set {'Banjo-Kazooie', 'Mario Kart', 'Banjo-Tooie', 'Age of Enpires'}
+
+  // to delete all items from a Set
+  games.clear();
+  console.log(game); // new Set {}
+
+  // if you try to '.add()' duplicate item, there's no eror, but it won't be added
+  // if you try to '.delete()' item not in Set, there's no eror, and the Set remain unchanged
   ```
-  * Example of a set (items have to be unique):
-    * `{ 1, 'Lobster', true, false, '1' }`
-    * `{}`
 
-
-### Modifying sets
 ### Working with sets
-### Sets * Iterators
+### Sets & Iterators (loop)
+* `.size` property returns the number of items in a Set
+* `.has()` method check if an item exists in a Set (boolean)
+* `.value()` method return all values in a Set
+* `.keys()` method is an alias for the `.value()` method
+  ```js
+  const months = new Set(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
+
+  console.log(months.size); // 12, note: can't use '.length'
+  console.log(months.has('September')); // true
+  console.log(months.values()); // SetIterator {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'}
+
+  const iterator = months.value();
+  iterator.next(); // Objects {value: 'January', done: false}
+  iterator.next(); // Objects {value: 'February', done: false}
+  // when 'done' equals 'true', that's the end of the Set
+
+  // iterate using 'for... of' loop
+  for (const eachMonth of months) { console.log(eachMonth); }
+
+  ```
+const myFavoriteFlavors = new Set();
+myFavoriteFlavors.add("chocolate chip");
+myFavoriteFlavors.add("cookies and cream");
+myFavoriteFlavors.add("strawberry");
+myFavoriteFlavors.add("vanilla");
+myFavoriteFlavors.delete("strawberry");
+
+
+
 ### Quiz: using sets
+
+
 ### Weaksets
+
+
 ### Quiz: Working with weakSets
+
+
 ### Maps
+
+
 ### Creating & Modifying Maps
+
+
 ### Working with Maps
+
+
 ### Looping Through Maps
+
+
 ### WeakMaps
+
+
 ### Promises Intro
+
+
 ### Promises
+
+
 ### Proxies Intro
+
+
 ### Proxies
+
+
 ### Proxies vs. ES5 Getter/Setter
+
+
 ### Proxies Recap
+
+
 ### Generators
+
+
 ### Generators & Iterators
+
+
 ### Sending Data Into/out of a Gen...
+
+
 ### Lesson 3 Summary

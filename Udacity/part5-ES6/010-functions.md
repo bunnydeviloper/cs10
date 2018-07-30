@@ -136,3 +136,29 @@
   * => better to use object with destructuring
 
 ### Quiz
+
+### Class Preview
+* JavaScript is not a class-based language, it uses fns to create objects and links objects together by prototypal inheritance (JS classes are just a thin layer over regular fns and prototypal inheritance)
+
+### JavaScript's Illusion of classes
+* Class is JUST a function under the hood
+
+### JavaScript classes
+### Convert a function to a class
+### Working with JavaScript Classes
+* see `exercise.js`
+
+### Super and Extends
+* see `exercise.js`
+
+### Extending classes from ES5 to ES6
+* the new syntax is significantly less set up code and a lot cleaner
+* make sure to review the exercise comparisons
+
+### Working with JavaScript subclass
+* NOTE: `super` must be call before `this`, else will throw ERROR
+  * in a subclass constructor fn, before `this` can be used, a call the the super class must be made
+
+### Quiz
+
+### Lesson 2 summary

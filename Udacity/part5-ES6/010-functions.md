@@ -31,51 +31,51 @@
 * With regular fn: the value of `this` is set based on *how the fn is called*
 * With arrow fn: the value of `this` is based on the *function's surrounding context*
   * which means the value of `this` inside the => fn is the same as outside the => fn
-* 
-```js
-// constructor
-function IceCream() { this.scoops = 0; }
+* Example:
+  ```js
+  // constructor
+  function IceCream() { this.scoops = 0; }
 
-// adds scoop to ice cream
-IceCream.prototype.addScoop = function() {
-  setTimeout(function() {
-    this.scoops++; // 'this' is passed in setTimeout without a context
-    console.log('5th log: ', this.scoops); // NaN, b/c 'undefined' + 1 is NaN
-    console.log('6th log: scoop cannot be added!');
-  }, 500);
-};
+  // adds scoop to ice cream
+  IceCream.prototype.addScoop = function() {
+    setTimeout(function() {
+      this.scoops++; // 'this' is passed in setTimeout without a context
+      console.log('5th log: ', this.scoops); // NaN, b/c 'undefined' + 1 is NaN
+      console.log('6th log: scoop cannot be added!');
+    }, 500);
+  };
 
-const dessert = new IceCream();
-dessert.addScoop();
+  const dessert = new IceCream();
+  dessert.addScoop();
 
-console.log('1st log: ', dessert.scoops); // 0, always 0 b/c async, will be diff if u run in steps (dev tool)
+  console.log('1st log: ', dessert.scoops); // 0, always 0 b/c async, will be diff if u run in steps (dev tool)
 
-// FIX: use closure
-IceCream.prototype.fixAddScoop = function() {
-  const cone = this; // sets `this` to the `cone` variable
-  setTimeout(function() {
-    cone.scoops++; // references the `cone` variable
-    console.log('3rd log: ', cone.scoops); // 1
-    console.log('4th log: first scoop added!');
-  }, 0.5);
-};
+  // FIX: use closure
+  IceCream.prototype.fixAddScoop = function() {
+    const cone = this; // sets `this` to the `cone` variable
+    setTimeout(function() {
+      cone.scoops++; // references the `cone` variable
+      console.log('3rd log: ', cone.scoops); // 1
+      console.log('4th log: first scoop added!');
+    }, 0.5);
+  };
 
-dessert.fixAddScoop();
-console.log('2nd log: ', dessert.scoops); // 0, always 0 b/c async, will be 1 if u run in steps (dev tool)
+  dessert.fixAddScoop();
+  console.log('2nd log: ', dessert.scoops); // 0, always 0 b/c async, will be 1 if u run in steps (dev tool)
 
-// FIX: use arrow function
-// note: CANNOT use arrow fn on the arrowAddScoop method b/c the value of 'this' will become global object
-IceCream.prototype.arrowAddScoop = function() {
-  setTimeout(() => { // arrow fn uses surrounding context to determine what 'this' referes to
-    this.scoops++; // since 'this' outside the => fn refers to 'dessert', hence 'this' inside the => fn will be same
-    console.log('7th log: ', this.scoops); // 2, now it's kept the context
-    console.log('8th log: second scoop added!');
-  }, 500);
-};
+  // FIX: use arrow function
+  // note: CANNOT use arrow fn on the arrowAddScoop method b/c the value of 'this' will become global object
+  IceCream.prototype.arrowAddScoop = function() {
+    setTimeout(() => { // arrow fn uses surrounding context to determine what 'this' referes to
+      this.scoops++; // since 'this' outside the => fn refers to 'dessert', hence 'this' inside the => fn will be same
+      console.log('7th log: ', this.scoops); // 2, now it's kept the context
+      console.log('8th log: second scoop added!');
+    }, 500);
+  };
 
-dessert.arrowAddScoop();
-console.log('8nd log: ', dessert.scoops); // 0, always 0 b/c async, will be 2 if u run in steps (dev tool)
-```
+  dessert.arrowAddScoop();
+  console.log('8nd log: ', dessert.scoops); // 0, always 0 b/c async, will be 2 if u run in steps (dev tool)
+  ```
 
 ### Default function parameters
 

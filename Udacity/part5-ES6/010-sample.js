@@ -59,7 +59,10 @@ function OldMaple (syrupQty, size, leaves) {
   this.syrupQty = (typeof syrupQty === "undefined")? 15 : syrupQty;
 }
 
+// to establish subclass connection, we've to set the fn's prototype to the base classes prototype
 OldMaple.prototype = Object.create(Tree.prototype);
+// since we have overwritten the original prototype object, we need to remake the connection
+// between the constructor property and the original constructor function
 OldMaple.prototype.constructor = Maple;
 
 OldMaple.prototype.changeSeason = function(season) {

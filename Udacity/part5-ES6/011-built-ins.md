@@ -67,6 +67,28 @@
     ```
 
 ### Sets
+* a set is an object that lets you store unique items, you can add/remove items, and loop over set
+* the biggest different between a set and an array are:
+  * sets are not indexed-based
+  * items in a set can't be accessed individually
+  ```js
+  const game = new Set(); // create an empty Set 'games' with no items
+  console.log(games); // Set {}
+  const games = new Set(['Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart', 'Super Mario Bros.']);
+  console.log(games); // Set {'Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart'}
+  // note, the 'Super Mario Bros.' was duplicate so it was removed
+
+  games.add('Banjo-Tooie');
+  games.add('Age of Empires');
+  games.delete('Super Mario Bros.');
+
+  console.log(games); // new Set {'Banjo-Tooie', 'Super Mario Bros.', 'Banjo-Kazooie', 'Mario Kart'}
+  ```
+  * Example of a set (items have to be unique):
+    * `{ 1, 'Lobster', true, false, '1' }`
+    * `{}`
+
+
 ### Modifying sets
 ### Working with sets
 ### Sets * Iterators

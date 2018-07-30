@@ -1,6 +1,6 @@
 // ----------------------------------------- Class constructor with ES6 new syntax
 class Dessert {
-  constructor(eat = false, calories = 0, flavor, color = { chocolate: "brown", vanila: "white", cherry: "pink" }) {
+  constructor(eat = false, calories = 0, flavor, color = { chocolate: "brown", vanilla: "white", cherry: "pink" }) {
     this.eat = eat;
     this.calories = calories;
     this.flavor = flavor;
@@ -16,6 +16,7 @@ class Dessert {
 
   // add a regular method:
   buyIceCream(type) {
+    if (!this.color[type]) console.log(`Sorry we do not have ${type} flavor.`);
     this.eat = true;
     this.calories = 250;
     this.coneColor = this.color[type];
@@ -34,15 +35,16 @@ function ES5Dessert (eat, calories, flavor, color) {
   this.eat = false;
   this.calories = (typeof calories === "undefined") ? 0 : calories;
   this.flavor = flavor;
-  const defaultColor = { chocolate: "brown", vanila: "white", cherry: "pink" };
+  const defaultColor = { chocolate: "brown", vanilla: "white", cherry: "pink" };
   this.color = defaultColor;
   this.coneColor;
 }
 
 ES5Dessert.prototype.buyIceCream = function(type) {
+  if (!this.color[type]) console.log(`Sorry we do not have ${type} flavor.`);
   this.eat = true;
   this.calories = 250;
-  this.coneColor = this.color(type);
+  this.coneColor = this.color[type];
   this.flavor = type;
 }
 
@@ -78,6 +80,35 @@ myIceCream.addTopping('kitkat pieces');
 console.log('--- subclass IceCream with ES6 syntax --- ', myIceCream);
 myIceCream.buyIceCream('chocolate');
 console.log('--- buy another ice cream, ES6 syntax --- ', myIceCream);
+myIceCream.buyIceCream('hazelnut'); // no flavor
 
 // ----------------------------------------- ES5 equivalent (subclass)
+function ES5IceCream (color, flavor, eat, calories, promotion, toppings = []) {
+  ES5Dessert.call(this, eat, calories, flavor, color);
+  this.promotion = false;
+  this.toppings = toppings;
+}
 
+ES5IceCream.prototype = Object.create(Dessert.prototype);
+ES5IceCream.prototype.constructor = ES5IceCream;
+
+ES5IceCream.prototype.buyIceCream = function(type) {
+  ES5Dessert.prototype.buyIceCream.call(this, type);
+  if (type === 'cherry') this.promotion = true;
+  this.toppings = [];
+}
+
+ES5IceCream.prototype.addTopping = function(topping) {
+  //ES5Dessert.prototype.addTopping.call(this, topping);
+  this.toppings.push(topping);
+}
+
+const myES5IceCream = new ES5IceCream();
+myES5IceCream.buyIceCream('vanilla');
+myES5IceCream.addTopping('gummy bears');
+console.log('---subclass with old syntax--- ', myES5IceCream);
+myES5IceCream.buyIceCream('cherry');
+myES5IceCream.addTopping('dark coco bits');
+myES5IceCream.addTopping('mixed crumble nuts');
+console.log('---subclass with old syntax--- ', myES5IceCream);
+myIceCream.buyIceCream('hazelnut'); // no flavor

@@ -40,27 +40,28 @@ function IceCream() { this.scoops = 0; }
 IceCream.prototype.addScoop = function() {
   setTimeout(function() {
     this.scoops++; // 'this' is passed in setTimeout without a context
-    console.log('scoop added!');
+    console.log('5th log: ', this.scoops); // NaN, b/c 'undefined' + 1 is NaN
+    console.log('6th log: scoop cannot be added!');
   }, 500);
 };
 
 const dessert = new IceCream();
 dessert.addScoop();
 
-console.log(dessert.scoops); // 0, the value of `this` is actually global object and NOT dessert object
-console.log(scoops); // NaN, b/c 'undefined' + 1 is NaN
+console.log('1st log: ', dessert.scoops); // 0
 
 // FIX: use closure
-IceCream.prototype.addScoopFix = function() {
+IceCream.prototype.fixAddScoop = function() {
   const cone = this; // sets `this` to the `cone` variable
   setTimeout(function() {
     cone.scoops++; // references the `cone` variable
-    console.log('scoop added!');
+    console.log('3rd log: ', cone.scoops); // 1
+    console.log('4th log: scoop added!');
   }, 0.5);
 };
 
-console.log(dessert.scoops); // 1
-console.log(scoops); // 1
+dessert.fixAddScoop();
+console.log('2nd log: ', dessert.scoops); // 0
 
 
 ```

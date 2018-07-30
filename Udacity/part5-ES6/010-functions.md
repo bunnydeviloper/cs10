@@ -109,7 +109,31 @@
   house(['green', ['white', 'pink']]); // I have a green house with white and pink shutters
   // house(['blue', 'purple']); // not work, since the 2nd param uses .join() and can only be used on array
   house(['blue']); // I have a blue house with red shutters
+  house([undefined, ['orange']]); // I have a green house with orange shutters // notice skipped 1st param
   ```
+* defaults and destructuring objects
+  ```js
+  function createSundae({scoops = 1, toppings = ['Hot Fudge']}) { // notice using = instead of :
+    const scoopText = scoops === 1 ? 'scoop' : 'scoops';
+    return `Your sundae has ${scoops} ${scoopText} with ${toppings.join(' and ')} toppings.`;
+  }
+
+  createSundae({}); // Your sundae has 1 scoop with Hot Fudge toppings.
+  createSundae({scoops: 2}); // Your sundae has 2 scoops with Hot Fudge toppings.
+  createSundae({scoops: 2, toppings: ['Sprinkles']}); // Your sundae has 2 scoops with Sprinkles toppings.
+  createSundae({toppings: ['Cookie Dough']}); // Your sundae has 1 scoop with Cookie Dough toppings.
+
+  // createSundae(); // ERROR!
+  // you can fix the issue by providing a default object to the function
+  // function createSundae({scoops = 1, toppings = ['Hot Fudge']} = {}) {
+  // createSundae(); // Your sundae has 1 scoop with Hot Fudge toppings.
+  // createSundae({}); // this will also works
+  // createSundae({ toppings: ['Sprinkles', 'Caramel']}); // skipped first arg, and still works
+  ```
+* one benefit of object defaults over array defaults is how they handle skipped options
+  * array: have to pass `undefined` to "skip" over the 1st arg (& accept default)
+  * object: just need to specify the key
+  * => better to use object with destructuring
 
 ### Quiz
 

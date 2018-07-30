@@ -78,6 +78,16 @@
   ```
 
 ### Default function parameters
+* default fn parameters: use as arguments if none provided
+  ```js
+  function greet(name = 'Student', greeting = 'Welcome') {
+    return `${greeting} ${name}!`;
+  }
+
+  greet(); // Welcome Student!
+  greet('James'); // Welcome James!
+  greet('Richard', 'Howdy'); // Howdy Richard!
+  ```
 
 ### Defaults and destructuring
 

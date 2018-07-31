@@ -13,8 +13,10 @@
 ### Quiz: core qualities of a great builder
 ### Getting started with Gulp
 ### Instal Gulp
-
 ### Hello Gulp
+* every build project starts with aulp file, this file sits in the root dir of your project and defines all the tasks that you should execute when running Gulp
+* see gulpfile.js
+
 ### Grunt tasks VS Gulp Streams
 ### Making CSS suck less
 ### Using Gulp

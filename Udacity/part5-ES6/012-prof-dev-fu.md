@@ -2,9 +2,12 @@
 
 ### The Web is Growing Up
 ### Old and New Browsers
-### ES6 Specification
+* HTML, CSS, and JS are fluid and always improving, browsers makers have to keep up with changes
+
+### ES6 Specification [here](http://www.ecma-international.org/ecma-262/6.0/index.html)
 ### Supported Features
 ### The Web is Eternal
+
 ### Polyfills
 ### Using Polyfills
 ### Polyfill Walkthrough

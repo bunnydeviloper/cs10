@@ -2,7 +2,7 @@
 # Lesson 14 - Introduction to web tooling and automation
 
 ### Course Intro
-* Introduction to using web tools such as Sass, Gulp, Sublime, Angular
+* Introduction to using web tools such as Sass, Gulp, Sublime, Auto-prefixer
 
 ### Quiz: cost effectiveness
 * Which of the following optimizations are worth doing considering time and risk?

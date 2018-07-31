@@ -15,10 +15,12 @@
 ### Instal Gulp
 ### Hello Gulp
 * every build project starts with aulp file, this file sits in the root dir of your project and defines all the tasks that you should execute when running Gulp
-* see gulpfile.js
+* see 016-gulp/
 
 ### Grunt tasks VS Gulp Streams
-### Making CSS suck less
+* Gulp converts your input file into an in memory stream so the I/O is only done initially, and at the very end of all task, hence makes it super fast
+
+### Making CSS suck less (use SASS)
 ### Using Gulp
 ### Using Gulp 2
 ### Quiz: now it's your turn

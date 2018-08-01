@@ -11,6 +11,7 @@ var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
 var jasmine = require('gulp-jasmine-phantom');
 
+// when you execute 'gulp' in the terminal, it will first run the default tas, then the styles, then lint
 gulp.task('default', ['styles', 'lint'], function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['lint']);

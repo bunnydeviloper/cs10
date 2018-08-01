@@ -7,8 +7,9 @@ gulp.task('default', function() {
 });
 
 gulp.task('styles', function() {
+  // tell gulp what files we want to work with: look in sass folder (and any sub directories) with files ending in *.scss
 	gulp.src('sass/**/*.scss')
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass().on('error', sass.logError)) // must have error fn
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))

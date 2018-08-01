@@ -33,9 +33,17 @@
 ### Using Gulp
 * `npm install gulp-sass`
 * `npm install gulp-autoprefixer`
+* when you run 'gulp styles' in your terminal, gulp will convert the sass files and return it to your css folder
 
 ### Using Gulp 2
 ### Quiz: now it's your turn
 ### Using Gulp
+* gulp comes with a feature called watch, which is an automatic trigger that waits for something to change
+
 ### Quiz: watching SCSS Files for changes
+```js
+gulp.task('default', ['styles'], function() {
+	gulp.watch('sass/**/*.scss', ['styles']);
+});
+```
 ### Lesson Outro

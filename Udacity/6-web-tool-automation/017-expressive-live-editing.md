@@ -20,5 +20,16 @@
 
 ### Using Browser-Sync
 * `npm install -g browser-sync`
+1. Install browser-sync.
+2. Create a browser-sync object and initialize the server.
+  ```js
+  var browserSync = require('browser-sync').create();
+  browserSync.init({
+    server: "./"
+  });
+  browserSync.stream();
+  ```
+
+3. Run gulp in Terminal, see how browser opens with the page open.
 
 ### Lesson Outro

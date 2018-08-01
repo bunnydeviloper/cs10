@@ -14,5 +14,11 @@
 * NOTE: does NOT actually result in faster build times
 
 ### Different approaches for live editing
+* use live editing plugins for text editor
+* use chrome dev tool workspaces
+* use (BEST) browsersync
+
 ### Using Browser-Sync
+* `npm install -g browser-sync`
+
 ### Lesson Outro

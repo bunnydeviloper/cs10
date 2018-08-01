@@ -26,6 +26,8 @@
 * `eslint --init`: click through the options and select
 
 ### Unit testing in gulp
+* unit tests are essentially JavaScript functions that pragmatically test an API or aspect of your project
+
 ### Unit testing in gulp
 ### What's next?
 ### Continuous integration

@@ -17,6 +17,10 @@
 
 ### Setting up ESLint
 * Why ESLint? It supports ES6 syntax, can be extended, and has output that's easy to understand
+* to make the linter most effective, you have to run it at the earliest possible time
+  * eg: earliest time is after you press a key on your keyboard (in your text editor)
+  * `npm install -g eslint`
+
 ### Setting up ESLint in Gulp
 ### Unit testing in gulp
 ### Unit testing in gulp

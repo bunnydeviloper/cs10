@@ -1,3 +1,7 @@
+// eslint thinks that this file is running in the browser, but the browser doesn't have 'require' stmt
+// we need a special configuration to tell eslint to turn off nodeJS warning
+// this setting is set for the local/currently file only
+
 /*eslint-env node */
 
 var gulp = require('gulp');

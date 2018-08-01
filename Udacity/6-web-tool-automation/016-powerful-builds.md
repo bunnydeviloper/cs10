@@ -31,7 +31,7 @@
 
 ### Making CSS suck less (use SASS)
 ### Using Gulp
-* `npm install -g gulp-sass`
+* `npm install gulp-sass`
 
 ### Using Gulp 2
 ### Quiz: now it's your turn

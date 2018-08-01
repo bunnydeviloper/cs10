@@ -22,6 +22,8 @@
   * `npm install -g eslint`
 
 ### Setting up ESLint in Gulp
+* make sure you initialize a project with `npm --init`
+* `eslint --init`: click through the options and select
 
 ### Unit testing in gulp
 ### Unit testing in gulp

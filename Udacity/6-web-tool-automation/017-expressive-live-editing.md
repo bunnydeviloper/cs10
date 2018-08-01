@@ -31,5 +31,21 @@
   ```
 
 3. Run gulp in Terminal, see how browser opens with the page open.
+* cd into 017-gulp/ folder and run 'gulp', you should see a webpage open and the following server message:
+```
+[23:40:40] Using gulpfile ~/Desktop/... (this is the project's path)
+[23:40:40] Starting 'default'...
+hello world!
+[23:40:40] Finished 'default' after 35 ms
+[Browsersync] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://1***********:3000 //this is IP address
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://1***********:3001
+ -------------------------------------
+[Browsersync] Serving files from: ./
+```
 
 ### Lesson Outro

@@ -5,11 +5,12 @@ var browserSync = require('browser-sync').create();
 
 // Since your task might contain asynchronous code you have to signal gulp when your task has finished executing (= "async completion").
 // to fix error, gulp automatically passes a callback function to your task as its first argument. Just call that function when you're done
-gulp.task('default', ['styles'], function(cb) {
+gulp.task('default', function(cb) {
   console.log('hello world!');
   // watch: 1st arg is the files that we are watching for changes
   // 2nd arg can be a call back or an array of sets of tasks
-  gulp.watch('sass/**/*.scss', ['styles']);
+  // gulp.watch('sass/**/*.scss', ['styles']); // this is syntax for older version
+  gulp.watch('sass/**/*.scss', gulp.series('styles')); // this is syntax for version 4x
 
   browserSync.init({
     server: "./"

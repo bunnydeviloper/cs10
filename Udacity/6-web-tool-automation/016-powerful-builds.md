@@ -32,6 +32,7 @@
 ### Making CSS suck less (use SASS)
 ### Using Gulp
 * `npm install gulp-sass`
+* `npm install gulp-autoprefixer`
 
 ### Using Gulp 2
 ### Quiz: now it's your turn

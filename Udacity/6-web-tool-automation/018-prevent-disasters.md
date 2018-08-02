@@ -30,9 +30,17 @@
 
 ### Unit testing in gulp
 * Jasmime: unit testing
+* use PhanthomJS and Gulp together
+* `gulp tests` after installation
 
 ### What's next?
 ### Continuous integration
+* continuous integration is the idea to make sure that your code always connect to your remote repository
+* so accross the team, you'll always have a stable build
+* CI in the cloud provide a greate place for your time-intensive task (eg unit test)
+* cloud solution: Jenkins (ultimately moving to automation)
+
 ### Lesson Outro
+* ultimately it's about finding errors BEFORE it becomes a CATASTROPHE
 
 

@@ -1,6 +1,8 @@
 # Lesson 22: writing test suites
 
 ### Introduction to Jasmine
+* Jasmine is a testing library
+
 ### Exploring the SpecRunner
 ### Quiz: Identifying Suites and Specs
 ### Introducing Suites and Specs

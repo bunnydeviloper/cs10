@@ -47,8 +47,9 @@ gulp.task('lint', function () {
 
 gulp.task('tests', function () {
 	gulp.src('tests/spec/extraSpec.js')
+    // connect jasmine with phanthomJS
 		.pipe(jasmine({
-			integration: true,
+			integration: true, // if this is false, it will run on nodeJS only
 			vendor: 'js/**/*.js'
 		}));
 });

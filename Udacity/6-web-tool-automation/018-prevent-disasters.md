@@ -29,6 +29,8 @@
 * unit tests are essentially JavaScript functions that pragmatically test an API or aspect of your project
 
 ### Unit testing in gulp
+* Jasmime: unit testing
+
 ### What's next?
 ### Continuous integration
 ### Lesson Outro

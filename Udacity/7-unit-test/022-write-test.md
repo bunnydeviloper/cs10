@@ -31,6 +31,8 @@
 ### Iterating on our implementation
 ### Quiz: complete our implementation
 ### Mike's solution
+* see folder 022-test/
+
 ### Another spec
 ### Removing redundant code
 ### Testing asynchronous code

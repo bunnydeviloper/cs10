@@ -2,6 +2,7 @@
 
 ### Introduction to Jasmine
 * Jasmine is a testing library
+* to run Jasmine, 'start'(Windows) or 'open' (macOS) SpecRunner.html
 
 ### Exploring the SpecRunner
 ### Quiz: Identifying Suites and Specs

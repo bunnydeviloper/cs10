@@ -36,6 +36,8 @@
 ### Another spec
 ### Removing redundant code
 ### Testing asynchronous code
+* we need to inform the testing framework that our async fn has completed
+
 ### Writing and asynchronous test
 ### Quiz: running our first async test
 ### Correcting our asynchoronous test

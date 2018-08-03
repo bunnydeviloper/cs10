@@ -13,6 +13,7 @@ gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], 
 	gulp.watch('sass/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['lint']);
 	gulp.watch('/index.html', ['copy-html']);
+  // make index.html automatically reload
 	gulp.watch('./dist/index.html').on('change', browserSync.reload);
 
 	browserSync.init({

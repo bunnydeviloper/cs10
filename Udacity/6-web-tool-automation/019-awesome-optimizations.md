@@ -10,6 +10,7 @@
 
 ### Development and Production Modes
 * create a 'dist' folder, and then copy index.html over, then generate js/ and css/ into 'dist/'
+* set up 'copy-html' and 'copy-img' task, and add a task to watch for changes
 
 ### Quiz: Automatically Reload the ind
 ### CSS Concatenation

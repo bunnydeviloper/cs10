@@ -13,7 +13,11 @@
 * set up 'copy-html' and 'copy-img' task, and add a task to watch for changes
 
 ### Quiz: Automatically Reload the ind
+* `gulp.watch('./build/index.html').on('change', browserSync.reload);`
+
 ### CSS Concatenation
+* 
+
 ### JS Concatenation
 ### JS Concatenation Hands On
 ### Minification

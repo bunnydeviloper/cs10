@@ -1,7 +1,13 @@
 # Lesson 19: Awesome Optimizations
 
 ### Lesson Intro
+* build process: use to optimize things which you can't do by hands
+* take raw source code and process it for production
+
 ### Development and Production Modes
+* development tasks: things you really need, SASS processing, live editing
+* production tasks: the production version is always a little different
+
 ### Development and Production Modes
 ### Quiz: Automatically Reload the ind
 ### CSS Concatenation

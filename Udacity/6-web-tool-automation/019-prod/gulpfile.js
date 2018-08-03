@@ -59,6 +59,7 @@ gulp.task('styles', function() {
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))
+    // change the new destination to dist/css
 		.pipe(gulp.dest('dist/css'))
 		.pipe(browserSync.stream());
 });

@@ -9,6 +9,8 @@
 * production tasks: the production version is always a little different
 
 ### Development and Production Modes
+* create a 'dist' folder, and then copy index.html over, then generate js/ and css/ into 'dist/'
+
 ### Quiz: Automatically Reload the ind
 ### CSS Concatenation
 ### JS Concatenation

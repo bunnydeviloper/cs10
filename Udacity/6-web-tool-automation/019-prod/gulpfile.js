@@ -14,16 +14,17 @@ var babel = require('gulp-babel');
 // include source map in your file
 var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function() {
-	gulp.watch('sass/**/*.scss', ['styles']);
-	gulp.watch('js/**/*.js', ['lint']);
-	gulp.watch('/index.html', ['copy-html']);
+gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function(done) {
+	gulp.watch('sass/**/*.scss', gulp.series('styles'));
+	gulp.watch('js/**/*.js', gulp.series('lint'));
+	gulp.watch('/index.html', gulp.series('copy-html'));
   // make index.html automatically reload
 	gulp.watch('./dist/index.html').on('change', browserSync.reload);
 
 	browserSync.init({
 		server: './dist'
 	});
+  done();
 });
 
 // finally, include this for production-ready version in your 'dist' folder
@@ -39,7 +40,7 @@ gulp.task('dist', [
 
 gulp.task('scripts', function() {
 	gulp.src('js/**/*.js')
-    .pipe(babel());
+    .pipe(babel())
     // the gulp-concat plugin takes the files in the stream and combines them into a single file (arg)
 		.pipe(concat('all.js'))
 		.pipe(gulp.dest('dist/js'));
@@ -47,7 +48,7 @@ gulp.task('scripts', function() {
 
 gulp.task('scripts-dist', function() {
 	gulp.src('js/**/*.js')
-    .pipe(babel());
+    .pipe(babel())
     .pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
 		.pipe(uglify())

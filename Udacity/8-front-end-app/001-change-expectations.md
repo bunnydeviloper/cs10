@@ -6,6 +6,8 @@
 ### Quiz: reflections
 ### Andy's reflections
 ### Requirements change all the time
+* checkout folder catClicker to see project
+
 ### First requirements change
 ### Chat clicker requirements 2
 ### Quiz: reflections 2

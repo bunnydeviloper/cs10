@@ -7,16 +7,21 @@
 ### Andy's reflections
 ### Requirements change all the time
 * checkout folder catClicker to see project
+* requirement changes all the time mainly b/c projects keep evolving, new ideas, new rules...
 
 ### First requirements change
 ### Chat clicker requirements 2
 ### Quiz: reflections 2
 ### Andy's reflections 2
+
 ### Closures and event listeners
+* see 001-ex.js
+
 ### Second requirements change
 ### Cat clicker premium requirements
 ### Quiz: reflections 3
 ### Andy's reflections 3
+
 ### Spaghetti code story time
 ### What is spagehetti code
 ### Indtroduction to MVO

@@ -30,6 +30,8 @@
     * although it cannot detect dependency chains and the required load order
 
 ### JS Concatenation Hands On
+* create a task for 'scripts' and another task for 'script-dist'
+* plugin: gulp-concat: combine files
 
 ### Minification
 ### Setting up and production task

@@ -8,6 +8,8 @@ var eslint = require('gulp-eslint');
 var jasmine = require('gulp-jasmine-phantom');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+// babel JS is a transpiler for ECMAscript 6
+var babel = require('gulp-babel');
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
@@ -34,6 +36,7 @@ gulp.task('dist', [
 
 gulp.task('scripts', function() {
 	gulp.src('js/**/*.js')
+    .pipe(babel());
     // the gulp-concat plugin takes the files in the stream and combines them into a single file (arg)
 		.pipe(concat('all.js'))
 		.pipe(gulp.dest('dist/js'));
@@ -41,6 +44,7 @@ gulp.task('scripts', function() {
 
 gulp.task('scripts-dist', function() {
 	gulp.src('js/**/*.js')
+    .pipe(babel());
 		.pipe(concat('all.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));

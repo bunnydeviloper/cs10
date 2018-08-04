@@ -17,8 +17,9 @@ for (var i = 0; i < nums.length; i++) {
   elem.textContent = num + ' click me';
 
   // On click...
-  elem.addEventListener('click', function() {
+  elem.addEventListener('click', (function(numCopy) {
 
+    /*
     // ... and when we click, alert the value of `num`
     alert(num);
 
@@ -31,8 +32,14 @@ for (var i = 0; i < nums.length; i++) {
     // the for loop.  Whenever the anonymous function is
     // called on the click event, the function will
     // reference the same `num` (which now equals 3).
+    */
 
-  });
+    // FIX: use closure
+    return function() {
+      alert(numCopy);
+    };
+
+  })(num));
 
   // finally, let's add this element to the document
   document.body.appendChild(elem);

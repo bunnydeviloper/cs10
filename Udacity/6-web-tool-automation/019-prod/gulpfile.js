@@ -21,6 +21,9 @@ gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], 
 	});
 });
 
+// finally, include this for production-ready version in your 'dist' folder
+// to run the task: type 'gulp scripts-dist'
+// gulp will run in the background without opening the browser
 gulp.task('dist', [
 	'copy-html',
 	'copy-images',

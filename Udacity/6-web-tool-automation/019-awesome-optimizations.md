@@ -16,10 +16,21 @@
 * `gulp.watch('./build/index.html').on('change', browserSync.reload);`
 
 ### CSS Concatenation
-* 
+* minification: output sass file as: `pipe(sass({outputStyle: 'compressed'}))`
 
 ### JS Concatenation
+* benefits:
+  1. reduce the amount of http requests needed to load your page in production
+    (which is a big deal if you're on a mobile devices with upto 300 miliseconds latency per req.)
+  2. it's the most basic variant of dependency management
+    * you put all your script in a folder
+    * then you simply add a single script block that points to the generated output file
+      * including all of them concatenated
+    * (instead of having to add script blocks to load them one by one into HTML)
+    * although it cannot detect dependency chains and the required load order
+
 ### JS Concatenation Hands On
+
 ### Minification
 ### Setting up and production task
 ### Writing future proof JavaScript

@@ -93,5 +93,9 @@
     * SVG stands for Scalable Vector Graphics and uses a XML-based format to describe an image and can in most cases be scaled infinitely without any increase in file size or loss of image quality.
     * or automatically resizing your images to become responsive and fit retina and non-retina screens, or inlining your images into your CSS or into a sprite to save a couple more HTTP requests.
 
-### Quiz: How should we compress
+### Quiz: How should we compress these image types?
+* Hamburger menu: b/c small and limited palette, sufficient with lossly and SVG
+* Hero image: needs crisp quality to show that it's large and in charge, hence lossless
+* Image thumbnails: don't need to look perfect, and needs to load fast, so lossly works best
+
 ### Lesson Outro

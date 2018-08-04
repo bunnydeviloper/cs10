@@ -11,6 +11,9 @@ var uglify = require('gulp-uglify');
 // babel JS is a transpiler for ECMAscript 6
 var babel = require('gulp-babel');
 
+// include source map in your file
+var sourcemaps = require('gulp-sourcemaps');
+
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['lint']);
@@ -45,8 +48,10 @@ gulp.task('scripts', function() {
 gulp.task('scripts-dist', function() {
 	gulp.src('js/**/*.js')
     .pipe(babel());
+    .pipe(sourcemaps.init())
 		.pipe(concat('all.js'))
 		.pipe(uglify())
+    .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/js'));
 });
 

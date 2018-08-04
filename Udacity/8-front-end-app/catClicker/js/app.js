@@ -7,15 +7,26 @@ window.onload(function() {
 
 let count = 0;
 let meow = '';
+const name = ['Gloto', 'Shishi'];
 
-const img = document.getElementById('catimg');
+const allcats = document.getElementById('allcats');
+const catbread = document.getElementById('catbread');
+const catsushi = document.getElementById('catsushi');
+
 const displayCount = document.getElementById('count');
 displayCount.innerHTML = count;
 const displayMeow = document.getElementById('meow');
 displayMeow.innerHTML = meow;
 
+const cat1 = document.getElementById('cat1');
+const cat2 = document.getElementById('cat1');
 
-img.addEventListener('click', function() {
+const gloto = document.getElementById('gloto');
+gloto.innerHTML = name[0];
+const shishi = document.getElementById('shishi');
+shishi.innerHTML = name[1];
+
+catbread.addEventListener('click', function() {
   //do sth
   count++;
   displayCount.innerHTML = count;
@@ -24,6 +35,11 @@ img.addEventListener('click', function() {
 
 }, false);
 
-const start = () => {
-  count = 0;
-}
+catsushi.addEventListener('click', function() {
+  //do sth
+  count++;
+  displayCount.innerHTML = count;
+  meow += 'meowww ';
+  displayMeow.innerHTML = meow;
+
+}, false);

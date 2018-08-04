@@ -53,10 +53,11 @@
 ### Quiz: model quiz
 ### Quiz: view quiz
 ### What is the model in our code
-
 ### What is the view in our code
 ### What is the octopus in our code
+
 ### Identify the MVO in New App
+
 ### Explore the App's Structure
 ### Quiz: where should this feature Live?
 ### Quiz: implement note date

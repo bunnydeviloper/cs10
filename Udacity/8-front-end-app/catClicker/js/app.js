@@ -22,29 +22,21 @@ const displayMeow = document.getElementById('meow');
 displayMeow.innerHTML = meow;
 
 
-
 const catList = document.getElementById('catList').getElementsByTagName('img');
-// const catList = Array.prototype.slice.call(list);
 
 for (let i=0; i < catList.length; i++) {
   let el = catList[i];
-  el.addEventListener('click', catClick, false);
-
-  // el.addEventListener('click', catClick(event, count, meow), false);
+  el.addEventListener('click', catClick(event, count, meow), false);
 }
 
-function catClick(event, countCopy, meowCopy) {
-  console.log('you clicked', event.target.id);
-  count++;
-  displayCount.innerHTML = count;
-  meow += 'meowww ';
-  displayMeow.innerHTML = meow;
-  // console.log(event.id);
-  catName.innerHTML = name[event.target.id];
-  catImg.src = event.target.src;
-
-
-  // return function() {
-  //   console.log('you clicked', event.target.id);
-  // };
+function catClick(eventCopy, countCopy, meowCopy) {
+  return function(eventCopy, countCopy, meowCopy) {
+    console.log('you clicked', eventCopy.target.id);
+    countCopy++;
+    displayCount.innerHTML = countCopy;
+    meowCopy += 'meowww ';
+    displayMeow.innerHTML = meowCopy;
+    catName.innerHTML = name[eventCopy.target.id];
+    catImg.src = eventCopy.target.src;
+  };
 };

@@ -1,22 +1,41 @@
 body {
   max-width: 1000px;
   margin: auto;
+  margin-top: 10px;
 }
 
 h1, h3 {
   text-align: center;
 }
 
-div#allcats {
+div#purr {
+  max-width: 65%;
+  margin: auto;
+}
+
+div#catList {
+  padding-top: 50px;
+}
+
+div#catList img {
+  height: 50px;
+  width: 50px;
+  display: block;
+  margin: 5px;
+}
+
+div#cat, div#catList {
+  display: inline-block;
+  vertical-align: top;
   margin: auto;
   text-align: center;
 }
 
-div#cat1, div#cat2 {
-  display: inline-block;
+div#cat {
+  width: 90%;
 }
 
-img {
+div#cat img {
   height: 300px;
   margin: 5px;
 }

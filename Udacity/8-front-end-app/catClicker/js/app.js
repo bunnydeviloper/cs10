@@ -1,45 +1,50 @@
-
-/*
-window.onload(function() {
-  start();
-});
-*/
-
 let count = 0;
 let meow = '';
-const name = ['Gloto', 'Shishi'];
 
-const allcats = document.getElementById('allcats');
-const catbread = document.getElementById('catbread');
-const catsushi = document.getElementById('catsushi');
+const name = {
+  catqueen: "Si Maem (Yes Madam)",
+  catflower: "Piti Lati (Pretty Lady)",
+  cateat: "Yumi Delici (Yummy Delicious)",
+  catbday: "Hapi BiDi (Happy Birthday)",
+  catnewborn: "Sua Baibi (Such A Baby)",
+  catsushi: "Fi Shishi (Fish sushi)",
+  catbread: "Gloto Fe (Gluten Free)",
+  kitties: "Charlie's Angels",
 
+};
+
+const cat = document.getElementById('cat');
+const catName = document.getElementById('catName');
+const catImg = document.getElementById('catImg');
 const displayCount = document.getElementById('count');
 displayCount.innerHTML = count;
 const displayMeow = document.getElementById('meow');
 displayMeow.innerHTML = meow;
 
-const cat1 = document.getElementById('cat1');
-const cat2 = document.getElementById('cat1');
 
-const gloto = document.getElementById('gloto');
-gloto.innerHTML = name[0];
-const shishi = document.getElementById('shishi');
-shishi.innerHTML = name[1];
 
-catbread.addEventListener('click', function() {
-  //do sth
+const catList = document.getElementById('catList').getElementsByTagName('img');
+// const catList = Array.prototype.slice.call(list);
+
+for (let i=0; i < catList.length; i++) {
+  let el = catList[i];
+  el.addEventListener('click', catClick, false);
+
+  // el.addEventListener('click', catClick(event, count, meow), false);
+}
+
+function catClick(event, countCopy, meowCopy) {
+  console.log('you clicked', event.target.id);
   count++;
   displayCount.innerHTML = count;
   meow += 'meowww ';
   displayMeow.innerHTML = meow;
+  // console.log(event.id);
+  catName.innerHTML = name[event.target.id];
+  catImg.src = event.target.src;
 
-}, false);
 
-catsushi.addEventListener('click', function() {
-  //do sth
-  count++;
-  displayCount.innerHTML = count;
-  meow += 'meowww ';
-  displayMeow.innerHTML = meow;
-
-}, false);
+  // return function() {
+  //   console.log('you clicked', event.target.id);
+  // };
+};

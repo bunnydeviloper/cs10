@@ -31,6 +31,7 @@ gulp.task('dist', [
 
 gulp.task('scripts', function() {
 	gulp.src('js/**/*.js')
+    // the gulp-concat plugin takes the files in the stream and combines them into a single file (arg)
 		.pipe(concat('all.js'))
 		.pipe(gulp.dest('dist/js'));
 });

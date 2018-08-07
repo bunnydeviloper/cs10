@@ -41,7 +41,7 @@ const model = {
       clickCount: 0
     },{
       nickName: "catbread",
-      name: "Gloto Fe (Gluten Free)"
+      name: "Gloto Fe (Gluten Free)",
       src: "img/catbread.jpg",
       meow: "",
       clickCount: 0
@@ -82,6 +82,7 @@ const octopus = {
   incrementCounter: function() {
     // increments the counter for the currently-selected cat
     model.currentCat.clickCount++;
+    model.currentCat.meow += 'meowww ';
     viewEach.render();
   }
 };
@@ -109,6 +110,7 @@ const viewEach = {
     // update the DOM elements with values from the current cat
     const currentCat = octopus.getCurrentCat();
     this.displayCount.textContent = currentCat.clickCount;
+    this.displayMeow.textContent = currentCat.meow;
     this.catName.textContent = currentCat.name;
     this.catImg.src = currentCat.src;
   }
@@ -118,33 +120,45 @@ const viewEach = {
 
 const viewAll = {
   init: function() {
-    //const catList = document.getElementById('catList').getElementsByTagName('img');
-    const catList = document.getElementById('catList');
+    // store the DOM element for easy access later
+    this.catList = document.getElementById('catList');
+
+    // render this view (update the DOM elements with the right values)
     this.render();
   },
   render: function() {
-    octopus.getAllCats();
+    let cat, elem, i;
+    // get the cats we'll be rendering from the octopus
+    const cats = octopus.getAllCats();
+
+    // empty the cat list
+    this.catList.innerHTML = '';
+
+    // loop over the cats
+    for (i = 0; i < cats.length; i++) {
+      // this is the cat we're currently looping over
+      cat = cats[i];
+
+      // make a new cat list mini thumbnail and set its text
+      elem = document.createElement('img');
+      elem.src = cat.src;
+
+      // on click, setCurrentCat and render the viewEach
+      // (this uses our closure-in-a-loop trick to connect the value
+      // of the cat variable to the click event function)
+      elem.addEventListener('click', (function(catCopy) {
+        return function() {
+          octopus.setCurrentCat(catCopy);
+          viewEach.render();
+        };
+      })(cat));
+
+      // finally, add the element to the list
+      this.catList.appendChild(elem);
+    }
   }
 };
 
+// make it go!
 octopus.init();
 
-
-
-
-for (let i=0; i < catList.length; i++) {
-  let el = catList[i];
-  el.addEventListener('click', catClick(event, count, meow), false);
-}
-
-function catClick(eventCopy, countCopy, meowCopy) {
-  return function(eventCopy, countCopy, meowCopy) {
-    console.log('you clicked', eventCopy.target.id);
-    countCopy++;
-    displayCount.innerHTML = countCopy;
-    meowCopy += 'meowww ';
-    displayMeow.innerHTML = meowCopy;
-    catName.innerHTML = name[eventCopy.target.id];
-    catImg.src = eventCopy.target.src;
-  };
-};

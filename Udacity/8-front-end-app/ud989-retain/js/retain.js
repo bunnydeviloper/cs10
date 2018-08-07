@@ -26,7 +26,8 @@ $(function(){
         },
 
         getNotes: function() {
-            return model.getAllNotes();
+            // add reverse method to get all the notes in reverse order
+            return model.getAllNotes().reverse();
         },
 
         init: function() {

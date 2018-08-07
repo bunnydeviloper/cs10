@@ -20,7 +20,8 @@ $(function(){
     var octopus = {
         addNewNote: function(noteStr) {
             model.add({
-                content: noteStr
+                content: noteStr,
+                dateSubmitted: Date.now()
             });
             view.render();
         },
@@ -28,6 +29,7 @@ $(function(){
         getNotes: function() {
             // add reverse method to get all the notes in reverse order
             return model.getAllNotes().reverse();
+            // side note: run 'localStorage.clear()' in the dev tool to reset all data
         },
 
         init: function() {
@@ -52,7 +54,14 @@ $(function(){
         render: function(){
             var htmlStr = '';
             octopus.getNotes().forEach(function(note){
+              /* my solution
                 htmlStr += '<li class="note">'+
+                        note.content + '<span class="note-date">' + note.dateSubmitted + '</span>' +
+                    '</li>';
+                    */
+              // Course solution:
+                htmlStr += '<li class="note">'+
+                        '<span class="note-date">' + new Date(note.dateSubmitted).toString() + '</span> ' +
                         note.content +
                     '</li>';
             });

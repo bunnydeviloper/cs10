@@ -55,10 +55,13 @@
 ### What is the model in our code
 ### What is the view in our code
 ### What is the octopus in our code
-
 ### Identify the MVO in New App
-
 ### Explore the App's Structure
 ### Quiz: where should this feature Live?
+* if we want to reverse the order of our notes, where should that functionality go? -> the octopus
+  * we don't need to change the data itself, so NOT the model
+  * the view should not pull things directly from the model, so NOT the view
+  * the octopus filter data and give the view only what it needs
+
 ### Quiz: implement note date
 ### Segue into L2

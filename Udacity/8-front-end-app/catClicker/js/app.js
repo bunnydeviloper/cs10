@@ -1,17 +1,74 @@
-let count = 0;
-let meow = '';
 
-const name = {
-  catqueen: "Si Maem (Yes Madam)",
-  catflower: "Piti Lati (Pretty Lady)",
-  cateat: "Yumi Delici (Yummy Delicious)",
-  catbday: "Hapi BiDi (Happy Birthday)",
-  catnewborn: "Sua Baibi (Such A Baby)",
-  catsushi: "Fi Shishi (Fish sushi)",
-  catbread: "Gloto Fe (Gluten Free)",
-  kitties: "Charlie's Angels",
+const data = [
+  {
+    nickName: "catqueen",
+    name: "Si Maem (Yes Madam)",
+    src: "img/catqueen.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "catflower",
+    name: "Piti Lati (Pretty Lady)",
+    src: "img/catflower.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "cateat",
+    name: "Yumi Delici (Yummy Delicious)",
+    src: "img/cateat.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "catbday",
+    name: "Hapi BiDi (Happy Birthday)",
+    src: "img/catbday.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "catnewborn",
+    name: "Sua Baibi (Such A Baby)",
+    src: "img/catnewborn.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "catsushi",
+    name: "Fi Shishi (Fish sushi)",
+    src: "img/catsushi.png",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "catbread",
+    name: "Gloto Fe (Gluten Free)"
+    src: "img/catbread.jpg",
+    meow: "",
+    clickCount: 0
+  },{
+    nickName: "kitties",
+    name: "Charlie's Angels",
+    src: "img/kitties.jpg",
+    meow: "",
+    clickCount: 0
+  }
+];
 
+const octopus = {
+  getCat: function() {
+    // change cat display
+  }
+  init: function() {
+    view.init();
+  }
 };
+
+const viewAll = {
+  init: function() {
+    // list all the cats
+  }
+}
+
+const viewEach = {
+
+}
 
 const cat = document.getElementById('cat');
 const catName = document.getElementById('catName');

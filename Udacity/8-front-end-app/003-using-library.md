@@ -1,4 +1,4 @@
-# Lesson 3: Using and Organization Library
+# Lesson 3: Using and Organization Library (course: JavaScript Design Pattern)
 
 ### MVO in the wild
 * MVO, MVC, MVVm, MVP
@@ -51,5 +51,5 @@
 ### Quiz: separating out the model
 ### Quiz: 'with' and binding contexts
 ### How I implemented 'With'
-### Quiz: getting ready to add more...
+### Quiz: getting ready to add more cats
 ### Quiz: adding more cats

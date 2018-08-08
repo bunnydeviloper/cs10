@@ -26,6 +26,10 @@
 ### Cat Clicker Premium pro
 ### Cat clicker premium pro specs
 ### How to modernize projects
+* when you organize things well, it's much easier to add things later
+* separation of concern is great if you do it well
+* however, every organization has legacy code (code that has been there for forever), so we need to make these code up-to-date
+
 ### Interview with Nic
 ### Interview with Jacques
 ### Refactor Spaghetti code

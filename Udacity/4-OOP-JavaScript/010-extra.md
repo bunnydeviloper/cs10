@@ -20,11 +20,16 @@
   ```
 * Multiple Source Objects
   ```js
-  const duck = { hasBill: true };
+  const duck = { hasBill: true, feet: 'orange' };
   const beaver = { hasTail: true };
   const otter = { hasFur: true, feet: 'webbed' };
-  const platypus = Object.assign({}, duck, beaver, otter); // merge all together
+  const platypus = Object.assign({}, duck, beaver, otter); // merge all together, note, order matters
   console.log(platypus); // { hasBill: true, hasTail: true, hasFur: true, feet: 'webbed' }
+
+  const another = Object.assign(duck, beaver, otter);
+  console.log(another); // { hasBill: true, hasTail: true, hasFur: true, feet: 'webbed' }
+  console.log(duck); // { hasBill: true, hasTail: true, hasFur: true, feet: 'webbed' }
+  // duck and another now points to the same object, hence another === duck
   ```
 * It is important to note that the platypus object is not prototype-linked to the three other objects! That is, platypus doesn't exist in any of the three source objects' prototype chains, and vice versa:
   ```js
@@ -36,6 +41,7 @@
   platypus.isPrototypeOf(otter); // false
   otter.isPrototypeOf(platypus); // false
   ```
+* Important: mixins don't set up the prototype chain, but only extend data and functionality from multiple source objects
 
 ### Functional Mixins
 ### The module Pattern

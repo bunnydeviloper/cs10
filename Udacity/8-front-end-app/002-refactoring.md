@@ -31,7 +31,11 @@
 * however, every organization has legacy code (code that has been there for forever), so we need to make these code up-to-date
 
 ### Interview with Nic
+* Refactoring: a process in which you take a piece of code, and make it more readable, more maintainable without changing its functionality.
+  * breakup large or complicated functions without changing the way they are accessed by the outside world
+
 ### Interview with Jacques
+
 ### Refactor Spaghetti code
 ### Repository for attendance app
 ### Quiz: what method did you use?

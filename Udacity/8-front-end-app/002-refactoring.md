@@ -35,6 +35,7 @@
   * breakup large or complicated functions without changing the way they are accessed by the outside world
 
 ### Interview with Jacques
+* worst case scenario: burn it all to the ground! :)
 
 ### Refactor Spaghetti code
 ### Repository for attendance app

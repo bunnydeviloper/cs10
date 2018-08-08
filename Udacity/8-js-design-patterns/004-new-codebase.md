@@ -28,3 +28,11 @@
 * Instruction: the priority button should get a class of 'priority-btn'
 
 ### More ideas
+* Let the user set the priority status when creating the todo item
+* Let users filter or sort by priority status
+* Expand the priority feature to have more than two levels
+* Add a recycle bin for recovering deleted todos
+* Add colors, so people can associate different todos with each other
+* Add labels for sorting and filtering
+
+# Keep building things, keep implementing up, reading, learning, exploring

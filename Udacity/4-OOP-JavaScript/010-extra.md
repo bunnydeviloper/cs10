@@ -44,6 +44,24 @@
 * Important: mixins don't set up the prototype chain, but only extend data and functionality from multiple source objects
 
 ### Functional Mixins
+* Factory Functions: a function that returns an object, but isn't itself a class or constructor.
+* we invoke a factory function as a normal function without using the new operator.
+```js
+// Basketball() returns an object directly, whereas constructor function which returns its object automatically.
+function Basketball(color) {
+  return { color: color, numDots: 35000 };
+}
+
+// Let's invoke Basketball() and check out its output, notice we don't need to use 'new' operator
+const orangeBasketball = Basketball('orange');
+console.log(orangeBasketball); // { color: 'orange', numDots: 35000 }
+
+// a factory function can be used over and over to create any number of objects:
+const myBB = Basketball('blue and green');
+const yourBB = Basketball('purple');
+const bouncy = Basketball('neon pink');
+```
+
 ### The module Pattern
 ### The revealing module pattern
 ### Lesson summary

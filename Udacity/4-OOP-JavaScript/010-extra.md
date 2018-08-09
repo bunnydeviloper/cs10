@@ -46,23 +46,107 @@
 ### Functional Mixins
 * Factory Functions: a function that returns an object, but isn't itself a class or constructor.
 * we invoke a factory function as a normal function without using the new operator.
-```js
-// Basketball() returns an object directly, whereas constructor function which returns its object automatically.
-function Basketball(color) {
-  return { color: color, numDots: 35000 };
-}
+  ```js
+  // Basketball() returns an object directly, whereas constructor function which returns its object automatically.
+  function Basketball(color) {
+    return { color: color, numDots: 35000 };
+  }
 
-// Let's invoke Basketball() and check out its output, notice we don't need to use 'new' operator
-const orangeBasketball = Basketball('orange');
-console.log(orangeBasketball); // { color: 'orange', numDots: 35000 }
+  // Let's invoke Basketball() and check out its output, notice we don't need to use 'new' operator
+  const orangeBasketball = Basketball('orange');
+  console.log(orangeBasketball); // { color: 'orange', numDots: 35000 }
 
-// a factory function can be used over and over to create any number of objects:
-const myBB = Basketball('blue and green');
-const yourBB = Basketball('purple');
-const bouncy = Basketball('neon pink');
-```
+  // a factory function can be used over and over to create any number of objects:
+  const myBB = Basketball('blue and green');
+  const yourBB = Basketball('purple');
+  const bouncy = Basketball('neon pink');
+  ```
+* Comparison between constructor fn and factory fn
+  * BOTH: create a new object, can be called multiple times to create multiple objects with diff args
+  * ONLY CONTRUCTOR: implicates prototypal inheritance
+  * INVOKE:
+    * Constructor fn: `new ConstructorFunc();`
+    * Factory fn: `factoryFunc();`
+* Leverage factory function with a closure to preserve state:
+  ```js
+  function Radio(mode) {
+    let on = false;
+    // return an object that has a reference to variables that defined within the fn (-> closure)
+    // that means it can preserve its own state
+    return {
+      mode: mode,
+      turnOn: function () { on = true; },
+      ison: function () { return on; }
+    };
+  }
+  // invoke the function
+  let fmRadio = Radio('fm');
+  console.log(fmRadio.on); // undefined
+  console.log(fmRadio); // { mode: 'fm', turnOn: function, isOn: function }
+  fmRadio.isOn(); // return 'false'
+  fmRadio.turnOn();
+  fmRadio.isOn(); // return 'true'
+  ```
+* Functional mixin: is a composable factory function that receives a `_mixin_` as an argument, copies properties and methods from that mixin, and returns a new object
+  ```js
+  function CoffeeMaker(object) {
+    let needsRefill = false;
+
+    // target object is blank, source object is the argument you passed in, and additonal object as follow...
+    return Object.assign({}, object, {
+      pourAll: function () { needsRefill = true; },
+      isEmpty: function () { return needsRefill; }
+    });
+  }
+  const mixedCoffeeMaker = CoffeeMaker({ style: 'percolator' });
+  console.log(mixedCoffeeMaker); // return object looks like this
+  // {  style: 'percolator',
+  //    pourAll: function () { needsRefill = true; },
+  //    isEmpty: function () { return needsRefill; } }
+  ```
+* Functional mixins are composable; we can use them as individual pieces of code that add specific properties like an assembly line.
 
 ### The module Pattern
+* What is Private Properties?
+* Privacy with Underscores?
+  * You may have seen object properties and method names prefixed with an underscore `_`, especially in library code. While an underscore is added by the code's author to distinguish privacy, it is privacy by convention only. JavaScript does not give special functionality or meaning to properties prefixed with an underscore!
+* Private Properties: Function
+  ```js
+  function instantiateDeveloper() {
+    return { name: 'Veronika', getName: function () { return this.name; } };
+  }
+  let developer = instantiateDeveloper();
+  developer.getName; // 'Veronika', direct access to properties
+  developer.name; // 'Veronika', direct access to properties
+
+  // Along with direct access, we can mutate and reassign the value of the name property, so how do we implement private properties?
+  developer.name = 'Not Veronika';
+  developer.name; // 'Not Veronika'
+
+  // use scope and closures to create a private state
+  function myCounter() {
+    let count = 0;
+    return function () { count += 1; return count; };
+  }
+  let counter = myCounter();
+  counter(); // 1
+  counter(); // 2
+  counter.count; // undefined, cannot access private state
+  count; // undefined, cannot access private state
+  ```
+* using The Module Pattern: to create private data
+  ```js
+  let diana = (function(){
+    let secretIdentity = 'Diana Prince';
+    return { introduce: function(){ console.log(`Hi, I am ${secretIdentity}`); } };
+  })();
+
+  // the IIFE prevent pollution of the global scope
+  console.log(diana.secretIdentity); // undefined
+  // because the return's object retains access to its parent's scope, we can
+  diana.introduce(); // 'Hi, I am Diana Prince'
+  ```
+
 ### The revealing module pattern
 ### Lesson summary
 ### Course outro

@@ -146,7 +146,42 @@
   // because the return's object retains access to its parent's scope, we can
   diana.introduce(); // 'Hi, I am Diana Prince'
   ```
+**NOTE**: at its core, the Module Pattern leverages scope, closures, and (commonly) IIFE's, to not only hide data from external access, but to also privide a public interface for such data
 
 ### The revealing module pattern
+* The underlying philosophy of the Revealing Module Pattern is that, while we still maintain encapsulation (as in the Module Pattern), we also reveal certain properties (and methods).
+* The key ingredients to the Revealing Module Pattern are:
+  * An IIFE (wrapper)
+  * The module content (variables, methods, objects, etc.) // this is local variables or fns
+  * A returned object literal with keys that point to data intended to be revealed
+* Example:
+  ```js
+  let person = (function () {
+    let privateAge = 0;
+    let privateName = 'Andrew';
+
+    function privateAgeOneYear() {
+      privateAge += 1;
+      console.log(`One year has passed! Current age is ${privateAge}`);
+    }
+    function displayName() { console.log(`Name: ${privateName}`); }
+    function ageOneYear() { privateAgeOneYear(); }
+
+    return { name: displayName, age: ageOneYear };
+  })();
+
+  // the IIFE has some private data: privateAge, privateName, and privateAgeOneYear().
+  // The returned object is stored in person and provides a public interface through which we can access this data!
+
+  console.log(person.name()); // 'My name is Andrew'
+  console.log(person.age()); // 'One year has passed! Current age is 1'
+  console.log(person.age()); // ''One year has passed! Current age is 2'
+
+  // however, when we mutate the data...
+  person.privateName = 'Richard';
+  console.log(person.name()); // 'My name is Andrew'
+  console.log(person.displayName()); // undefined
+  ```
+
 ### Lesson summary
 ### Course outro

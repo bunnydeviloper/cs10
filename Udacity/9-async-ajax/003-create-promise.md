@@ -68,7 +68,9 @@
     worker.postMessage(data);
     worker.onmessage = doSomething;
     ```
+
 ### Syntax
+
 ### Quiz: Write your first promise
 ### Quiz: wrapping readyState
 ### Important! Working with Exoplane...

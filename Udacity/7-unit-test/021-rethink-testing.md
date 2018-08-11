@@ -2,7 +2,7 @@
 
 ### Course Introduction
 * test: programmatically check your application's functionality
-* test-driven development
+* test-driven development (TDD)
 
 ### What is a test?
 ### Always failing

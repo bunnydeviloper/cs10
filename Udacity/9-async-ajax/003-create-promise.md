@@ -113,11 +113,15 @@
 * `document.readyState` has three stages:
   1. Loading
   2. Interactive: DOM has been loaded but sub-resources like images, stylesheet have yet to load
+    * creating a promise to run on interactive is useful if you want to run some code as soon as the DOM loaded
   3. Complete
+* everytime the document's readyStateChange-es, a readyState event will fire
 
 ### Important! Working with Exoplane...
-
 ### Quiz: wrap and XHR
 ### Web technologies
+* Service worker API
+* Fetch API
+
 ### Quiz: fetch API
 ### What happens next?

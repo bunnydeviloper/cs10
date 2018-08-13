@@ -67,5 +67,14 @@
 ### Project Initial Walkthrough
 ### Setting a request header
 ### Project Final Walkthrough
+* see github repo: course-ajax
+
 ### XHR Recap
+* to send an async request:
+  1. `new XMLHttpRequest()`;
+  2. `.open('GET', "<url-goes-here>")` method
+  3. set `.onload` and `.onerror` properties
+  4. `.send();` method
+* to use the response: `.responseText` property
+
 ### XHR Outro

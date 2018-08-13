@@ -15,8 +15,14 @@
 * XML stores data, HTML presents it on a browser
 
 ### APIs
+* API: application programming interface
+* we use API to interact with various data sources (get/retrive/access data)
+
 ### Create an async request with XHR
 ### The XHR object
+* `const asyncRequestObject = new XMLHttpRequest();`
+* XMLHttpRequest(XHR or xhr) can be used to request any file type (e.g. plain text, HTML files, JSON files, image files, etc.) or data from an API
+
 ### XHR's .open() method
 ### XHR's .send() method
 ### A full request

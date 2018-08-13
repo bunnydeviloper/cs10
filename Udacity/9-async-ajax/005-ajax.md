@@ -37,8 +37,33 @@
 ### XHR's .send() method
 * to actually send the request, we need to use `.send()` method
 * `asyncRequestObject.send();`
+* to handle successful response of an XHR request, we set the `onload` property on the object to a function that will handle it:
+* to handle errors, if something happends to the request and it can't be fulfilled, then we need to use `onerror` property
+  ```js
+  function handleSuccess() {
+    // convert data from JSON to a JavaScript object
+    const data = JSON.parse(this.responseText);
+    // in the function, the 'this' value is the XHR object
+    // this.responseText holds the response from the server
+    console.log(data); // eg: the HTML of unspash.com
+  }
+  function handleError() {
+    // in the function, the 'this' value is the XHR object
+    console.log('An error occured :((');
+  }
+
+  const asyncRequestObject = new XMLHttpRequest();
+  asyncRequestObject.open('GET', 'https://unsplash.com');
+  asyncRequestObject.onload = handleSuccess;
+  // if 'onload' is not set, then the request does *return* but nothing happends
+  asyncRequestObject.onerror = handleError;
+  // if 'onerror' is not set, you won't know what's going on
+  asyncRequestObject.send();
+  ```
 
 ### A full request
+* when making a request from an API that returns JSON, all we need to do is convert that JSON response into a JavaScript Object (use `JSON.parse()`)
+
 ### Project Initial Walkthrough
 ### Setting a request header
 ### Project Final Walkthrough

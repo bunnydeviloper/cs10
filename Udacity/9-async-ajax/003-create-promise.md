@@ -70,6 +70,43 @@
     ```
 
 ### Syntax
+* promise is a try-catch wrapper around the code, that will finsish at an unpredictable time
+  ```js
+  new Promise(function(resolve, reject) { // resolve and reject are callbacks
+    const value = doSomething();
+    if (thingWorked) {
+      resolve(value);
+    } else if (somethingWentWrong) {
+      reject();
+    }
+  }).then(function(value) {
+    // success!
+    return nextThing(value);
+  }).catch(rejectFunction);
+
+  // NOTE: the value themselves aren't being passed to .then or .catch
+  // rather, they're being passed to the functions called by .then or .catch
+
+  // -----------
+  new Promise(function(resolve, reject) {
+    const img = document.createElement('img');
+    img.src = 'image.jpg';
+    img.onload = resolve;
+    img.onerror = reject;
+    document.body.appendChild(img);
+  })
+  .then(finishLoading);
+  .catch(showAlternateImage);
+
+  // -----------
+  new Promise(function(resolve) {
+    console.log('first');
+    resolve();
+    console.log('second');
+  }).then(function() {
+    console.log('third');
+  });
+  ```
 
 ### Quiz: Write your first promise
 ### Quiz: wrapping readyState

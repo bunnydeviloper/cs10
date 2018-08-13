@@ -32,18 +32,23 @@
 
 			Make sure you return the Promise!
 			 */
-			document.addEventListener('readystatechange', function() {
+      return new Promise(function(resolve) {
+        document.addEventListener('readystatechange', function() {
+          if (document.readyState != 'loading') { // condition for 'interactive' or 'complete' state
+            resolve();
+          }
+        });
+      });
 				/*
 				Your code here too!
 				 */
-			});
 		};
 
 		/*
 		Don't forget to test your code!
 		Call wrapperResolved when the DOM is ready.
 		 */
-		// ready()
+		ready().then(wrapperResolved);
 
 		// Just here for your testing
 		function wrapperResolved() {

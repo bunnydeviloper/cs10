@@ -24,7 +24,20 @@
 * XMLHttpRequest(XHR or xhr) can be used to request any file type (e.g. plain text, HTML files, JSON files, image files, etc.) or data from an API
 
 ### XHR's .open() method
+* the `.open()` takes 2 params, 1st: HTTP method, 2nd: URL to send the request
+* `asyncRequestObject.open('GET', 'https://unsplash.com');` // nothing will happen
+  * NOTE: the `.open()` method **does not actually send the request**, it set the stage and gives the object the info it will need when the request is actually sent (=> similar to putting cards into envelop, but you don't send yet)
+  * passing `false` as the 3rd param makes the XHR request become a *synchronous* one, meaning JS will pause and wait until the request is returned before continuing (blocking)
+  * leaving the 3rd param blank sets default 'true'
+* `GET` is to retrieve data
+* `POST` is to send data
+* same-origin policy: for security reasons, you can only make requests for assets and data on the same domain as the site that will end up loading the data
+* CORS (cross-origin resource sharing): to overcome same-origin policy, CORS allow developers to access informations from different APIs
+
 ### XHR's .send() method
+* to actually send the request, we need to use `.send()` method
+* `asyncRequestObject.send();`
+
 ### A full request
 ### Project Initial Walkthrough
 ### Setting a request header

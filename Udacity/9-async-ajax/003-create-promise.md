@@ -110,7 +110,13 @@
 
 ### Quiz: Write your first promise
 ### Quiz: wrapping readyState
+* `document.readyState` has three stages:
+  1. Loading
+  2. Interactive: DOM has been loaded but sub-resources like images, stylesheet have yet to load
+  3. Complete
+
 ### Important! Working with Exoplane...
+
 ### Quiz: wrap and XHR
 ### Web technologies
 ### Quiz: fetch API

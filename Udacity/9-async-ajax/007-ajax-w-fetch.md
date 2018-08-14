@@ -30,8 +30,30 @@
   `fetch(...).then(function (response) { /* do sth */ });`
 
 ### The response Object
+  ```js
+  fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+    headers: {
+        Authorization: 'Client-ID abc123'
+    }
+  }).then(function(response) {
+    // since we know the response is a JSON object, we just need to call .json on the response
+    // if it's an image, we extract the image body from the response with response.blob()
+    return response.json();
+    // .json() response a Promise, so we need to chain another .then() to get and use the returned data
+  }).then(addImage);
+
+  function addImage(data) {
+      debugger;
+  }
+  ```
+
 ### ES6 arrow function
+* eg: `fetch(...).then(response => response.json()).then(addImage);`
+
 ### Display content & handling errors
+* chain .catch() to handle errors
+* check [course-ajax](https://github.com/bunnydeviloper/course-ajax) repo for example
+
 ### Project wrap-up
 ### Fetch Outro
 ### Course Outro

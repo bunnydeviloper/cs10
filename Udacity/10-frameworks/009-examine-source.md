@@ -44,10 +44,40 @@
 
 ### Quiz: Constructor function Quiz
 ### Walk-thru the 'template' function
-
 ### Filling the template with data
 ### Interview with Scott
+* all frameworks are mostly trying to accomplish the same thing
+
 ### Template 'variables' and JS's 'with'
+  ```html
+  // index.html
+  <script type="text/template" id="menuItem-template">
+      <td><a href="#item/<%= id %>"><%= name %></a></td>
+      <td><%= rating %></td>
+      <td><%= calories %></td>
+      <td>
+          <button class="select-item">Select Item</button>
+      </td>
+  </script>
+
+  // index.html
+  <script type="text/template" id="menuItem-template">
+      <td><a href="#item/<%= menuItem.id %>"><%= menuItem.name %></a></td>
+      <td><%= menuItem.rating %></td>
+      <td><%= menuItem.calories %></td>
+      <td>
+          <button class="select-item">Select Item</button>
+      </td>
+  </script>
+
+  // app.js
+  template: _.template($('#menuItem-template').html(), {variable: 'menuItem'}),
+  render: function(id) {
+      this.$el.html(this.template(this.model.attributes));
+      return this;
+  },
+  ```
+
 ### Quiz: Template Bug Quiz
 ### Quiz: Build your own templating function quiz
 ### adEventListener

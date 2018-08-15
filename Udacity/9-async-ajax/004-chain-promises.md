@@ -69,4 +69,4 @@
 
 ### Course outro
 ### Exoplanets 101
-### Quiz: bonus question: parallel request...
+### Quiz: bonus question: parallel requests

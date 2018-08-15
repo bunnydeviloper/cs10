@@ -27,14 +27,57 @@
 //
 // Now it's your turn!
 
-function template(str, delims) {
-  // Fill this in
-  
-
-  return function (/* value...*//* repeat */) {
-
-    // remember console.log
-    return str; // template renderer usually returns a string
+function template(text, options) {
+  const delimiter = {
+    open: '*(',
+    close: ')*',
   };
 
-}
+  const wrapInQuotes = function(text) {
+    return "'" + text + "'";
+  };
+
+  // update the custom delimiters with any default ones
+  for (let key in options) {
+    if (options.hasOwnProperty(key)) {
+      if (options[key] !== undefined) {
+        delimiter[key] = options[key];
+      }
+    }
+  }
+
+  const segments = text.split(delimiter.open);
+  const numOfSegments = segments.length;
+
+  let templateStr = [];
+  templateStr.push(wrapInQuotes(segments[0]));
+
+  let closingDelimLoc = 0;
+  let funcArgs = [];
+  let theVariable;
+  let remaining;
+
+  let i = 1;
+  while (i < numOfSegments) {
+    closingDelimLoc = segments[i].indexOf(delimiter.close);
+
+    theVariable = segments[i].slice(0, closingDelimLoc);
+    funcArgs.push(theVariable);
+    templateStr.push(theVariable);
+
+    remaining = segments[i].slice(closingDelimLoc + delimiter.close.length);
+    templateStr.push(wrapInQuotes(remaining));
+
+    i++;
+  }
+
+  templateStr = 'while(times--) { console.log(' + templateStr.join('+') + ')}';
+
+  return new Function(funcArgs.join(","), 'times', templateStr);
+
+};
+
+var string = "Hi, my name is Richard. And I *( emotion )* this *( thing )*!";
+var logResult = template( string );
+logResult( 'love', 'ice cream', 2 );
+// logs the message "Hi, my name is Richard. And I love this ice cream!", twice

@@ -5,8 +5,21 @@
 * template give you a starting point, with default structure and content, then you add more colors to it
 
 ### Backbone Project Setup
+* github repo: backbone and backbone-server
+* to run the server, cd into backbone-server/binaries, then type:
+  * `./server_darwin_amd64 -www=../../backbone`
+  * open http://localhost:8000
+
 ### Underscore templates
+* id for script tag
+* delimiters: sequence of 1+ characters, used to form a boundary
+  * usually used to separate html from JS
+* to see content of something in the console:
+  * `var result = _.template($('#menuItem-template').html(), {variable: 'menuItem'})
+  * `result.source`
+
 ### Constructor Function
+
 ### Quiz: Constructor function Quiz
 ### Walk-thru the 'template' function
 ### Filling the template with data

@@ -57,6 +57,16 @@
 ### Quiz: promises with .forEach
 ### Quiz: promises with .map
 ### Quiz: all promises
+  ```js
+  Promise.all(arrayOfPromises)
+    .then(function(arrayOfValues) {...})
+  // arrayOfPromises and arrayOfValues are in the same order
+  // this type of Promise will rejects if just 1 Promise rejects!
+  // also, it will resolveds after EVERY promises resolves!
+  ```
+
+* checkout all exercise for this lesson [here](https://github.com/bunnydeviloper/exoplanet-explorer)
+
 ### Course outro
 ### Exoplanets 101
 ### Quiz: bonus question: parallel request...

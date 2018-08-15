@@ -2,6 +2,8 @@
 
 ### A Framework's base features
 ### What is a template?
+* template give you a starting point, with default structure and content, then you add more colors to it
+
 ### Backbone Project Setup
 ### Underscore templates
 ### Constructor Function

@@ -126,14 +126,3 @@ document.dispatchEvent( myCustomEvent );
     presents: [{ callback: purchase }, { callback: build }]
   }
   ```
-
-### Walk-thru Backbone's 'Events.trigger'
-### Quiz: Events quiz
-### Quiz: build your own event system quiz
-### A router and the Backbone.history object
-### Quiz: routing quiz
-### hashchange & pushState
-### stepping thru Backbone.history.start()
-### Quiz: Backbone's fragment count quiz
-### Quiz: lesson highlight summary quiz
-### Outro

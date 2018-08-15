@@ -80,10 +80,36 @@
 
 ### Quiz: Template Bug Quiz
 ### Quiz: Build your own templating function quiz
+* check template.js
+
 ### adEventListener
+```js
+document.addEventListener( 'keydown', function ( eventObject ) {
+    if (eventObject.keyCode == 27) {
+        // the escape key was pressed
+    }
+});
+
+// create the custom `partyTime` event
+var myCustomEvent= new CustomEvent( 'partyTime', {timeToParty: true, partyYear: 1999} );
+
+// listen to the `document` for the `partyTime` event
+document.addEventListener('partyTime', function(evt) {
+    if (evt.partyYear) {
+        console.log( "Partying like it's " + evt.partyYear + "!");
+    }
+
+    document.body.style.backgroundImage = 'linear-gradient(90deg, orange, blue)';
+});
+
+// trigger the custom event
+document.dispatchEvent( myCustomEvent );
+```
+
 ### Setting up Backbone Events
 ### Walk-thru backbone's 'Events.on'
 ### Quiz: Adding events quiz
+
 ### Walk-thru Backbone's 'Events.trigger'
 ### Quiz: Events quiz
 ### Quiz: build your own event system quiz

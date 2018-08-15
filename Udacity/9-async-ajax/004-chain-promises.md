@@ -40,10 +40,20 @@
 ### Quiz: series vs parallel requests
 * actions in series: occurs one after another (synchronous or asynchronous)
 * actions in parallel: occurs at the same time (asynchronous)
-
+* quiz: what's the problem with this code?
+  ```js
+  getJSON('../data/earth-like-results.json')
+    .then(function(response) {
+      response.results.forEach(function(url) {
+        getJSON(url).then(createPlanetThumb); // you don't know when getJSON will get resolved
+        // it might not be in the order it was created, so .then() after will be randomized too
+      });
+    })
+  // => async requests can finish at any time, so there's not way to guarantee the order
+  // that these thumbnails would get created
+  ```
 
 ### Array methods and promises
-
 ### Quiz: promises with .forEach
 ### Quiz: promises with .map
 ### Quiz: all promises

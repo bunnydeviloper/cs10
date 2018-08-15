@@ -44,6 +44,7 @@
 
 ### Quiz: Constructor function Quiz
 ### Walk-thru the 'template' function
+
 ### Filling the template with data
 ### Interview with Scott
 ### Template 'variables' and JS's 'with'

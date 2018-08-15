@@ -19,6 +19,28 @@
   * `result.source`
 
 ### Constructor Function
+* Example 1:
+  ```js
+  // creating a function using Function literals (or object literals, or array literals)
+  var adder1 = function(num1, num2) {
+    return num1 + num2;
+  };
+
+  // same as creating constructor function like this (or object constructor, or array constructor):
+  // constructor may not be readable, harder to work with, and slower
+  // but it can dynamically create a function at runtime
+  var adder2 = new Function('num1', 'num2', 'return num1 + num2');
+  // the last argument is the body of the function, all args before that is parameters
+  ```
+* Example 2:
+  ```js
+  function make(adjective) {
+    return new Function('noun', 'return noun[0].toUpperCase() + noun.slice(1) + " is " + adjective + "!");
+  }
+  var isFun = make('fun');
+  isFun('biking'); // 'Biking is fun!'
+  isFun('swimming'); // 'Swimmng is fun!'
+  ```
 
 ### Quiz: Constructor function Quiz
 ### Walk-thru the 'template' function

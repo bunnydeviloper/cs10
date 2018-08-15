@@ -109,6 +109,23 @@ document.dispatchEvent( myCustomEvent );
 ### Setting up Backbone Events
 ### Walk-thru backbone's 'Events.on'
 ### Quiz: Adding events quiz
+* Backbone makes it easy to monitor multiple events by just passing a space-separated string of events to `Backbone.on`
+  ```js
+  function purchase(present) { console.log('Buying ' + present); }
+  function build(gift) { console.log('Building' + gift); }
+  var jack = {};
+  _.extend(jack, Backbone.events);
+
+  jack.on('birthday party presents', purchase);
+  Jack.on('presents', build);
+
+  // result:
+  jack._events = {
+    birthday: [{ callback: purchase }],
+    party: [{ callback: purchase }],
+    presents: [{ callback: purchase }, { callback: build }]
+  }
+  ```
 
 ### Walk-thru Backbone's 'Events.trigger'
 ### Quiz: Events quiz

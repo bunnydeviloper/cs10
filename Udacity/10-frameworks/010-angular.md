@@ -76,12 +76,26 @@
 * focus on module, code encapsulation (not good to put in global scope), component architecture
 
 ### Angular controllers
+* `yo angular:controller menu`
+* `yo angular:view menu`
+
 ### Quiz: angular controllers quiz
+* controllers set up the state for the view, so if you need dynamic data or don't want to hard-code something into the view, just add it as a property to the controller
+Your location
+
 ### Scope
 ### Scope/$scope in controllers
 ### Quiz: scope quiz
+* each variable has a watcher to watch for changes
+
 ### Take a breather
 ### The long awaited directives
+* `ng-app`: to bootstrap the entire application
+* `ng-controller`: to add a controller and scope to an element
+* `ng-include`: fetch, compile, and include an external html template
+* directives are markers on the DOM elements that tells angular's html compiler to attach specified behavior to that DOM element or even transform that DOM element and its children
+* `ng-show`, `ng-class`, `ng-model`, `ng-repeat`, `ng=src`, `ng-click`, `ng-if`
+
 ### Quiz: directives quiz
 ### Dependency injection skit
 ### Services

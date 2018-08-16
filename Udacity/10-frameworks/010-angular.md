@@ -71,6 +71,10 @@
   }
   ```
 ### Interview with Scott
+* learning as a user, how to use it and build something with it
+* learning as a developer, learn how it works, and then break it down, and contribute to it
+* focus on module, code encapsulation (not good to put in global scope), component architecture
+
 ### Angular controllers
 ### Quiz: angular controllers quiz
 ### Scope

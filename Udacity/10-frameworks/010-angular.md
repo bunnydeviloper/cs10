@@ -54,8 +54,22 @@
 
 ### Quiz: bootstrap an app quiz
 ### Templates and Expressions
-
 ### Quiz: expression quiz
+  ```
+  <h1>Block details</h1>
+    <ul>
+      <li>{{ brick.color }}</li>
+      <li>{{ brick.price }}</li>
+    </ul>
+    <p>{{ brick.description }}</p>
+
+  // data structure for the brick
+  {
+    color: 'Green',
+    price: '0.03',
+    description: 'bla bla bla...'
+  }
+  ```
 ### Interview with Scott
 ### Angular controllers
 ### Quiz: angular controllers quiz

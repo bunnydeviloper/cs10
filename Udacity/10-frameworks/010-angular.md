@@ -1,7 +1,7 @@
 # Lesson 10: Angular
 
 ### Welcome to Angular
-### Angular what?
+### Angular what? (AngularJS, first version)
 ### Quiz Repo & Feedback Chrome Extension...
 ### Quiz: up and running with angular...
 * Explore Angular's two ways data binding, directives, scopes => dynamic and interactive app
@@ -21,16 +21,40 @@
 ### Quiz: new feature 2 quiz
 ### A simple app
 * Yeoman: project scaffolding tool
-* install Yeoman, Bower, Angular generator plugin
-  * `npm install -g grunt-cli bower yo generator-karma generator-angular`
 
 ### Installing Yeoman
+* install Yeoman, Bower, Angular generator plugin
+  * `npm install -g grunt-cli bower yo generator-karma generator-angular`
+  * create an app with `yo angular udaciMeals`
+
 ### A structured app
 ### An angular module
+* an app can have more than 1 module
+* if 1+ module, u need to list out dependency
+  * app/scripts/app.js
+  ```
+  // creating a module
+  angular
+    .module('udaciMealsApp', [ /* 'dependency1', 'dep2' */ ]);
+  // if array is empty, the app doesn't need any other module
+
+  // note: getting a module is very similar, without passing an array in
+  angular
+    .module('udaciMealsApp');
+  ```
+
 ### Quiz: create a module quiz
+* create a copy of app.js to legoBricks.js, inside legoBricks.js, create new module name 'legoBricks', with no dependency
+* modify app.js to include 1 dependency "legoBricks"
+* note: make sure to include a new script tag to link to legoBricks.js
+
 ### Bootstrap the appp
+* to bootstrap the app, add attr ng-app="nameOfModule" into the body tag in index.html
+* this 'ng-app' is called directive
+
 ### Quiz: bootstrap an app quiz
 ### Templates and Expressions
+
 ### Quiz: expression quiz
 ### Interview with Scott
 ### Angular controllers

@@ -102,6 +102,7 @@ Your location
 
 ### Services
 * a service can be use by many controller
+* `yo angular:service foodFinder`
 
 ### Quiz: service quiz
 ### Order manager feature

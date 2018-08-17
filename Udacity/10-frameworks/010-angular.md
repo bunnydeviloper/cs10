@@ -98,7 +98,11 @@ Your location
 
 ### Quiz: directives quiz
 ### Dependency injection skit
+* Dependency injection is a way to design software so that code (eg fn) doesn't have its dependency hard-coded into it, the information is given when it's called
+
 ### Services
+* a service can be use by many controller
+
 ### Quiz: service quiz
 ### Order manager feature
 ### A couple of ways to inject in Angular...

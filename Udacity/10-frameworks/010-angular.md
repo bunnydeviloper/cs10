@@ -106,7 +106,27 @@ Your location
 
 ### Quiz: service quiz
 ### Order manager feature
-### A couple of ways to inject in Angular...
+* tracking functionality
+
+### A couple of ways to inject in Angular
+```js
+// Inject a service by using the array-style, preferred, and required for minification
+angular.module('udaciMealsApp')
+  .controller('MenuCtrl', ['foodFinder', function (menu) {
+    this.count = menu.count;
+    this.chef = menu.chef;
+    this.priceRange = menu.priceRange;
+}]);
+
+// Inject a service by passing a variable w/ a name that exactly matches the service's name
+angular.module('udaciMealsApp')
+  .controller('MenuCtrl', function (foodFinder) {
+    this.count = foodFinder.count;
+    this.chef = foodFinder.chef;
+    this.priceRange = foodFinder.priceRange;
+  });
+```
+
 ### Routing via UI-Router
 ### Managing Application State
 ### Nested Views

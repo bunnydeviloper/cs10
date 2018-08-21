@@ -98,6 +98,10 @@
 ### Quiz: dynamic data quiz part 1
 ### Quiz: dynamic data quiz part 2
 ### Components Ember-style custom HTML
+* note: with ember, component's name has to have a '-' in  it
+* `ember g component menu-item`
+* component has a default DOM element as a 'div'
+
 ### Quiz: component quiz
 ### Order tracking feature
 ### Consuming a service

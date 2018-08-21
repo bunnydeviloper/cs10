@@ -26,6 +26,13 @@
 ### Quiz: Ember-CLI shortbuts and aliases quiz
 ### An Ember App's file structure
 ### Routes, Routers, and Templates - Oh My!
+* ROUTE ---> TEMPLATE
+  * / ---> application (home)
+  * /menu --> menu (doesn't have to be same name)
+  * /item/:item_name ---> item (the ':item_name' part is called dynamic segment)
+    * /item/strawberry-pudding
+    * /item/chicken-salad
+
 ### Generating a route and template
 ### Quiz: repos and Feedback Chrome Extension
 ### Quiz: Route and template quiz

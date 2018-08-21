@@ -13,8 +13,16 @@
 
 ### Installing Ember-CLI
 * `npm install -g ember-cli`
+* `ember -v` to see the version
+* `ember --help` for more commands (to be more specific, eg: use `ember --help new`)
+* === `ember help`
 
 ### Using Ember-CLI to generate a new app
+* `ember new udaciMeals` to create new project
+* `ember serve` to serve the project
+* `ember serve --port 9001` === `ember s -p 9001`
+* `ember generate component menu` === `ember g component menu`
+
 ### Quiz: Ember-CLI shortbuts and aliases quiz
 ### An Ember App's file structure
 ### Routes, Routers, and Templates - Oh My!

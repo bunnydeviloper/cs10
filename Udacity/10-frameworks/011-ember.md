@@ -89,7 +89,11 @@
   * iterating over a list
 
 ### Quiz: handlebars quiz
+* note: the creator of Handlebars is the same as the creator of Ember
+
 ### Loading dynamic data
+* Route hooks: activate, beforeModel, model, afterMOdel, renderTemplate, serialize, setupController, deactivate, redirect
+
 ### Updating the item template
 ### Quiz: dynamic data quiz part 1
 ### Quiz: dynamic data quiz part 2

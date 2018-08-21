@@ -101,11 +101,18 @@
 * note: with ember, component's name has to have a '-' in  it
 * `ember g component menu-item`
 * component has a default DOM element as a 'div'
+* variable in a component are blocked from outter scope, so you have to link them
 
 ### Quiz: component quiz
 ### Order tracking feature
 ### Consuming a service
+* `ember g component order-tracker`
+* `ember g service order-manager`
+
 ### Quiz: using services quiz
 ### Responding to user actions
+* ember controls user's interaction through `{{action 'chooseItem' food.name}}`
+* default action is a click
+
 ### Quiz: actions quiz
 ### Outro

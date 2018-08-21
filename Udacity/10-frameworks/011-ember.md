@@ -7,7 +7,13 @@
 * "a framework for creating ambitious web application"
 
 ### Required ES6 knowledge
+* JS promises (for building async code)
+* ES6 modules (modules and imports)
+* ES6 syntax (arrow function, destructuring, and template strings)
+
 ### Installing Ember-CLI
+* `npm install -g ember-cli`
+
 ### Using Ember-CLI to generate a new app
 ### Quiz: Ember-CLI shortbuts and aliases quiz
 ### An Ember App's file structure

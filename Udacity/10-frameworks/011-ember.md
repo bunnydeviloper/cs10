@@ -35,14 +35,59 @@
 
 ### Generating a route and template
 * `ember g route menu`
+* adding a route with a different path:
+  ```js
+  Router.map(function() {
+    this.route('bricks', {path: '/legos'});
+  });
+  ```
 
 ### Quiz: repos and Feedback Chrome Extension
 ### Quiz: Route and template quiz
 ### Viewing a menu item
 ### Nested Routes
+* `ember g route item/nutrition`
+
 ### Quiz: nested routes quiz
 ### Interview with Allen
 ### Handlebars
+* Ember templates are powered by the Handlebars templating language (Handlebars can be use as standalone outside of Ember)
+* A Handlebars template is a block of HTML that has Handlebars expressions that look like {{ brick_color }}.
+* Example
+  ```html
+  <div id="brick-container"></div>
+  <script id="brick-template" type="text/x-handlebars-template">
+      <div class="brick">
+          <h1>{{name}}</h1>
+          <div class="desc">
+              {{description}}
+          </div>
+      </div>
+  </script>
+  ```
+  * The following JavaScript will get the template, compile it, call the template with data, and update brick-container element with the resulting HTML:
+    ```js
+    // get template from HTML
+    var brickContainer = document.querySelector( '#brick-container' );
+    var brickTemplate = document.querySelector( '#brick-template' );
+
+    // compile source template into a template function
+    var template = Handlebars.compile( brickTemplate.innerHTML );
+
+    // the app's data
+    var context = {name: 'Red Brick', description: 'A colored brick that can be used to...'};
+
+    // build the HTML template with the supplied data
+    var html = template(context);
+
+    // fill the page with content
+    brickContainer.innerHTML = html;
+    ```
+* Handlebars is a rich templating language, featuring:
+  * conditionals
+  * block expressions
+  * iterating over a list
+
 ### Quiz: handlebars quiz
 ### Loading dynamic data
 ### Updating the item template

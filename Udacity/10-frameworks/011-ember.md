@@ -1,6 +1,11 @@
 # Lesson 11: Ember
 
 ### Welcome to Ember
+* a framework that comes with its own build tool
+* automatically generate and maintain app file structure
+* keep your template and data in sync
+* "a framework for creating ambitious web application"
+
 ### Required ES6 knowledge
 ### Installing Ember-CLI
 ### Using Ember-CLI to generate a new app

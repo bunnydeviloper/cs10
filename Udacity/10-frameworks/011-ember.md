@@ -34,6 +34,8 @@
     * /item/chicken-salad
 
 ### Generating a route and template
+* `ember g route menu`
+
 ### Quiz: repos and Feedback Chrome Extension
 ### Quiz: Route and template quiz
 ### Viewing a menu item

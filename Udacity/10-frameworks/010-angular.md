@@ -128,6 +128,12 @@ angular.module('udaciMealsApp')
 ```
 
 ### Routing via UI-Router
+* Router handles loading multiple views based on the URL
+* UI-router is a community built library for angular
+* `bower install -S angular-ui-router`
+* to inject ui-router module into the udaciMealsApp module, we write:
+  * `angular.module('udaciMealsApp', ['ui.router']);`
+
 ### Managing Application State
 ### Nested Views
 ### Quiz: routing quiz

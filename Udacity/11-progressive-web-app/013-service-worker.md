@@ -26,6 +26,16 @@
 ### Adding a service worker to the project
 ### Quiz: registering a service worker
 ### The service worker lifecycle
+* if a page was loaded before SW exist, any additional requests will bypass SW
+* each time you hit refresh, the browser creates a new window client, and now SW will take control of the new page
+  => hence it takes 2 refreshes to see any console.log
+* if a page loads via SW, it will check for any updates in the background, and changes will become 'waiting SW'
+  => but it doesn't take control, it waits
+  * once the page is closed, not navigate to a page that doesn't control by SW
+  => future page will take over with the new SW
+  * same browser update as chrome (update in the back, notify you, but doesn't actually update until you restart)
+* strongly recommend to keep the cache time on your SW short, less than 24hr, ideally 0
+
 ### Quiz: enabling service worker dev tools
 ### Quiz: service worker dev tools
 ### Quiz: service worker dev tooks 2

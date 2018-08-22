@@ -41,11 +41,35 @@
 ### Quiz: service worker dev tooks 2
 ### Service worker dev tools continued
 ### Hijacking requests
-* 
+* tells the browser that we gonna handle the request ourselves
+  ```js
+  event.respondWith(
+    new Response('Hello World', {
+        headers: {'foo': 'bar'}
+    })
+  );
+
+  event.respondWith(
+    new Response('<h2 class='head'>H2 Header</h2>', {
+      headers: {'Content-Type': 'text/html'}
+    })
+  );
+  ```
 
 ### Quiz: hijacking requests 1 quiz
 ### Hijacking requests 2
 ### Quiz: hijacking requests 2 quiz
+  ```js
+  self.addEventListener('fetch', function(event) {
+    // only reponse to requests with a url ending in '.jpg'
+    if (event.request.url.endsWith('.jpg')) {
+      event.respondWith(
+        fetch('/imgs/dr-evil.gif')
+      );
+    }
+  });
+  ```
+
 ### Hijacking requests 3
 ### Quiz: hijacking requests 3 quiz
 ### Catching and serving assets

@@ -7,6 +7,8 @@
   ```js
   navigator.serviceWorker.register('/sw.js', {
     scope: '/my-app/'
+    // note: this scope will control: '/foo/', '/foo/bar/index.html', '/foo/bar'
+    // note2: this scope will NOTE control: '/', '/sw.js', '/foo', '/foo.html'
   }).then(function(reg) {
     console.log('Yay!');
   }).catch(function(err) {

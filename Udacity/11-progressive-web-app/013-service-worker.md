@@ -114,6 +114,24 @@
 
 ### Quiz: install and cache quiz
 ### Quiz: cache response quiz
+  ```js
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          if (response) return response;
+          return fetch(event.request);
+        })
+    );
+  });
+  ```
+* more to do:
+  * unobtrusive app updates
+  * get the user onto the latest version
+  * continually update cache of posts
+  * cache photos
+  * cache avatars
+
 ### Updating the static cache
 ### Quiz: update your CSS quiz
 ### Quiz: update your CSS 2

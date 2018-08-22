@@ -119,10 +119,8 @@
   ```js
   self.addEventListener('fetch', function(event) {
     event.respondWith(
-      caches.match(event.request)
-        .then(function(response) {
-          if (response) return response;
-          return fetch(event.request);
+      caches.match(event.request).then(function(response) {
+          return response || fetch(event.request);
         })
     );
   });
@@ -164,86 +162,83 @@
     reg.unregister();
     reg.update();
     reg.active;
-
-    if (reg.waiting) { /* there's an update ready! */ }
-
-    if (reg.installing) {
-      // there's an update in progress!
-      reg.installing.addEventListener('statechange', function() {
-        if (this.state == 'installed') {
-          // there's an update ready!
-        }
-
-        // reg.installing.state can have many state: 'installing', 'installed' (not activated),
-        // 'activating', 'activated', 'redundant'
-      });
-    }
-
-    reg.addEventListener('updatefound', function() {
-      // reg.installing has changed
-      reg.installing.addEventListener('statechange', function() {
-        if (this.state == 'installed') {
-          // there's an update ready!
-        }
-      });
-    });
   });
-
-  // check to see if service worker was use, or just regular network requests
-  if (!navigator.serviceWorker.controller) {
-    // page didn't load using a service worker
-  }
   ```
 
 ### Quiz: adding UX quiz
-```js
-IndexController.prototype._registerServiceWorker = function() {
-  if (!navigator.serviceWorker) return;
+  ```js
+  IndexController.prototype._registerServiceWorker = function() {
+    if (!navigator.serviceWorker) return;
 
-  var indexController = this;
+    var indexController = this;
 
-  navigator.serviceWorker.register('/sw.js').then(function(reg) {
-    // TODO: if there's no controller, this page wasn't loaded
-    // via a service worker, so they're looking at the latest version.
-    // In that case, exit early
-    if (!navigator.serviceWorker.controller) return;
+    navigator.serviceWorker.register('/sw.js').then(function(reg) {
+      // TODO: if there's no controller, this page wasn't loaded via a service worker, (but regular
+      // network requests), so they're looking at the latest version. In that case, exit early
+      if (!navigator.serviceWorker.controller) return;
 
-    // TODO: if there's an updated worker already waiting, call
-    // indexController._updateReady()
-    if (reg.waiting) {
-      indexController._updateReady();
-      return;
-    }
+      // TODO: if there's an updated worker already waiting, call indexController._updateReady()
+      if (reg.waiting) {
+        indexController._updateReady();
+        return;
+      }
 
-    // TODO: if there's an updated worker installing, track its
-    // progress. If it becomes "installed", call
-    // indexController._updateReady()
-    if (reg.installing) {
-      indexController._trackInstalling(reg.installing); // see _trackInstalling fn below
-      return;
-    }
+      // TODO: if there's an updated worker installing, track its progress. If it becomes "installed",
+      // call indexController._updateReady()
+      if (reg.installing) {
+        indexController._trackInstalling(reg.installing); // see _trackInstalling fn below
+        return;
+      }
 
-    // TODO: otherwise, listen for new installing workers arriving.
-    // If one arrives, track its progress.
-    // If it becomes "installed", call
-    // indexController._updateReady()
-    reg.addEventListener('updatefound', function() {
-      indexController._trackInstalling(reg.installing); // see _trackInstalling fn below
+      // TODO: otherwise, listen for new installing workers arriving.
+      // If one arrives, track its progress. If it becomes "installed", call indexController._updateReady()
+      reg.addEventListener('updatefound', function() {
+        indexController._trackInstalling(reg.installing); // see _trackInstalling fn below
+      });
     });
-  });
-};
+  };
 
-IndexController.prototype._trackInstalling = function(worker) {
-  var indexController = this;
+  IndexController.prototype._trackInstalling = function(worker) {
+    var indexController = this;
 
-  worker.addEventListener('statechange', function() {
-    if (worker.state == 'installed') indexController._updateReady();
+    worker.addEventListener('statechange', function() {
+      if (worker.state == 'installed') indexController._updateReady();
+    // reg.installing.state can have many state: 'installing', 'installed' (not activated),
+    // 'activating', 'activated', 'redundant'
+    }
   }
-}
 
-// delete old SW, refresh the browser, make a change to sw.js file, and you'll see notification
-```
+  // delete old SW, refresh the browser, make a change to sw.js file, and you'll see notification
+  ```
 
 ### Triggering and update
 ### Quiz: triggering an update quiz
+* indexController.js
+  ```
+  IndexController.prototype._registerServiceWorker = function() {
+    [...]
+    // TODO: listen for the controlling service worker changing and reload the page
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      window.location.reload();
+    }
+  };
+
+  IndexController.prototype._updateReady = function(worker) { // worker here is 'reg.installing' or 'reg.waiting'
+    var toast = this._toastView.show('New version available", {
+      buttons: ['refresh', 'dismiss']
+    });
+
+    toast.answer.then(function(answer) {
+      if (answer != 'refresh') return;
+      worker.postMessage({ action: 'skipWaiting' }); // send a message to the SW
+    });
+  };
+  ```
+* sw.js
+  ```
+  self.addEventListener('message', function(event) {
+    if (event.data.action == 'skipWaiting') self.skipWaiting(); // listen for the message from controller
+  }
+  ```
 ### Quiz: caching the page skeleton
+* see 013-sw.js

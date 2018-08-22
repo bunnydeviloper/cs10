@@ -77,12 +77,13 @@
       fetch(event.request)
         .then(function(response) {
           if (response.status == 404) {
-            return new Response('Whoops, not found');
+            return new Response('Whoops, not found'); // eg: http://localhost:8888/abcdefg
+            // return fetch('/imgs/dr-evil.gif');
           }
           return reponse;
         })
         .catch(function() {
-          return new Response('Uh oh, that totally failed!');
+          return new Response('Uh oh, that totally failed!'); // eg: if you turn wifi off
         })
       );
   });
@@ -90,6 +91,27 @@
 
 ### Quiz: hijacking requests 3 quiz
 ### Catching and serving assets
+* `caches.open('my-stuff').then(function(cache) { /*do sth*/ });` // to create a new cache
+* `cache.put(request, response);` // to add cache items
+* `cache.addAll(['/foo', 'bar']);` // if one fails, it all fails, addAll uses fetch under the hood
+* `cache.match(request);` // to find something out of the cache
+* `caches.match(request);` // try to find a cache in any match, starting with the oldest
+* installing service worker:
+  ```js
+  self.addEventListener('install', function(event) {
+    event.waitUntil(
+      caches.open('name-of-cache').then(function(cache) {
+        return cache.addAll([
+          '/',
+          'js/main.js',
+          'css/style.css',
+          'https://...'
+        ]);
+      })
+    );
+  });
+  ```
+
 ### Quiz: install and cache quiz
 ### Quiz: cache response quiz
 ### Updating the static cache

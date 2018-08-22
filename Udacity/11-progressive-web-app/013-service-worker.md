@@ -71,6 +71,23 @@
   ```
 
 ### Hijacking requests 3
+  ```js
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function(response) {
+          if (response.status == 404) {
+            return new Response('Whoops, not found');
+          }
+          return reponse;
+        })
+        .catch(function() {
+          return new Response('Uh oh, that totally failed!');
+        })
+      );
+  });
+  ```
+
 ### Quiz: hijacking requests 3 quiz
 ### Catching and serving assets
 ### Quiz: install and cache quiz

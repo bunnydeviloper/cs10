@@ -96,9 +96,11 @@
 * `cache.addAll(['/foo', 'bar']);` // if one fails, it all fails, addAll uses fetch under the hood
 * `cache.match(request);` // to find something out of the cache
 * `caches.match(request);` // try to find a cache in any match, starting with the oldest
+* `caches.delete(cachename);` // delete old caches
+* `caches.keys();` // get the name of all your caches
 * installing service worker:
   ```js
-  self.addEventListener('install', function(event) {
+  self.addEventListener('install', function(event) { // 'install' event will set up new cache for the 1st time
     event.waitUntil(
       caches.open('name-of-cache').then(function(cache) {
         return cache.addAll([
@@ -133,6 +135,12 @@
   * cache avatars
 
 ### Updating the static cache
+  ```js
+  self.addEventListener('activate', function(event) { // 'activate' event will fire when new SW becomes active
+    /
+  });
+  ```
+
 ### Quiz: update your CSS quiz
 ### Quiz: update your CSS 2
 ### Adding UX to the update process

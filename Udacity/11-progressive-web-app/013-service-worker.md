@@ -36,11 +36,13 @@
   * same browser update as chrome (update in the back, notify you, but doesn't actually update until you restart)
 * strongly recommend to keep the cache time on your SW short, less than 24hr, ideally 0
 
-### Quiz: enabling service worker dev tools
+### Quiz: enabling service worker dev tools (chrome canary)
 ### Quiz: service worker dev tools
 ### Quiz: service worker dev tooks 2
 ### Service worker dev tools continued
 ### Hijacking requests
+* 
+
 ### Quiz: hijacking requests 1 quiz
 ### Hijacking requests 2
 ### Quiz: hijacking requests 2 quiz

@@ -159,6 +159,42 @@
 ### Quiz: update your CSS quiz
 ### Quiz: update your CSS 2
 ### Adding UX to the update process
+  ```js
+  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+    reg.unregister();
+    reg.update();
+    reg.active;
+
+    if (reg.waiting) { /* there's an update ready! */ }
+
+    if (reg.installing) {
+      // there's an update in progress!
+      reg.installing.addEventListener('statechange', function() {
+        if (this.state == 'installed') {
+          // there's an update ready!
+        }
+
+        // reg.installing.state can have many state: 'installing', 'installed' (not activated),
+        // 'activating', 'activated', 'redundant'
+      });
+    }
+
+    reg.addEventListener('updatefound', function() {
+      // reg.installing has changed
+      reg.installing.addEventListener('statechange', function() {
+        if (this.state == 'installed') {
+          // there's an update ready!
+        }
+      });
+    });
+  });
+
+  // check to see if service worker was use, or just regular network requests
+  if (!navigator.serviceWorker.controller) {
+    // page didn't load using a service worker
+  }
+  ```
+
 ### Quiz: adding UX quiz
 ### Triggering and update
 ### Quiz: triggering an update quiz

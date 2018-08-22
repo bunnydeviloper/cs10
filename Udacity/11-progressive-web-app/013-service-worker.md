@@ -136,8 +136,23 @@
 
 ### Updating the static cache
   ```js
+  // it's better to store the name of cache in a variable, and change it as u update the version
+  var staticCacheName = 'wittr-static-v2';
+
+  self.addEventListener('install'... // use variable above
+
   self.addEventListener('activate', function(event) { // 'activate' event will fire when new SW becomes active
-    /
+    event.waitUntil(
+      caches.keys().then(function(cacheNames) {
+        return Promise.all( // make sure we wait until all process are done
+          cacheNames.filter(function(cacheName) { // make sure we get the correct caches to remove
+            return cacheName.startsWith('wittr-') && cacheName != staticCacheName;
+          }).map(function(cacheName) {
+            return cache.delete(cacheName); // remove old caches
+          })
+        );
+      })
+    );
   });
   ```
 

@@ -37,5 +37,11 @@
   `<button onClick={activateTeleporter}>Activate Teleporter</button>`
 
 ### Unidirectional Data Flow
+* Unidirectional data flow: data flows one way, from parent directly to children
+  * Data updates are sent to the parent component where the parent performs the actual change
+* Other frameworks like Angular or Ember uses two-way data binding, which could be hard to track
+
 ### React is "just JavaScript"
+* make use of array's method like map(), filter(), and combine map() + filter()
+
 ### Lesson Summary

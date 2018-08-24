@@ -66,5 +66,11 @@
 * in React, your UI is just a 'function' of your 'state'
 
 ### PropTypes
+* `npm install --save prop-types` or `yarn add prop-types`
+* PropTypes is a way to validate intended data in our React app
+  * helps us identify bugs during development
+
 ### Controlled components
+
+
 ### Lesson Summary

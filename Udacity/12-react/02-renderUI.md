@@ -69,5 +69,9 @@
 * use `yarn start` to start the development server
 
 ### Composing with components
+* 2 principles:
+  1. the ability to encapsulate components and easily reuse them
+  2. the ability to config each components independently with different props
+
 ### Renndering UI Outro
 

@@ -62,6 +62,12 @@
 * component: reusable pieces of code, ultimately responsible for returning HTML to be rendered on the page
 
 ### Create React App
+* JSX needs to be transpiled into regular JavaScript before reaching the browser
+* build tool behind React: Webpack, transpiler eg. Babel
+* all in one solution: `npm intall -g create-react-app`
+* `create-react-app contacts`
+* use `yarn start` to start the development server
+
 ### Composing with components
 ### Renndering UI Outro
 

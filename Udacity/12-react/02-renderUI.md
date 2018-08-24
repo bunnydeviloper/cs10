@@ -5,6 +5,7 @@
 * components are custom elements to neatly encapsulate and group behaviors
 
 ### Creating Elements and JSX
+* `React.createElement( /*type*/, /*prop*/, /*content*/)`
 * Apps built with React typically have a single `root` DOM node (`<div id="root"></div>`)
   ```js
   import React from 'react';
@@ -57,6 +58,8 @@
     })}
   </ol>
   ```
+* note: there must be a **single** root element wrapping your overall JSX
+* component: reusable pieces of code, ultimately responsible for returning HTML to be rendered on the page
 
 ### Create React App
 ### Composing with components

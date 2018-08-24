@@ -52,7 +52,8 @@
 ### Update state with setState
 * you should never mutating the state directly, b/c React will not re-render UI, hence use setState()
   ```js
-  // setState by passing in a function
+  // setState by passing in a function (used when the new state depends on prev state)
+  // setState here is asynchronous
   this.setState((prevState) => ({
     count: prevState.count + 1
   }))
@@ -62,6 +63,8 @@
     username: 'Tyler'
   })
   ```
+* in React, your UI is just a 'function' of your 'state'
+
 ### PropTypes
 ### Controlled components
 ### Lesson Summary

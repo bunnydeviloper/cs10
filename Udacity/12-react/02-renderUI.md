@@ -17,8 +17,8 @@
     className: "welcome-message" // 'class' is not valid DOM property, 'className' is
   }, 'Hello World');
 
-  // note: createElement returns a plain JavaScript object, describe DOM node
-  // then ReactDOM convert this object into valid HTML
+  // note: createElement returns a plain JavaScript object, describe DOM node (VirtualDom)
+  // then ReactDOM convert virtualDom into real DOM nodes and valid HTML
 
   ReactDOm.render(
     element,
@@ -26,6 +26,37 @@
   );
   ```
 * VirtualDom: objects that describe real DOM nodes
+* some attributes are allow such as: id, accessKey, poster, marginWidth...
+* You have to use `htmlFor` instead of `for` b/c 'for' is a reserved word in JavaScript
+* Nested elements:
+  ```js
+  const element = React.createElement('ol', null,
+    React.createElement('li', null, 'First in list'),
+    React.createElement('li', null, 'Second in list'),
+    React.createElement('li', null, 'Third in list')
+  );
+  ```
+* Map over an array:
+  ```js
+  const people = [
+    {name: 'Michael'},
+    {name: 'Sophia'},
+    {name: 'Jack'}
+  ];
+  const element = React.createElement('ol', null,
+    people.map((person, index) => {
+      React.createElement('li', {key: index}, person.name);
+    });
+  );
+  ```
+* JSX is a syntax extension of JavaScript, that lets us write `<html>{JS code inside}</html>`
+  ```js
+  const element = <ol>
+    {people.map(person => {
+      <li key={person.name}>{person.name}</li>
+    })}
+  </ol>
+  ```
 
 ### Create React App
 ### Composing with components

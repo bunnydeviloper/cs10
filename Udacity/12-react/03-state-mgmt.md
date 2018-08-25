@@ -71,6 +71,12 @@
   * helps us identify bugs during development
 
 ### Controlled components
-
+* controlled components: is a component which render a form, but the source of truth for that form state lives inside of the component state rather than inside the DOM
+  * support instant input validation
+  * allow you to conditionally disable/enable buttons
+  * enforce input formats
+* install chrome extension for React Developer Tool
+* use helpers packages for search filtering:
+  * `npm install --save escape-string-regexp sort-by`
 
 ### Lesson Summary

@@ -21,7 +21,22 @@
   ```
 
 ### Dynamically render pages
+* see contacts-react repo
+
 ### The BrowserRouter Component
+* `npm install --save react-router-dom`
+* `<BrowserRouter />`: this component will listens to changes in URL and make sure that the correct screen shows up
+* example:
+  ```js
+  // index.js
+  import { BroswerRouter } from 'react-router-dom';
+
+  ReactDOM.render(
+    <BrowserRouter><App /><BrowserRouter>,
+    document.getElementById('root')
+  );
+  ```
+
 ### The Link Component
 ### The Route Component
 ### Finishing the contact form

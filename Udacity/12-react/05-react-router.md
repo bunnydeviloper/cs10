@@ -59,5 +59,14 @@
 * use 'exact' flag to set path that match 100% only
 
 ### Finishing the contact form
+* use 'form-serialize' to serialize the form fields
+* `npm install --save form-serialize`
+
 ### Lesson Summary
+* React Router enables users:
+  * to click on back button
+  * to click on forward button
+  * to refresh
+  * to open in a new tab
+
 ### Course Outro

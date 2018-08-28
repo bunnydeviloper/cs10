@@ -38,8 +38,26 @@
   ```
 
 ### The Link Component
+* 'Link' component will actually generate an anchor tag, create accessible navigation around your app
+  * eg: `Link to="/about" className="about">About</Link>`
+  * or (more complicated path):
+    ```js
+    <Link to={{
+      pathname: '/courses',
+      search: '?sort=name',
+      hash: '#the-hash',
+      state: { fromDashboard: true }
+    }}>
+      Courses
+    </Link>
+    ```
 
 ### The Route Component
+* `Route path="/create" render={{ui}} />`
+* Route: when the URL typed in matches the path in the Route Component, it will render that path
+* Components wrapped in the Router component will render when it matches 100% or 1%+
+* use 'exact' flag to set path that match 100% only
+
 ### Finishing the contact form
 ### Lesson Summary
 ### Course Outro

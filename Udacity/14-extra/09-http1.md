@@ -13,6 +13,8 @@
   * The client requests main.css: GET
   * The client wants to know which verbs the server supports: OPTIONS
   * The client asks the server to send it the landing page for http://google.com: GET
+* the response to a POST request is usually a redirect to the newly created record (notice 303)
+  * create a new whale: `POST animals/whale`
 
 ### Common response headers
 ### Quiz: request headers quiz
@@ -37,6 +39,15 @@
 
 ### Quiz: REST quiz
 ### Performance basics
+* Network architecture:
+  * HTTP: transfer protocol
+    * TCP: allows us to have multiple, independent streams of data b/w two machines
+    * TCP: streams are distinguished by port numbers: 80, 443, 65535...
+    * TCP: ensures no packages get lost and that they arrive in the right order
+    * TCP: are 3-way handshake, and if you're using HTTPS, an add' TLS handshake has be to execute too
+      * IP: (internet protocol) allows us to talk to other machines on the internet
+        * Ethernet: enable you to connect to the internet
+
 ### Performance details
 ### Performance details 2
 ### Outro

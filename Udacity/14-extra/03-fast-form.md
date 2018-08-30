@@ -2,6 +2,10 @@
 
 ### Lesson 3 Intro
 ### Form principles
+1. Make forms short and sweet
+2. Provide helpful prompts
+3. Provide immediate feedback
+
 ### Quiz: duck it's storming brains
 ### Luke W interview part 5
 ### I just need to check my payment info

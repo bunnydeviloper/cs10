@@ -49,5 +49,11 @@
         * Ethernet: enable you to connect to the internet
 
 ### Performance details
+* TTFB: (time to first byte): waiting period before the first request is done, then you can send 2nd request
+* head-of-line blocking
+  * browser can open upto 6 parallel connections
+  * but more connections is quite costly b/c of TCP handshakes
+
 ### Performance details 2
+
 ### Outro

@@ -21,6 +21,16 @@ if (window.PointerEventSupport) {
 ```
 
 ### Touch events
+* Each touch event includes three lists of touches.
+  * touches: a list of all fingers currently on the screen.
+  * targetTouches: a list of fingers on the current DOM element.
+  * changedTouches: a list of fingers involved in the current event
+* These lists consist of objects that contain touch information:
+  * identifier: a number that uniquely identifies the current finger in the touch session.
+  * target: the DOM element that was the target of the action.
+  * client/page/screen coordinates: where on the screen the action happened.
+  * radius coordinates and rotationAngle: describe the ellipse that approximates finger shape.
+
 ### Quiz: interact with single element
 ### Final project instructions and rubic
 ### Course outro

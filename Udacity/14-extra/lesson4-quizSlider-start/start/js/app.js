@@ -100,6 +100,21 @@ Write your code in the attachEventListeners() function defintion, which starts o
 		/*
 		Your code goes here!
 		 */
+    toggle.addEventListener('touchstart', function (event) {
+      sliding = true;
+      toggleTracker.addMovement(event.touches[0].pageX);
+    });
+
+    window.addEventListener('touchmove', function (event) {
+      if (sliding) {
+        toggleTracker.addMovement(event.touches[0].pageX);
+        requestAnimationFrame(slide);
+      }
+    });
+
+    window.addEventListener('touchend', function (event) {
+      sliding = false;
+    });
 	}
 
 	/*

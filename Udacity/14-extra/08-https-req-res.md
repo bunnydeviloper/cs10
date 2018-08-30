@@ -11,4 +11,19 @@
 ### Sending data with a POST request
 ### From XHR to fetch
 ### Quiz: fetch quiz
+```js
+fetch('password.txt', {
+  'method': 'PUT',
+  'headers': {
+    'X-Udacity-Exercise': 'fetch rocks!'
+  }
+}).then(function (response) {
+  return response.text();
+}).then(function (data) {
+  console.log(data);
+});
+
+// returns a promise and console.log the password
+```
+
 ### Outro

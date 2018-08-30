@@ -16,6 +16,22 @@
 
 ### Common response headers
 ### Quiz: request headers quiz
+* run `nc` command to connect to the server (make sure your server is running too)
+  ```
+  // send a request from test.com to the server
+  GET / HTTP/1.1
+  Host: test.com
+  X-Udacity-Exercise-Header: bla bla bla...
+  Date: Wed, 11 Jan 2018 23:00:00 GMT
+
+  // then you'll get back a response like this
+  HTTP/1.1 200 OK
+  Date: Thu, 21, Apr 2018 00:23:59 GMT
+  Content-length: 6
+  Content-type: text/plain; charset=utf-8
+
+  abcdef
+  ```
 ### REST
 * REpresentational State Transfer
 

@@ -37,8 +37,27 @@
 
 ### Quiz: hashing quiz
 ### Certificate authority signatures
+* server signs the certificate and encrypt it with a key
+* documents can gets very large (dvd), hence, just the hash of the document is encrypted
+* invalid signature is when the hashes doesn't match
+
 ### The TLS handshake
+* symmetric encryption vs asymmetric encryption
+  * symetric: faster, more efficient, and scales better
+
 ### Quiz: SSL error quiz
+* https://badssl.com/
+  * DENIED ACCESS: expired certificate
+  * DENIED ACCESS: certificate for another host
+  * Will let you through without green encrypted icon:
+    * mixed content
+    * incomplete chain
+    * using SHA256
+
 ### Mixed content
+* when a website deliver through https, but has resources from non-TLS secured origin (http)
+* self-serving certificate: when the site generate a certificate for itself and acts as authority
+  * browser may let you through with a big warning
+
 ### Quiz: mixed content quiz
 ### Outro

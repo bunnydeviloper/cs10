@@ -55,5 +55,11 @@
   * but more connections is quite costly b/c of TCP handshakes
 
 ### Performance details 2
+* concept of 'keep-alive':
+  * if the client sets the connection 'keep-alive' header, the server will not close the connection after succesfully delivering the response
+  * (w/o: the connection drops after a response)
+  * allows the client to "re-use" the already-established connection for additional requests
+  * you can still send more requests before the last request has been fully transferred
+* JS and CSS files are commonly concatenated into bundles (can be obtained in just one request), and images are put together into sprites
 
 ### Outro

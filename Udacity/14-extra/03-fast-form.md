@@ -18,8 +18,8 @@
 ### Interview with Luke W part 6
 * keep: absolutely must have
 * cut: unneccessary information but we've been doing thing "this way..." -> remove
-* postpone: this can be asked later
-* explain: why do I need this information from you?
+* postpone: information that can be asked later, further down the flow
+* explain: why do I need this information from you? how should you answer this question
 
 ### One Weird trick
 ### Location

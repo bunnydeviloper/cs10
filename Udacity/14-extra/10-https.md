@@ -17,6 +17,17 @@
 
 ### Quiz: MITM quiz 2
 ### TLS and cerificate authorities
+* HTTPS = HTTP + TLS (SSL)
+  * TLS (transport layer security)
+  * TLS encryption is designed in a way that the message can't be read by anyone else other than intended recipient
+  * it is impossible to break a TLS encryption, you just need to worry about talking to the right server
+  * chain-of-trust:
+    * a server identify itself with a certificate that contains meta data about itself and encryption key + finger print
+    * the certificates are issues by certain authorities (paid or free) (eg: 'lets encrypt')
+
+* TLS can be use with other things too:
+  * FTPS = FTP + TLS => to transfer files securely
+
 ### TSL: cryptography primer
 ### TSL: hashing
 ### Quiz: hashing quiz

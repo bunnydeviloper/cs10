@@ -29,7 +29,12 @@
   * FTPS = FTP + TLS => to transfer files securely
 
 ### TSL: cryptography primer
+* encryption key (public) and decryption key (private)
+
 ### TSL: hashing
+* hashing function can't be reversed
+* hash values can't be identical, even if you send the same message twice, the two hashes are different
+
 ### Quiz: hashing quiz
 ### Certificate authority signatures
 ### The TLS handshake

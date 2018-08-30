@@ -115,6 +115,22 @@ Write your code in the attachEventListeners() function defintion, which starts o
     window.addEventListener('touchend', function (event) {
       sliding = false;
     });
+
+    toggle.addEventListener('mousedown', function (event) {
+      sliding = true;
+      toggleTracker.addMovement(event.pageX);
+    });
+
+    window.addEventListener('mousemove', function (event) {
+      if (sliding) {
+        toggleTracker.addMovement(event.pageX);
+        requestAnimationFrame(slide);
+      }
+    });
+
+    window.addEventListener('mouseup', function (event) {
+      sliding = false;
+    });
 	}
 
 	/*

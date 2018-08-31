@@ -42,22 +42,23 @@
   OPTIONS /
   Referer: mycourses.com
 
-  // RESPONSE:
+  // RESPONSE: only headers are sent
   200 OK
   Access-Control-Allow-Origin: mycourses.com
 
-  // REQUEST
+  // REQUEST: with CORS header
   GET /courses?status=enrolled
   Host: api.udacity.com
   Referer: mycourses.com
 
-  // RESPONSE
+  // RESPONSE: with CORS header
   HTTP/1.1 200 OK
   Date: Mon, 20 May 2017 00:12:32 GMT
   Access-Control-Allow-Origin: mycourses.com
   Connection: Keep-Alive
   Content-Type: application/xml
   ```
+* CORS has been adopted by the API providers as a way to share resources
 
 ### Quiz: preflight request with CORS
 ### Quiz: preflight request with CORS 2

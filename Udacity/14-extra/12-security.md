@@ -101,7 +101,7 @@ fetch('http://www.example.com", {
 * checkout https://xkcd.com/327/: ![xkcd.com/327](https://imgs.xkcd.com/comics/exploits_of_a_mom.png "xkcd.com/327")
 
 ### Security outro
-* back-end needs to implement validation
+* back-end needs to implement validation to keep your user secure
 * there's always potential risk, so better to protect your self from CSRF or XSS
 
 ### Course outro

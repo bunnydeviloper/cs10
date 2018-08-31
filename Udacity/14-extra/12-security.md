@@ -15,6 +15,26 @@
   * you can't see content of script tag that includes a cross-origin resource
 
 ### Overriding same origin policy
+* CORS
+* JSONP: JSON with padding, returns a script containing the data
+  * script from other origin will execute and share the same environment with your own script
+  * JSONP api requires you to includes the function name as query parameter
+* example:
+  ```js
+  // your personal site: mycourses.com
+  // make a fetch request to udacity.com to see all your enrolled courses
+  fetch("https://api.udacity.com/courses?status=enrolled")
+  // then, the return data will be ["course1", "course2", ...]
+  // however, this will fail b/c CORS policy, your host is different from udacity host
+
+  // to solve this, we use JSONP (this the api supports JSONP)
+  <script src="https://api.udacity.com/courses?status=enrolled&callback=f">
+  // Cross-origin script access allowed!
+  // the server will return all data, wrapped in a function call
+  // f(["course1", "course2", ...])
+  // note: you need to create the call back function 'f'
+  ```
+
 ### CORS
 ### Quiz: preflight request with CORS
 ### Quiz: preflight request with CORS 2

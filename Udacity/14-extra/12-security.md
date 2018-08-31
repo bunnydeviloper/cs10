@@ -81,6 +81,10 @@ fetch('http://www.example.com", {
 });
 ```
 ### Security Exploit - CSRF
+* requests that looks like they came from a form will not be preflighted
+* CSRF - cross-site request forgery
+* CSRF token
+
 ### Quiz: CSRF
 ### security Exploit - XSS
 ### Quiz: XSS

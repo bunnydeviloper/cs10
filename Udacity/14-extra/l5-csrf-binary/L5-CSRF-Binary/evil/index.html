@@ -14,14 +14,14 @@
         const body = 'recipient=Umbrella+Corp&amount=666';
 
         // make a fetch request to http://bank.localhost:8080/transfer
-        fetch('https://bank.127.0.0.1.xip.io:8080/transfer', {
+        fetch('http://bank.127.0.0.1.xip.io:8080/transfer', {
           method: "POST",
           headers: { // must have headers when using POST request
             'Content-Length': body.length,
-            'content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded'
           },
           // if the user already logged in to the bank, then the browser has that cookies
-          // and automatically 'includes' that when the request is sent
+          // and automatically 'include' that when the request is sent
           credentials: 'include',
           body: body,
         });

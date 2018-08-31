@@ -61,7 +61,17 @@
 * CORS has been adopted by the API providers as a way to share resources
 
 ### Quiz: preflight request with CORS
+* most GET request is not preflight
+
 ### Quiz: preflight request with CORS 2
+```js
+fetch('http://www.example.com", {
+  method: "POST",
+  mode: "cors",
+  headers: { "X-FOrwarded-For": "www.google.com"} // this line causes request to be preflighted
+});
+```
+
 ### Quiz: preflight request with CORS 3
 ### Security Exploit - CSRF
 ### Quiz: CSRF

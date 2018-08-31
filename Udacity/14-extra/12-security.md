@@ -36,6 +36,29 @@
   ```
 
 ### CORS
+* CORS headers allow cross-origin requests
+  ```
+  // REQUEST: use preflight requests
+  OPTIONS /
+  Referer: mycourses.com
+
+  // RESPONSE:
+  200 OK
+  Access-Control-Allow-Origin: mycourses.com
+
+  // REQUEST
+  GET /courses?status=enrolled
+  Host: api.udacity.com
+  Referer: mycourses.com
+
+  // RESPONSE
+  HTTP/1.1 200 OK
+  Date: Mon, 20 May 2017 00:12:32 GMT
+  Access-Control-Allow-Origin: mycourses.com
+  Connection: Keep-Alive
+  Content-Type: application/xml
+  ```
+
 ### Quiz: preflight request with CORS
 ### Quiz: preflight request with CORS 2
 ### Quiz: preflight request with CORS 3

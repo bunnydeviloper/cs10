@@ -16,4 +16,12 @@
 ### quiz: HTTP/1 vs HTTP/2 quiz
 ### Working with HTTP/2
 ### Quiz: development techniques for HTTP2/ quiz
+* which of these should be done when developing for HTTP/2?
+  * Y - minify javascript
+  * Y - minify CSS
+  * Y - minify markup
+  * Y - use a CDN
+  * N - concatenate javascript, concatenate css, sprite image: no b/c it makes caching inefficient
+  * N - shard your assets: no b/c it makes http/2 header compressor less efficient
+
 ### OUtro

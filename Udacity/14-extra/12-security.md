@@ -73,6 +73,13 @@ fetch('http://www.example.com", {
 ```
 
 ### Quiz: preflight request with CORS 3
+```js
+fetch('http://www.example.com", {
+  method: "PUT", // this line causes request to be preflighted
+  mode: "cors",
+  headers: { "Accept": "text/html"}
+});
+```
 ### Security Exploit - CSRF
 ### Quiz: CSRF
 ### security Exploit - XSS

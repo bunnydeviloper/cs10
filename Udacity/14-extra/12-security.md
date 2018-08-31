@@ -87,6 +87,12 @@ fetch('http://www.example.com", {
 
 ### Quiz: CSRF
 ### security Exploit - XSS
+* XSS: cross-site scripting, when JS is injected into a website and can access its data
+* eg: input box (that is not secured or validated):
+  * `MyName<script>alert('Code was evaluated!');</script>`
+  * the code will be executed without the user's knowledge
+  * hence: ALWAYS validate your user's input from server-side
+
 ### Quiz: XSS
 ### Security outro
 ### Course outro

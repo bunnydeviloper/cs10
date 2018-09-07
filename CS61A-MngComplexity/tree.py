@@ -68,7 +68,7 @@ def partition_tree(n, m):
         right = partition_tree(n, m-1)
         return tree(m, [left, right])
 
-def pritn_parts(tree, partition=[]):
+def print_parts(tree, partition=[]):
     if is_leaf(tree):
         if root(tree):
             print(partition)

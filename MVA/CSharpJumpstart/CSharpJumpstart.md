@@ -35,3 +35,13 @@
   * associate additional metadata to types and members
   * discoverable at runtime via reflection
 * comments: single line comment with '//', block comments with '/* */', and XML documnetation can be used to generate formal documentation OR extracted into separate XML files during compilation
+
+### What are Lambda Expressions?
+* an enhancement of anonymous methods
+* an unnamed method written inline
+* an alternative to a delegate
+* at compile time a lambda expression becomes either:
+  * an instance of a delegate
+  * or an expression tree
+* expressions are validated at compile time, but evaluated at run time
+* dynamic expression trees are supported

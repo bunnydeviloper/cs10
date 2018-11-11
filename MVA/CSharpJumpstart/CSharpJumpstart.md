@@ -30,3 +30,8 @@
 * Identifiers are names of classes (Lion, Console), methods (MakeSound()), variables…
 * keywords are complier reserved words ( public, class, string, get, set, void )
 
+### What is code decoration?
+* Attributes:
+  * associate additional metadata to types and members
+  * discoverable at runtime via reflection
+* comments: single line comment with '//', block comments with '/* */', and XML documnetation can be used to generate formal documentation OR extracted into separate XML files during compilation

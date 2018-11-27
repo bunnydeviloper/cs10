@@ -26,6 +26,8 @@ namespace ArrayLesson
             int[] myNum = new int[] { 3, 4, 5, 6 };
             string[] myStr = new string[] { "hello", "hi", "hola" };
 
+            Console.WriteLine(myNum.Length);
+
             /*
             for (int i = 0; i < myStr.Length; i++)
             {
